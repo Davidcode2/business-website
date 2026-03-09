@@ -1,0 +1,53 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Jakob Lingel - Digital Solutions Provider" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#0f172a" />
+		<title>{title}</title>
+		
+		<!-- Open Graph / Social -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://jakob-lingel.dev" />
+		
+		<!-- Preconnect to Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	</head>
+	<body class="antialiased min-h-screen bg-(--color-background) text-(--color-text-primary)">
+		<slot />
+	</body>
+</html>
+
+<script>
+	// Theme toggle functionality
+	const theme = (() => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		return 'dark';
+	})();
+	
+	if (theme === 'light') {
+		document.documentElement.setAttribute('data-theme', 'light');
+	} else {
+		document.documentElement.setAttribute('data-theme', 'dark');
+	}
+</script>
