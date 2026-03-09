@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const services = [
+  {
+    icon: "lucide:code",
+    title: "Custom Web Development",
+    description: "Websites tailored to your business needs. Clean code, fast performance, and exceptional user experience."
+  },
+  {
+    icon: "lucide:shopping-cart",
+    title: "E-Commerce Solutions",
+    description: "Webshops that convert visitors into customers. Seamless checkout experiences and inventory management."
+  },
+  {
+    icon: "lucide:cloud",
+    title: "Cloud & DevOps",
+    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure. Your app stays online, always."
+  },
+  {
+    icon: "lucide:shield",
+    title: "Security Consulting",
+    description: "Protect your digital assets. Security audits, best practices implementation, and ongoing monitoring."
+  }
+];
+---
+
+<section id="services" class="py-24 sm:py-32 relative">
+  <!-- Subtle background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-(--color-surface-subtle)/30 to-transparent"></div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
+        What I offer
+      </p>
+      <h2 class="text-4xl sm:text-5xl font-bold text-(--color-text-primary) mb-6">
+        Services built for
+        <span class="gradient-text">results</span>
+      </h2>
+      <p class="text-lg text-(--color-text-secondary) max-w-2xl mx-auto">
+        From concept to launch, I provide end-to-end digital solutions that drive business growth.
+      </p>
+    </div>
+    
+    <!-- Services grid -->
+    <div class="grid md:grid-cols-2 gap-8">
+      {services.map((service, index) => (
+        <div 
+          class="group p-8 rounded-2xl bg-(--color-surface-subtle) border border-(--color-border) hover:border-(--color-accent-weak) transition-all duration-300 hover:-translate-y-1"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- Icon -->
+          <div class="w-14 h-14 rounded-xl bg-(--color-accent-subtle) flex items-center justify-center mb-6 group-hover:bg-(--color-accent-muted) transition-colors">
+            <Icon name={service.icon} class="w-7 h-7 text-(--color-accent)" />
+          </div>
+          
+          <!-- Content -->
+          <h3 class="text-xl font-semibold text-(--color-text-primary) mb-3">
+            {service.title}
+          </h3>
+          <p class="text-(--color-text-secondary) leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
