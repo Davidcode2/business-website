@@ -1,0 +1,79 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="contact" class="py-24 sm:py-32 relative">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-(--color-accent-subtle)/10 to-transparent"></div>
+  
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Section header -->
+    <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
+      Get in touch
+    </p>
+    <h2 class="text-4xl sm:text-5xl font-bold text-(--color-text-primary) mb-6">
+      Ready to bring your
+      <span class="gradient-text">vision to life?</span>
+    </h2>
+    <p class="text-lg text-(--color-text-secondary) mb-12 max-w-2xl mx-auto">
+      Let's discuss your project. No obligations, just a conversation about 
+      what's possible.
+    </p>
+    
+    <!-- Email button with protection -->
+    <div class="flex flex-col items-center gap-6">
+      <button 
+        id="email-button"
+        class="group inline-flex items-center gap-3 px-8 py-4 bg-(--color-accent) text-(--color-text-inverse) rounded-full font-medium hover:bg-(--color-accent-emphasis) transition-all hover:scale-105"
+      >
+        <Icon name="lucide:mail" class="w-5 h-5" />
+        <span id="email-text">Get in touch</span>
+      </button>
+      
+      <p class="text-sm text-(--color-text-muted)">
+        Click to reveal email address
+      </p>
+    </div>
+    
+    <!-- Trust indicators -->
+    <div class="mt-16 pt-8 border-t border-(--color-border)">
+      <p class="text-(--color-text-muted) text-sm mb-4">Trusted technologies</p>
+      <div class="flex flex-wrap justify-center gap-8 text-(--color-text-secondary)">
+        <span class="flex items-center gap-2">
+          <Icon name="simple-icons:astro" class="w-5 h-5" />
+          Astro
+        </span>
+        <span class="flex items-center gap-2">
+          <Icon name="simple-icons:react" class="w-5 h-5" />
+          React
+        </span>
+        <span class="flex items-center gap-2">
+          <Icon name="simple-icons:kubernetes" class="w-5 h-5" />
+          Kubernetes
+        </span>
+        <span class="flex items-center gap-2">
+          <Icon name="simple-icons:terraform" class="w-5 h-5" />
+          Terraform
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Email protection - only reveal on click
+  const emailButton = document.getElementById('email-button');
+  const emailText = document.getElementById('email-text');
+  
+  // Email parts (obfuscated)
+  const parts = ['jakob.lingel', 'hotmail.de'];
+  const email = parts[0] + '@' + parts[1];
+  
+  emailButton?.addEventListener('click', () => {
+    if (emailText) {
+      emailText.textContent = email;
+    }
+    // Open mailto link
+    window.location.href = `mailto:${email}`;
+  });
+</script>
