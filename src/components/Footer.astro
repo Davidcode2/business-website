@@ -1,0 +1,66 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-(--color-border) bg-(--color-surface-subtle)">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid md:grid-cols-3 gap-8 items-center">
+      <!-- Logo/Name -->
+      <div class="text-center md:text-left">
+        <a href="/" class="text-xl font-semibold text-(--color-text-primary) hover:text-(--color-accent) transition-colors">
+          Jakob Lingel
+        </a>
+        <p class="text-(--color-text-muted) text-sm mt-2">
+          Digital Solutions Provider
+        </p>
+      </div>
+      
+      <!-- Navigation -->
+      <div class="flex justify-center gap-6">
+        <a href="/" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+          Home
+        </a>
+        <a href="#services" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+          Services
+        </a>
+        <a href="#contact" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+          Contact
+        </a>
+        <a href="/impressum" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+          Impressum
+        </a>
+      </div>
+      
+      <!-- Social/Contact -->
+      <div class="flex justify-center md:justify-end gap-4">
+        <a 
+          href="https://github.com/Davidcode2" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-(--color-surface-raised) flex items-center justify-center text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-overlay) transition-all"
+          aria-label="GitHub"
+        >
+          <Icon name="simple-icons:github" class="w-5 h-5" />
+        </a>
+        <a 
+          href="https://linkedin.com/in/jakob-lingel" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-(--color-surface-raised) flex items-center justify-center text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-overlay) transition-all"
+          aria-label="LinkedIn"
+        >
+          <Icon name="simple-icons:linkedin" class="w-5 h-5" />
+        </a>
+      </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="mt-8 pt-8 border-t border-(--color-border) text-center">
+      <p class="text-(--color-text-muted) text-sm">
+        © {currentYear} Jakob Lingel. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>
