@@ -1,0 +1,101 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-(--color-border)">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href="/" class="text-xl font-semibold text-(--color-text-primary) hover:text-(--color-accent) transition-colors">
+        Jakob Lingel
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#services" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors">
+          Services
+        </a>
+        <a href="#about" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors">
+          About
+        </a>
+        <a href="#contact" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors">
+          Contact
+        </a>
+        
+        <!-- Theme Toggle -->
+        <button 
+          id="theme-toggle"
+          class="p-2 rounded-lg text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-raised) transition-all"
+          aria-label="Toggle theme"
+        >
+          <Icon name="lucide:sun" class="w-5 h-5 hidden dark:block" />
+          <Icon name="lucide:moon" class="w-5 h-5 block dark:hidden" />
+        </button>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <button 
+        id="mobile-menu-button"
+        class="md:hidden p-2 rounded-lg text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-raised) transition-all"
+        aria-label="Open menu"
+      >
+        <Icon name="lucide:menu" class="w-6 h-6" id="menu-icon" />
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Navigation -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-(--color-border) bg-(--color-surface-base)">
+    <div class="px-4 py-4 space-y-3">
+      <a href="#services" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-2">
+        Services
+      </a>
+      <a href="#about" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-2">
+        About
+      </a>
+      <a href="#contact" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-2">
+        Contact
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Theme toggle functionality
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  
+  themeToggle?.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+  
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  let isMenuOpen = false;
+  
+  mobileMenuButton?.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+    mobileMenu?.classList.toggle('hidden');
+    
+    // Update icon
+    if (menuIcon) {
+      menuIcon.setAttribute('name', isMenuOpen ? 'lucide:x' : 'lucide:menu');
+    }
+  });
+  
+  // Close mobile menu when clicking a link
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      isMenuOpen = false;
+      mobileMenu.classList.add('hidden');
+      if (menuIcon) {
+        menuIcon.setAttribute('name', 'lucide:menu');
+      }
+    });
+  });
+</script>
