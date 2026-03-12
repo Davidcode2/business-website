@@ -1,13 +1,13 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-import react from '@astrojs/react';
-import icon from 'astro-icon';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
+import react from "@astrojs/react";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
   },
   integrations: [
     react(),
@@ -23,13 +23,17 @@ export default defineConfig({
           "menu",
           "x",
           "sun",
-          "moon"
+          "moon",
         ],
         "simple-icons": [
           "github",
-          "linkedin"
-        ]
-      }
-    })
-  ]
+          "linkedin",
+          "astro",
+          "react",
+          "kubernetes",
+          "terraform",
+        ],
+      },
+    }),
+  ],
 });
