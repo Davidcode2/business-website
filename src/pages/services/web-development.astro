@@ -1,0 +1,196 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import ServiceHero from '../../components/service/ServiceHero.astro';
+import ProblemSection from '../../components/service/ProblemSection.astro';
+import SolutionSection from '../../components/service/SolutionSection.astro';
+import BenefitsGrid from '../../components/service/BenefitsGrid.astro';
+import ProcessSection from '../../components/service/ProcessSection.astro';
+import CTASection from '../../components/service/CTASection.astro';
+import RelatedServices from '../../components/service/RelatedServices.astro';
+
+const serviceData = {
+  name: "Custom Web Development",
+  title: "Custom Web Development | Jakob Lingel",
+  description: "Websites tailored to your business needs. Clean code, fast performance, and exceptional user experience. From idea to deployment in record time.",
+  tagline: "Built for Performance",
+  heroDescription: "Your website is your digital storefront. I build fast, responsive, and user-friendly websites that convert visitors into customers—without the bloat and complexity of traditional agencies.",
+  icon: "lucide:code",
+};
+
+const problemData = {
+  headline: "Is your website working against you?",
+  description: "Many businesses struggle with websites that are slow, outdated, or fail to deliver results. Poor web presence costs you customers, credibility, and revenue every single day.",
+  painPoints: [
+    "Slow loading times that drive visitors away before they see your content",
+    "Outdated designs that make your business look unprofessional",
+    "Poor mobile experience losing you over 60% of potential customers",
+    "Complex maintenance requiring expensive developers for every small change",
+  ],
+};
+
+const solutionData = {
+  headline: "Clean, fast, and built to convert",
+  description: "I take a different approach. Every website is hand-crafted with modern technologies, optimized for performance, and designed with your business goals in mind. No templates, no bloat—just results.",
+  features: [
+    {
+      title: "Performance-First Architecture",
+      description: "Built with Astro and modern frameworks for lightning-fast load times and perfect Lighthouse scores.",
+    },
+    {
+      title: "Responsive by Design",
+      description: "Every pixel adapts perfectly to any device—desktop, tablet, or mobile—ensuring a seamless user experience.",
+    },
+    {
+      title: "SEO Optimized",
+      description: "Clean semantic HTML, optimized meta tags, and structured data to help you rank higher in search results.",
+    },
+    {
+      title: "Easy to Maintain",
+      description: "Clear documentation and modern tooling so you or your team can make updates without technical headaches.",
+    },
+  ],
+};
+
+const benefitsData = {
+  headline: "Why my approach works",
+  benefits: [
+    {
+      icon: "lucide:zap",
+      title: "Lightning Fast",
+      description: "Sub-2 second load times that keep visitors engaged and improve your search rankings.",
+    },
+    {
+      icon: "lucide:smartphone",
+      title: "Mobile Perfect",
+      description: "Flawless experience on every device, capturing mobile traffic that others lose.",
+    },
+    {
+      icon: "lucide:search",
+      title: "SEO Ready",
+      description: "Built-in best practices to help you climb search rankings from day one.",
+    },
+    {
+      icon: "lucide:shield",
+      title: "Secure by Default",
+      description: "HTTPS, security headers, and modern protections built into every site.",
+    },
+    {
+      icon: "lucide:clock",
+      title: "Quick Delivery",
+      description: "Most projects launch in 2-4 weeks, not months. Get results fast.",
+    },
+    {
+      icon: "lucide:message-circle",
+      title: "Direct Communication",
+      description: "Work directly with me—no account managers, no endless meetings, just results.",
+    },
+  ],
+};
+
+const processData = {
+  headline: "From concept to live site",
+  description: "A proven process that delivers results without the typical agency overhead.",
+  steps: [
+    {
+      number: "1",
+      title: "Discovery & Strategy",
+      description: "We discuss your goals, target audience, and key requirements. I provide a clear proposal with timeline and pricing—no surprises.",
+    },
+    {
+      number: "2",
+      title: "Design & Development",
+      description: "I create a custom design and build your site with clean, maintainable code. Regular updates keep you in the loop.",
+    },
+    {
+      number: "3",
+      title: "Review & Refine",
+      description: "We review the site together, make refinements, and ensure everything meets your expectations before launch.",
+    },
+    {
+      number: "4",
+      title: "Launch & Support",
+      description: "Your site goes live with monitoring in place. I provide training and ongoing support to ensure continued success.",
+    },
+  ],
+};
+
+const ctaData = {
+  headline: "Ready for a website that works?",
+  description: "Let's discuss your project and see how a custom-built website can transform your online presence. No obligation, just a conversation about your goals.",
+  buttonText: "Start Your Project",
+};
+
+const allServices = [
+  {
+    icon: "lucide:code",
+    title: "Custom Web Development",
+    description: "Websites tailored to your business needs with clean code and exceptional UX.",
+    href: "/services/web-development",
+  },
+  {
+    icon: "lucide:shopping-cart",
+    title: "E-Commerce Solutions",
+    description: "Webshops that convert visitors into customers with seamless checkout experiences.",
+    href: "/services/ecommerce",
+  },
+  {
+    icon: "lucide:cloud",
+    title: "Cloud & DevOps",
+    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure.",
+    href: "/services/cloud-devops",
+  },
+  {
+    icon: "lucide:shield",
+    title: "Security Consulting",
+    description: "Protect your digital assets with security audits and best practices.",
+    href: "/services/security",
+  },
+];
+---
+
+<ServiceLayout
+  title={serviceData.title}
+  description={serviceData.description}
+  serviceName={serviceData.name}
+>
+  <ServiceHero
+    title={serviceData.name}
+    tagline={serviceData.tagline}
+    description={serviceData.heroDescription}
+    icon={serviceData.icon}
+  />
+
+  <ProblemSection
+    headline={problemData.headline}
+    description={problemData.description}
+    painPoints={problemData.painPoints}
+  />
+
+  <SolutionSection
+    headline={solutionData.headline}
+    description={solutionData.description}
+    features={solutionData.features}
+  />
+
+  <BenefitsGrid
+    headline={benefitsData.headline}
+    benefits={benefitsData.benefits}
+  />
+
+  <ProcessSection
+    headline={processData.headline}
+    description={processData.description}
+    steps={processData.steps}
+  />
+
+  <CTASection
+    headline={ctaData.headline}
+    description={ctaData.description}
+    buttonText={ctaData.buttonText}
+  />
+
+  <RelatedServices
+    currentService={serviceData.name}
+    services={allServices}
+  />
+</ServiceLayout>

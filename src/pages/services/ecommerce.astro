@@ -1,0 +1,196 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import ServiceHero from '../../components/service/ServiceHero.astro';
+import ProblemSection from '../../components/service/ProblemSection.astro';
+import SolutionSection from '../../components/service/SolutionSection.astro';
+import BenefitsGrid from '../../components/service/BenefitsGrid.astro';
+import ProcessSection from '../../components/service/ProcessSection.astro';
+import CTASection from '../../components/service/CTASection.astro';
+import RelatedServices from '../../components/service/RelatedServices.astro';
+
+const serviceData = {
+  name: "E-Commerce Solutions",
+  title: "E-Commerce Solutions | Jakob Lingel",
+  description: "Webshops that convert visitors into customers. Seamless checkout experiences, inventory management, and payment integration that drives sales.",
+  tagline: "Built for Conversions",
+  heroDescription: "Your online store should sell while you sleep. I build e-commerce solutions that eliminate friction, maximize conversions, and make managing products effortless.",
+  icon: "lucide:shopping-cart",
+};
+
+const problemData = {
+  headline: "Is your online store losing sales?",
+  description: "High cart abandonment, complex checkout flows, and poor mobile experiences are costing you customers. Most e-commerce platforms are bloated, slow, and frustrating for both you and your customers.",
+  painPoints: [
+    "High cart abandonment rates from overly complicated checkout processes",
+    "Slow page loads that kill conversions before customers even see your products",
+    "Poor mobile experience losing the majority of your potential customers",
+    "Clunky admin interfaces that make product management a daily frustration",
+  ],
+};
+
+const solutionData = {
+  headline: "Stores designed to sell",
+  description: "I build e-commerce experiences that remove friction at every step. From discovery to checkout, every interaction is optimized for conversion while keeping management simple for you.",
+  features: [
+    {
+      title: "One-Page Checkout",
+      description: "Streamlined checkout flow that minimizes abandonment and gets customers from cart to confirmation in seconds.",
+    },
+    {
+      title: "Mobile-First Design",
+      description: "Touch-optimized interfaces that convert on any device. Your store works flawlessly on phones, tablets, and desktops.",
+    },
+    {
+      title: "Integrated Payments",
+      description: "Stripe, PayPal, and major payment methods built-in. Secure transactions with PCI compliance handled.",
+    },
+    {
+      title: "Smart Inventory",
+      description: "Automated stock tracking, low-stock alerts, and intuitive product management that saves you hours.",
+    },
+  ],
+};
+
+const benefitsData = {
+  headline: "Why these stores convert",
+  benefits: [
+    {
+      icon: "lucide:zap",
+      title: "Lightning Fast",
+      description: "Sub-second load times that keep customers engaged and browsing your products.",
+    },
+    {
+      icon: "lucide:credit-card",
+      title: "Easy Checkout",
+      description: "One-page checkout with guest checkout options and saved payment methods.",
+    },
+    {
+      icon: "lucide:smartphone",
+      title: "Mobile Optimized",
+      description: "Perfect touch interactions, fast mobile loads, and thumb-friendly navigation.",
+    },
+    {
+      icon: "lucide:shield",
+      title: "Secure & Trusted",
+      description: "SSL, fraud protection, and compliance built-in from day one.",
+    },
+    {
+      icon: "lucide:bar-chart",
+      title: "Analytics Ready",
+      description: "Track conversions, sales funnels, and customer behavior out of the box.",
+    },
+    {
+      icon: "lucide:refresh-cw",
+      title: "Easy Management",
+      description: "Update products, prices, and inventory without technical knowledge.",
+    },
+  ],
+};
+
+const processData = {
+  headline: "From products to profits",
+  description: "A streamlined process that gets your store online quickly and selling fast.",
+  steps: [
+    {
+      number: "1",
+      title: "Discovery & Planning",
+      description: "We define your product catalog, shipping rules, payment methods, and design preferences. I create a clear roadmap for your store.",
+    },
+    {
+      number: "2",
+      title: "Design & Build",
+      description: "I design your store's look and feel, then build it with all integrations—payments, shipping, inventory, and more.",
+    },
+    {
+      number: "3",
+      title: "Product Setup",
+      description: "We configure your product catalog, set up categories, and ensure everything is optimized for search and sales.",
+    },
+    {
+      number: "4",
+      title: "Launch & Training",
+      description: "Your store goes live. I provide training on managing products, orders, and running your new business.",
+    },
+  ],
+};
+
+const ctaData = {
+  headline: "Ready to start selling?",
+  description: "Let's discuss your e-commerce goals and build a store that converts browsers into buyers. Whether you're starting fresh or migrating, I'll guide you through every step.",
+  buttonText: "Launch Your Store",
+};
+
+const allServices = [
+  {
+    icon: "lucide:code",
+    title: "Custom Web Development",
+    description: "Websites tailored to your business needs with clean code and exceptional UX.",
+    href: "/services/web-development",
+  },
+  {
+    icon: "lucide:shopping-cart",
+    title: "E-Commerce Solutions",
+    description: "Webshops that convert visitors into customers with seamless checkout experiences.",
+    href: "/services/ecommerce",
+  },
+  {
+    icon: "lucide:cloud",
+    title: "Cloud & DevOps",
+    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure.",
+    href: "/services/cloud-devops",
+  },
+  {
+    icon: "lucide:shield",
+    title: "Security Consulting",
+    description: "Protect your digital assets with security audits and best practices.",
+    href: "/services/security",
+  },
+];
+---
+
+<ServiceLayout
+  title={serviceData.title}
+  description={serviceData.description}
+  serviceName={serviceData.name}
+>
+  <ServiceHero
+    title={serviceData.name}
+    tagline={serviceData.tagline}
+    description={serviceData.heroDescription}
+    icon={serviceData.icon}
+  />
+
+  <ProblemSection
+    headline={problemData.headline}
+    description={problemData.description}
+    painPoints={problemData.painPoints}
+  />
+
+  <SolutionSection
+    headline={solutionData.headline}
+    description={solutionData.description}
+    features={solutionData.features}
+  />
+
+  <BenefitsGrid
+    headline={benefitsData.headline}
+    benefits={benefitsData.benefits}
+  />
+
+  <ProcessSection
+    headline={processData.headline}
+    description={processData.description}
+    steps={processData.steps}
+  />
+
+  <CTASection
+    headline={ctaData.headline}
+    description={ctaData.description}
+    buttonText={ctaData.buttonText}
+  />
+
+  <RelatedServices
+    currentService={serviceData.name}
+    services={allServices}
+  />
+</ServiceLayout>

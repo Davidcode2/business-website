@@ -1,0 +1,40 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  headline: string;
+  description: string;
+  buttonText?: string;
+  buttonHref?: string;
+}
+
+const { 
+  headline, 
+  description, 
+  buttonText = "Get Started",
+  buttonHref = "#contact"
+} = Astro.props;
+---
+
+<section id="contact" class="py-24 sm:py-32 relative overflow-hidden">
+  <!-- Gradient blob decoration -->
+  <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-(--gradient-blob-1) via-(--gradient-blob-2) to-(--gradient-blob-3) rounded-full filter blur-[100px] opacity-15 animate-blob"></div>
+  
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-(--color-text-primary) mb-6 leading-tight">
+      <span class="gradient-text">{headline}</span>
+    </h2>
+    
+    <p class="text-xl text-(--color-text-secondary) mb-10 max-w-2xl mx-auto">
+      {description}
+    </p>
+    
+    <a 
+      href={buttonHref}
+      class="group inline-flex items-center gap-3 px-10 py-5 bg-(--color-accent) text-(--color-text-inverse) rounded-full font-medium text-lg hover:bg-(--color-accent-emphasis) transition-all hover:scale-105"
+    >
+      {buttonText}
+      <Icon name="lucide:arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+    </a>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Service {
+  icon: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+interface Props {
+  currentService: string;
+  services: Service[];
+}
+
+const { currentService, services } = Astro.props;
+
+// Filter out current service
+const relatedServices = services.filter(s => s.title !== currentService).slice(0, 3);
+---
+
+{relatedServices.length > 0 && (
+  <section class="py-24 sm:py-32 relative border-t border-(--color-border)">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-16">
+        <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
+          Explore More
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-(--color-text-primary)">
+          Related <span class="gradient-text">Services</span>
+        </h2>
+      </div>
+      
+      <!-- Services grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        {relatedServices.map((service) => (
+          <a 
+            href={service.href}
+            class="group p-8 rounded-2xl bg-(--color-surface-raised) border border-(--color-border) hover:border-(--color-accent-weak) transition-all duration-300 hover:-translate-y-1"
+          >
+            <!-- Icon -->
+            <div class="w-14 h-14 rounded-xl bg-(--color-accent-subtle) flex items-center justify-center mb-6 group-hover:bg-(--color-accent-muted) transition-colors">
+              <Icon name={service.icon} class="w-7 h-7 text-(--color-accent)" />
+            </div>
+            
+            <!-- Content -->
+            <h3 class="text-xl font-semibold text-(--color-text-primary) mb-3">
+              {service.title}
+            </h3>
+            <p class="text-(--color-text-secondary) leading-relaxed mb-4">
+              {service.description}
+            </p>
+            
+            <!-- Link indicator -->
+            <span class="inline-flex items-center gap-2 text-(--color-accent) font-medium group-hover:gap-3 transition-all">
+              Learn more
+              <Icon name="lucide:arrow-right" class="w-4 h-4" />
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

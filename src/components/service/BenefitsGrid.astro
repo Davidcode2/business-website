@@ -1,0 +1,57 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  headline: string;
+  description?: string;
+  benefits: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+}
+
+const { headline, description, benefits } = Astro.props;
+---
+
+<section class="py-24 sm:py-32 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
+        Key Benefits
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-(--color-text-primary) mb-6">
+        <span class="gradient-text">{headline}</span>
+      </h2>
+      {description && (
+        <p class="text-lg text-(--color-text-secondary) max-w-2xl mx-auto">
+          {description}
+        </p>
+      )}
+    </div>
+    
+    <!-- Benefits grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {benefits.map((benefit, index) => (
+        <div 
+          class="group p-8 rounded-2xl bg-(--color-surface-raised) border border-(--color-border) hover:border-(--color-accent-weak) transition-all duration-300 hover:-translate-y-1"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- Icon -->
+          <div class="w-14 h-14 rounded-xl bg-(--color-accent-subtle) flex items-center justify-center mb-6 group-hover:bg-(--color-accent-muted) transition-colors">
+            <Icon name={benefit.icon} class="w-7 h-7 text-(--color-accent)" />
+          </div>
+          
+          <!-- Content -->
+          <h3 class="text-xl font-semibold text-(--color-text-primary) mb-3">
+            {benefit.title}
+          </h3>
+          <p class="text-(--color-text-secondary) leading-relaxed">
+            {benefit.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
