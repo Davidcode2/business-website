@@ -14,7 +14,7 @@ env:
 
   # Deployment configuration
   DEPLOYMENT_DIR: business-website
-  DEPLOYMENT_FILE: business-website-app-deployment.yaml
+  DEPLOYMENT_FILE: business-website-deployment.yaml
 
   # Build configuration
   DOCKERFILE: dockerfile
