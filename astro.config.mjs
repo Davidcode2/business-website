@@ -19,11 +19,13 @@ export default defineConfig({
           "shopping-cart",
           "cloud",
           "shield",
+          "brain",
           // Navigation
           "menu",
           "x",
           "sun",
           "moon",
+          "chevron-down",
           // Hero & CTA
           "arrow-right",
           // Contact
