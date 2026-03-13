@@ -1,6 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef, useMemo, useEffect } from "react";
 import * as THREE from "three";
+import { useMousePosition3D } from "../hooks/useMousePosition3D";
 
 const GRAY_COLORS = [
   "#666666",
@@ -16,6 +17,13 @@ const GRAY_COLORS = [
 // Pre-allocated temp vectors (NEVER create new Vector3() in useFrame)
 const tempVec = new THREE.Vector3();
 const tempPush = new THREE.Vector3();
+const tempMousePush = new THREE.Vector3();
+
+// Mouse repulsion configuration
+const MOUSE_REPULSION = {
+  radius: 3.0, // How close mouse needs to be to affect spheres
+  force: 8.0, // Strength of repulsion
+};
 
 // Boundary configuration: narrowed ranges for better visibility
 const BOUNDS = {
@@ -34,6 +42,7 @@ function randomRange(min, max) {
 export default function Spheres({ count = 8 }) {
   const instancedMeshRef = useRef();
   const tempObject = useMemo(() => new THREE.Object3D(), []);
+  const mousePos = useMousePosition3D();
 
   // Sphere data with physics properties
   const spheresData = useMemo(() => {
@@ -91,7 +100,16 @@ export default function Spheres({ count = 8 }) {
         }
       });
 
-      // 4. Boundary Containment (Soft Forces)
+      // 4. Mouse Repulsion
+      const mouseDistance = sphere.position.distanceTo(mousePos.current);
+      if (mouseDistance < MOUSE_REPULSION.radius) {
+        tempMousePush.copy(sphere.position).sub(mousePos.current).normalize();
+        const overlap = MOUSE_REPULSION.radius - mouseDistance;
+        const force = overlap * MOUSE_REPULSION.force;
+        sphere.velocity.add(tempMousePush.multiplyScalar(force * delta));
+      }
+
+      // 5. Boundary Containment (Soft Forces)
       // X boundaries: [-5, 5]
       if (sphere.position.x < BOUNDS.x[0]) {
         sphere.velocity.x += (BOUNDS.x[0] - sphere.position.x) * delta;
@@ -116,7 +134,7 @@ export default function Spheres({ count = 8 }) {
         sphere.velocity.z += (BOUNDS.z[1] - sphere.position.z) * delta;
       }
 
-      // 5. Velocity Damping
+      // 6. Velocity Damping
       sphere.velocity.multiplyScalar(0.98);
     });
 
