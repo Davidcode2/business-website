@@ -19,11 +19,11 @@ const tempVec = new THREE.Vector3();
 const tempPush = new THREE.Vector3();
 const tempMatrix = new THREE.Matrix4();
 
-// Boundary configuration: X: [-8, 8], Y: [-4, 4], Z: [-4, 8]
+// Boundary configuration: narrowed ranges for better visibility
 const BOUNDS = {
-  x: [-8, 8],
-  y: [-4, 4],
-  z: [-4, 8],
+  x: [-5, 5], // Narrower X
+  y: [-3, 3], // Adjusted Y
+  z: [1, 10], // Keep in front of camera
 };
 
 /**
@@ -70,17 +70,17 @@ export default function Spheres({ count = 8 }) {
         if (sphere === other) return;
 
         const dist = sphere.position.distanceTo(other.position);
-        if (dist < 2.0) {
-          // Sum of radii = 1 + 1 = 2
+        if (dist < 0.7) {
+          // 0.35 + 0.35 = 0.7
           tempPush.copy(sphere.position).sub(other.position).normalize();
-          const overlap = 2.0 - dist;
+          const overlap = 0.7 - dist;
           const force = overlap * 2;
           sphere.velocity.add(tempPush.multiplyScalar(force * delta));
         }
       });
 
       // 4. Boundary Containment (Soft Forces)
-      // X boundaries: [-8, 8]
+      // X boundaries: [-5, 5]
       if (sphere.position.x < BOUNDS.x[0]) {
         sphere.velocity.x += (BOUNDS.x[0] - sphere.position.x) * delta;
       }
@@ -88,7 +88,7 @@ export default function Spheres({ count = 8 }) {
         sphere.velocity.x += (BOUNDS.x[1] - sphere.position.x) * delta;
       }
 
-      // Y boundaries: [-4, 4]
+      // Y boundaries: [-3, 3]
       if (sphere.position.y < BOUNDS.y[0]) {
         sphere.velocity.y += (BOUNDS.y[0] - sphere.position.y) * delta;
       }
@@ -96,7 +96,7 @@ export default function Spheres({ count = 8 }) {
         sphere.velocity.y += (BOUNDS.y[1] - sphere.position.y) * delta;
       }
 
-      // Z boundaries: [-4, 8]
+      // Z boundaries: [1, 10]
       if (sphere.position.z < BOUNDS.z[0]) {
         sphere.velocity.z += (BOUNDS.z[0] - sphere.position.z) * delta;
       }
