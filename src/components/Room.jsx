@@ -5,8 +5,8 @@ export default function Room({ isDarkMode = false }) {
     ? {
         background: "#0a0a0a",
         fog: "#0a0a0a",
-        cellColor: "#333333",
-        sectionColor: "#444444",
+        cellColor: "#555555",
+        sectionColor: "#777777",
       }
     : {
         background: "#f5f5f5",
