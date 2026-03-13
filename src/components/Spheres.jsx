@@ -41,12 +41,12 @@ export default function Spheres({ count = 8 }) {
     return Array.from({ length: count }, (_, i) => ({
       id: i,
       position: new THREE.Vector3(
-        randomRange(-6, 6), // X: spread within bounds
-        randomRange(-2, 2), // Y: base position (will float around this)
-        randomRange(-2, 6), // Z: spread within bounds
+        randomRange(-4, 4), // X: narrower spread
+        randomRange(-1, 1), // Y: centered vertically
+        randomRange(2, 8), // Z: all positive (in front of camera at 0,0,0)
       ),
       velocity: new THREE.Vector3(0, 0, 0),
-      baseY: randomRange(-2, 2), // Base Y position for floating
+      baseY: randomRange(-1, 1), // Match Y range
       phase: Math.random() * Math.PI * 2, // Phase offset for desynchronized floating
       color: GRAY_COLORS[i % GRAY_COLORS.length],
     }));
