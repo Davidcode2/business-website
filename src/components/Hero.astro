@@ -1,6 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Scene3D from './Scene3D.jsx';
+import { getTranslations, type Locale } from '../i18n/translations';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'de' } = Astro.props;
+const t = getTranslations(locale);
 ---
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
@@ -14,21 +22,20 @@ import Scene3D from './Scene3D.jsx';
     <div class="animate-fade-in-up">
       <!-- Tagline -->
       <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
-        Digital Solutions Provider
+        {t.hero.tagline}
       </p>
       
       <!-- Main headline -->
       <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-(--color-text-primary) mb-6 leading-tight">
-        From idea to
-        <span class="gradient-text">deployment</span>
+        {t.hero.headline1}
+        <span class="gradient-text">{t.hero.headline2}</span>
         <br />
-        in record time
+        {t.hero.headline3}
       </h1>
       
       <!-- Subheadline -->
       <p class="text-xl text-(--color-text-secondary) mb-10 max-w-2xl mx-auto">
-        You have a vision. I have the tools to make it real. Custom websites, 
-        webshops, and cloud infrastructure—delivered fast.
+        {t.hero.subheadline}
       </p>
       
       <!-- CTA Buttons -->
@@ -37,14 +44,14 @@ import Scene3D from './Scene3D.jsx';
           href="#contact" 
           class="group inline-flex items-center gap-2 px-8 py-4 bg-(--color-accent) text-(--color-text-inverse) rounded-full font-medium hover:bg-(--color-accent-emphasis) transition-all hover:scale-105"
         >
-          Let's talk
+          {t.hero.ctaPrimary}
           <Icon name="lucide:arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </a>
         <a 
           href="#services" 
           class="inline-flex items-center gap-2 px-8 py-4 border border-(--color-border) text-(--color-text-primary) rounded-full font-medium hover:bg-(--color-surface-raised) transition-all"
         >
-          Explore services
+          {t.hero.ctaSecondary}
         </a>
       </div>
     </div>

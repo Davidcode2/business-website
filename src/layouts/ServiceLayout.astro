@@ -7,15 +7,17 @@ interface Props {
   title: string;
   description: string;
   serviceName: string;
+  locale?: string;
 }
 
-const { title, description, serviceName } = Astro.props;
+const { title, description, serviceName, locale = 'de' } = Astro.props;
+const isGerman = locale === 'de';
 ---
 
-<Layout title={title} description={description}>
-  <Navigation />
+<Layout title={title} description={description} lang={locale}>
+  <Navigation currentLocale={locale} currentPath={isGerman ? `/services/${serviceName.toLowerCase().replace(/\s+/g, '-')}` : `/en/services/${serviceName.toLowerCase().replace(/\s+/g, '-')}`} />
   <main class="pt-16">
     <slot />
   </main>
-  <Footer />
+  <Footer locale={locale} />
 </Layout>

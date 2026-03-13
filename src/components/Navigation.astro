@@ -1,12 +1,33 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+interface Props {
+  currentLocale?: string;
+  currentPath?: string;
+}
+
+const { currentLocale = 'de', currentPath = '' } = Astro.props;
+
+const isGerman = currentLocale === 'de';
+const alternateLocale = isGerman ? 'en' : 'de';
+
+// Build the alternate URL path
+let alternatePath = currentPath;
+if (alternateLocale === 'en') {
+  // Going to English - add /en prefix
+  alternatePath = '/en' + currentPath;
+} else {
+  // Going to German - remove /en prefix
+  alternatePath = currentPath.replace(/^\/en/, '') || '/';
+}
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-(--color-border)">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo -->
-      <a href="/" class="text-xl font-semibold text-(--color-text-primary) hover:text-(--color-accent) transition-colors">
+      <a href={isGerman ? "/" : "/en/"} class="text-xl font-semibold text-(--color-text-primary) hover:text-(--color-accent) transition-colors">
         Jakob Lingel
       </a>
       
@@ -19,29 +40,41 @@ import { Icon } from 'astro-icon/components';
           </a>
           <!-- Services Dropdown -->
           <div class="absolute top-full left-0 mt-2 w-80 py-2 bg-(--color-surface-raised) border border-(--color-border) rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-xl">
-            <a href="/services/web-development" class="block px-4 py-3 text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-subtle) transition-colors">
+            <a href={isGerman ? "/services/web-development" : "/en/services/web-development"} class="block px-4 py-3 text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-subtle) transition-colors">
               <div class="font-medium">Web Development & E-Commerce</div>
-              <div class="text-sm opacity-70">Websites that sell</div>
+              <div class="text-sm opacity-70">{isGerman ? 'Websites die verkaufen' : 'Websites that sell'}</div>
             </a>
-            <a href="/services/ai-enablement" class="block px-4 py-3 text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-subtle) transition-colors">
+            <a href={isGerman ? "/services/ai-enablement" : "/en/services/ai-enablement"} class="block px-4 py-3 text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-subtle) transition-colors">
               <div class="font-medium">AI Enablement</div>
-              <div class="text-sm opacity-70">Be at the forefront of AI</div>
+              <div class="text-sm opacity-70">{isGerman ? 'An der Spitze der KI' : 'Be at the forefront of AI'}</div>
             </a>
-            <a href="/services/cloud-devops" class="block px-4 py-3 text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-subtle) transition-colors">
+            <a href={isGerman ? "/services/cloud-devops" : "/en/services/cloud-devops"} class="block px-4 py-3 text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-subtle) transition-colors">
               <div class="font-medium">Cloud & DevOps</div>
-              <div class="text-sm opacity-70">Infrastructure that scales</div>
+              <div class="text-sm opacity-70">{isGerman ? 'Infrastruktur die skaliert' : 'Infrastructure that scales'}</div>
             </a>
-            <a href="/services/security" class="block px-4 py-3 text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-subtle) transition-colors">
+            <a href={isGerman ? "/services/security" : "/en/services/security"} class="block px-4 py-3 text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-subtle) transition-colors">
               <div class="font-medium">Security Consulting</div>
-              <div class="text-sm opacity-70">Protect your assets</div>
+              <div class="text-sm opacity-70">{isGerman ? 'Schützen Sie Ihre Assets' : 'Protect your assets'}</div>
             </a>
           </div>
         </div>
         <a href="#about" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors">
-          About
+          {isGerman ? 'Über mich' : 'About'}
         </a>
         <a href="#contact" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors">
-          Contact
+          {isGerman ? 'Kontakt' : 'Contact'}
+        </a>
+        
+        <!-- Language Toggle -->
+        <a 
+          href={alternatePath}
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-(--color-border) text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-raised) transition-all text-sm font-medium"
+          aria-label={isGerman ? 'Switch to English' : 'Zu Deutsch wechseln'}
+          title={isGerman ? 'Switch to English' : 'Zu Deutsch wechseln'}
+        >
+          <span class={isGerman ? 'text-(--color-accent)' : ''}>DE</span>
+          <span class="text-(--color-text-muted)">/</span>
+          <span class={!isGerman ? 'text-(--color-accent)' : ''}>EN</span>
         </a>
         
         <!-- Theme Toggle -->
@@ -72,26 +105,41 @@ import { Icon } from 'astro-icon/components';
       <div class="py-2">
         <div class="text-(--color-text-primary) font-medium mb-2">Services</div>
         <div class="pl-4 space-y-2 border-l-2 border-(--color-border)">
-          <a href="/services/web-development" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-1 text-sm">
+          <a href={isGerman ? "/services/web-development" : "/en/services/web-development"} class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-1 text-sm">
             Web Development & E-Commerce
           </a>
-          <a href="/services/ai-enablement" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-1 text-sm">
+          <a href={isGerman ? "/services/ai-enablement" : "/en/services/ai-enablement"} class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-1 text-sm">
             AI Enablement
           </a>
-          <a href="/services/cloud-devops" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-1 text-sm">
+          <a href={isGerman ? "/services/cloud-devops" : "/en/services/cloud-devops"} class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-1 text-sm">
             Cloud & DevOps
           </a>
-          <a href="/services/security" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-1 text-sm">
+          <a href={isGerman ? "/services/security" : "/en/services/security"} class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-1 text-sm">
             Security Consulting
           </a>
         </div>
       </div>
       <a href="#about" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-2">
-        About
+        {isGerman ? 'Über mich' : 'About'}
       </a>
       <a href="#contact" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-2">
-        Contact
+        {isGerman ? 'Kontakt' : 'Contact'}
       </a>
+      
+      <!-- Mobile Language Toggle -->
+      <div class="py-2 border-t border-(--color-border) mt-2">
+        <a 
+          href={alternatePath}
+          class="flex items-center justify-center gap-2 py-2 text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
+        >
+          <span class="text-sm">{isGerman ? 'Switch to English' : 'Zu Deutsch wechseln'}</span>
+          <span class="flex items-center gap-1 text-sm font-medium">
+            <span class={isGerman ? 'text-(--color-accent)' : ''}>DE</span>
+            <span class="text-(--color-text-muted)">/</span>
+            <span class={!isGerman ? 'text-(--color-accent)' : ''}>EN</span>
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </nav>

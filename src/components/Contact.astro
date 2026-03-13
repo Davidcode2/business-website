@@ -1,5 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { getTranslations, type Locale } from '../i18n/translations';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'de' } = Astro.props;
+const t = getTranslations(locale);
 ---
 
 <section id="contact" class="py-24 sm:py-32 relative">
@@ -9,15 +17,14 @@ import { Icon } from 'astro-icon/components';
   <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <!-- Section header -->
     <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
-      Get in touch
+      {t.contact.sectionTagline}
     </p>
     <h2 class="text-4xl sm:text-5xl font-bold text-(--color-text-primary) mb-6">
-      Ready to bring your
-      <span class="gradient-text">vision to life?</span>
+      {t.contact.sectionTitle1}
+      <span class="gradient-text">{t.contact.sectionTitle2}</span>
     </h2>
     <p class="text-lg text-(--color-text-secondary) mb-12 max-w-2xl mx-auto">
-      Let's discuss your project. No obligations, just a conversation about 
-      what's possible.
+      {t.contact.description}
     </p>
     
     <!-- Email button with protection -->
@@ -27,17 +34,17 @@ import { Icon } from 'astro-icon/components';
         class="group inline-flex items-center gap-3 px-8 py-4 bg-(--color-accent) text-(--color-text-inverse) rounded-full font-medium hover:bg-(--color-accent-emphasis) transition-all hover:scale-105"
       >
         <Icon name="lucide:mail" class="w-5 h-5" />
-        <span id="email-text">Get in touch</span>
+        <span id="email-text">{t.contact.buttonText}</span>
       </button>
       
       <p class="text-sm text-(--color-text-muted)">
-        Click to reveal email address
+        {t.contact.emailHint}
       </p>
     </div>
     
     <!-- Trust indicators -->
     <div class="mt-16 pt-8 border-t border-(--color-border)">
-      <p class="text-(--color-text-muted) text-sm mb-4">Trusted technologies</p>
+      <p class="text-(--color-text-muted) text-sm mb-4">{t.contact.trustedTech}</p>
       <div class="flex flex-wrap justify-center gap-8 text-(--color-text-secondary)">
         <span class="flex items-center gap-2">
           <Icon name="simple-icons:astro" class="w-5 h-5" />

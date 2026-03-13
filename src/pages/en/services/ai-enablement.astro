@@ -1,0 +1,108 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import ServiceHero from '../../../components/service/ServiceHero.astro';
+import ProblemSection from '../../../components/service/ProblemSection.astro';
+import SolutionSection from '../../../components/service/SolutionSection.astro';
+import BenefitsGrid from '../../../components/service/BenefitsGrid.astro';
+import ProcessSection from '../../../components/service/ProcessSection.astro';
+import CTASection from '../../../components/service/CTASection.astro';
+import RelatedServices from '../../../components/service/RelatedServices.astro';
+import { getTranslations } from '../../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const serviceData = {
+  name: t.services.aiEnablement.title,
+  title: t.aiEnablement.meta.title,
+  description: t.aiEnablement.meta.description,
+  tagline: t.aiEnablement.tagline,
+  heroDescription: t.aiEnablement.heroDescription,
+  icon: "lucide:brain",
+};
+
+const problemData = {
+  headline: "Is AI leaving you behind?",
+  description: "Every day, businesses are falling behind because they can't keep up with AI adoption. Meanwhile, competitors are automating tasks, making better decisions, and scaling faster with AI-powered tools.",
+  painPoints: [
+    "Competitors are already using AI to automate customer service, content creation, and decision-making",
+    "Your team is overwhelmed with repetitive tasks while AI could handle them in seconds",
+    "Thousands of AI tools exist but you don't know which ones actually work for your business",
+    "No internal AI expertise means every AI decision feels like a gamble",
+  ],
+};
+
+const solutionData = {
+  headline: "AI that actually works for your business",
+  description: "I cut through the AI hype to find practical, high-ROI opportunities for your specific business. From strategy to implementation to training—I handle the complexity so you get the results.",
+  features: [
+    {
+      title: "AI Strategy Consulting",
+      description: "Identify the highest-ROI AI opportunities for your business. We analyze your processes, prioritize use cases, and create a clear roadmap.",
+    },
+    {
+      title: "Process Automation",
+      description: "Automate repetitive tasks with AI-powered workflows. Customer inquiries, document processing, content generation—done in seconds.",
+    },
+    {
+      title: "Tool Selection & Integration",
+      description: "Cut through the noise. I select, configure, and integrate the right AI tools into your existing systems without disruption.",
+    },
+    {
+      title: "Team Training & Enablement",
+      description: "Make your team AI-capable, not AI-dependent. Practical training that empowers your people to leverage AI independently.",
+    },
+  ],
+};
+
+const benefitsData = {
+  headline: "What AI enablement delivers",
+  benefits: [
+    { icon: "lucide:zap", title: "40% Time Savings", description: "Average productivity gain from AI automation of routine tasks and workflows." },
+    { icon: "lucide:trending-up", title: "3x Faster Content", description: "Content creation, reporting, and analysis completed in a fraction of the time." },
+    { icon: "lucide:brain", title: "Better Decisions", description: "AI-powered analytics and insights that help you make data-driven choices faster." },
+    { icon: "lucide:users", title: "Scaled Customer Service", description: "Handle more customer inquiries without hiring—AI handles routine questions." },
+    { icon: "lucide:shield", title: "Competitive Advantage", description: "Move faster, scale smarter, and stay ahead of competitors still doing things manually." },
+    { icon: "lucide:graduation-cap", title: "AI-Capable Team", description: "Your people become AI-native, using AI tools confidently and independently." },
+  ],
+};
+
+const processData = {
+  headline: "From AI confusion to clarity",
+  description: "A structured approach that identifies opportunities, proves value quickly, and scales what works.",
+  steps: [
+    { number: "1", title: "Discovery & Opportunity Mapping", description: "We analyze your business processes, identify automation potential, and prioritize use cases by ROI. You get a clear AI roadmap." },
+    { number: "2", title: "Strategy & Tool Selection", description: "I recommend the right AI tools and approaches for your specific needs. No cookie-cutter solutions—everything tailored to your business." },
+    { number: "3", title: "Pilot Implementation", description: "We start with a 30-day pilot to prove value quickly. Configure tools, set up integrations, and automate your first high-impact workflow." },
+    { number: "4", title: "Scale & Enable", description: "Expand successful pilots across your organization. Train your team, document processes, and establish ongoing optimization." },
+  ],
+};
+
+const ctaData = {
+  headline: "Ready to lead the AI revolution?",
+  description: "Let's discuss your AI opportunities in a free 30-minute assessment. I'll identify your top 3 AI use cases and show you exactly how to get started.",
+  buttonText: "Get Your Free AI Assessment",
+};
+
+const allServices = [
+  { icon: "lucide:code", title: t.services.webDevelopment.title, description: t.services.webDevelopment.description, href: "/en/services/web-development" },
+  { icon: "lucide:brain", title: t.services.aiEnablement.title, description: t.services.aiEnablement.description, href: "/en/services/ai-enablement" },
+  { icon: "lucide:cloud", title: t.services.cloudDevops.title, description: t.services.cloudDevops.description, href: "/en/services/cloud-devops" },
+  { icon: "lucide:shield", title: t.services.security.title, description: t.services.security.description, href: "/en/services/security" },
+];
+---
+
+<ServiceLayout
+  title={serviceData.title}
+  description={serviceData.description}
+  serviceName={serviceData.name}
+  locale={locale}
+>
+  <ServiceHero title={serviceData.name} tagline={serviceData.tagline} description={serviceData.heroDescription} icon={serviceData.icon} />
+  <ProblemSection headline={problemData.headline} description={problemData.description} painPoints={problemData.painPoints} />
+  <SolutionSection headline={solutionData.headline} description={solutionData.description} features={solutionData.features} />
+  <BenefitsGrid headline={benefitsData.headline} benefits={benefitsData.benefits} />
+  <ProcessSection headline={processData.headline} description={processData.description} steps={processData.steps} />
+  <CTASection headline={ctaData.headline} description={ctaData.description} buttonText={ctaData.buttonText} />
+  <RelatedServices currentService={serviceData.name} services={allServices} />
+</ServiceLayout>

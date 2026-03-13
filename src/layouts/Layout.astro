@@ -4,13 +4,14 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description?: string;
+	lang?: string;
 }
 
-const { title, description = "Jakob Lingel - Digital Solutions Provider" } = Astro.props;
+const { title, description = "Jakob Lingel - Digital Solutions Provider", lang = "de" } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="de" data-theme="dark">
+<html lang={lang} data-theme="dark">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />

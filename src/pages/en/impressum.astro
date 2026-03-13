@@ -1,0 +1,72 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/Navigation.astro";
+import Footer from "../../components/Footer.astro";
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+---
+
+<Layout title="Legal Notice - Jakob Lingel" description="Legal notice and contact information for Jakob Lingel." lang={locale}>
+  <Navigation currentLocale={locale} currentPath="/en/impressum" />
+  
+  <main class="pt-24 pb-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-(--color-text-primary) mb-8">{t.impressum.title}</h1>
+      
+      <div class="space-y-8 text-(--color-text-secondary)">
+        <section>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.provider}</h2>
+          <p class="leading-relaxed">
+            {t.impressum.name}<br />
+            [Street Address]<br />
+            [Postal Code] [City]
+          </p>
+        </section>
+        
+        <section>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.contact}</h2>
+          <p class="leading-relaxed">
+            {t.impressum.email}: <a href="mailto:jakob.lingel@hotmail.de" class="text-(--color-accent) hover:text-(--color-accent-weak)">jakob.lingel@hotmail.de</a>
+          </p>
+        </section>
+        
+        <section>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.responsible}</h2>
+          <p class="leading-relaxed">
+            {t.impressum.name}<br />
+            [Address as above]
+          </p>
+        </section>
+        
+        <section>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.disclaimer}</h2>
+          
+          <h3 class="text-lg font-medium text-(--color-text-primary) mt-6 mb-3">Liability for Content</h3>
+          <p class="leading-relaxed mb-4">
+            As a service provider, I am responsible for my own content on these pages in accordance with general laws. However, I am not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+          </p>
+          
+          <h3 class="text-lg font-medium text-(--color-text-primary) mt-6 mb-3">Liability for Links</h3>
+          <p class="leading-relaxed mb-4">
+            {t.impressum.disclaimerText}
+          </p>
+          
+          <h3 class="text-lg font-medium text-(--color-text-primary) mt-6 mb-3">Copyright</h3>
+          <p class="leading-relaxed">
+            The content and works created by the site operators on these pages are subject to German copyright law. The reproduction, processing, distribution, and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator.
+          </p>
+        </section>
+      </div>
+      
+      <div class="mt-12 pt-8 border-t border-(--color-border)">
+        <a href="/en/" class="text-(--color-accent) hover:text-(--color-accent-weak) transition-colors">
+          ← Back to homepage
+        </a>
+      </div>
+    </div>
+  </main>
+  
+  <Footer locale={locale} />
+</Layout>

@@ -1,0 +1,91 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import ServiceHero from '../../../components/service/ServiceHero.astro';
+import ProblemSection from '../../../components/service/ProblemSection.astro';
+import SolutionSection from '../../../components/service/SolutionSection.astro';
+import BenefitsGrid from '../../../components/service/BenefitsGrid.astro';
+import ProcessSection from '../../../components/service/ProcessSection.astro';
+import CTASection from '../../../components/service/CTASection.astro';
+import RelatedServices from '../../../components/service/RelatedServices.astro';
+import { getTranslations } from '../../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const serviceData = {
+  name: t.services.security.title,
+  title: t.security.meta.title,
+  description: t.security.meta.description,
+  tagline: t.security.tagline,
+  heroDescription: t.security.heroDescription,
+  icon: "lucide:shield",
+};
+
+const problemData = {
+  headline: "Are you vulnerable to attacks?",
+  description: "Data breaches, ransomware, and compliance violations can destroy your business overnight. Most companies don't know where they're exposed until it's too late.",
+  painPoints: [
+    "Unknown vulnerabilities that hackers could exploit at any moment",
+    "No incident response plan when something inevitably goes wrong",
+    "Compliance requirements like GDPR that you're not sure how to meet",
+    "Security patches that never get applied because they might break something",
+  ],
+};
+
+const solutionData = {
+  headline: "Proactive protection that works",
+  description: "I take a comprehensive approach to security—finding vulnerabilities before attackers do, implementing layered defenses, and establishing processes that keep you protected long-term.",
+  features: [
+    { title: "Comprehensive Audits", description: "Thorough security assessments covering infrastructure, applications, and processes. Know exactly where you stand." },
+    { title: "Vulnerability Management", description: "Continuous scanning, prioritized remediation, and patch management that keeps systems secure without breaking functionality." },
+    { title: "Compliance Guidance", description: "Navigate GDPR, SOC 2, and other requirements with clear roadmaps and implementation support." },
+    { title: "Incident Response", description: "Preparation, playbooks, and rapid response capabilities. When something happens, you'll know exactly what to do." },
+  ],
+};
+
+const benefitsData = {
+  headline: "Why security-first matters",
+  benefits: [
+    { icon: "lucide:search", title: "Find Vulnerabilities", description: "Discover security gaps before attackers do with comprehensive penetration testing and code review." },
+    { icon: "lucide:lock", title: "Protect Data", description: "Implement encryption, access controls, and data protection that meets industry standards." },
+    { icon: "lucide:file-check", title: "Achieve Compliance", description: "Meet GDPR, SOC 2, and other regulatory requirements with documented security controls." },
+    { icon: "lucide:alert-triangle", title: "Rapid Response", description: "Incident response plans and support when security events occur. Minimize damage and recover quickly." },
+    { icon: "lucide:eye", title: "Continuous Monitoring", description: "Ongoing security monitoring with alerts for suspicious activity and emerging threats." },
+    { icon: "lucide:award", title: "Build Trust", description: "Demonstrable security posture that builds customer confidence and competitive advantage." },
+  ],
+};
+
+const processData = {
+  headline: "From assessment to protection",
+  description: "A systematic approach that gives you visibility into your security posture and a clear path to improvement.",
+  steps: [
+    { number: "1", title: "Discovery & Assessment", description: "I conduct a thorough security audit of your infrastructure, applications, and processes to identify vulnerabilities and compliance gaps." },
+    { number: "2", title: "Risk Analysis & Prioritization", description: "We analyze findings by severity and business impact, creating a prioritized roadmap that addresses critical issues first." },
+    { number: "3", title: "Implementation & Hardening", description: "I implement security controls, fix vulnerabilities, set up monitoring, and establish secure development practices." },
+    { number: "4", title: "Documentation & Training", description: "Security policies, incident response plans, and team training ensure your security posture remains strong over time." },
+  ],
+};
+
+const ctaData = {
+  headline: "Ready to secure your business?",
+  description: "Let's discuss your security concerns and design a protection strategy tailored to your business. From audits to ongoing support, I'll help you sleep better at night.",
+  buttonText: "Get Security Assessment",
+};
+
+const allServices = [
+  { icon: "lucide:code", title: t.services.webDevelopment.title, description: t.services.webDevelopment.description, href: "/en/services/web-development" },
+  { icon: "lucide:brain", title: t.services.aiEnablement.title, description: t.services.aiEnablement.description, href: "/en/services/ai-enablement" },
+  { icon: "lucide:cloud", title: t.services.cloudDevops.title, description: t.services.cloudDevops.description, href: "/en/services/cloud-devops" },
+  { icon: "lucide:shield", title: t.services.security.title, description: t.services.security.description, href: "/en/services/security" },
+];
+---
+
+<ServiceLayout title={serviceData.title} description={serviceData.description} serviceName={serviceData.name} locale={locale}>
+  <ServiceHero title={serviceData.name} tagline={serviceData.tagline} description={serviceData.heroDescription} icon={serviceData.icon} />
+  <ProblemSection headline={problemData.headline} description={problemData.description} painPoints={problemData.painPoints} />
+  <SolutionSection headline={solutionData.headline} description={solutionData.description} features={solutionData.features} />
+  <BenefitsGrid headline={benefitsData.headline} benefits={benefitsData.benefits} />
+  <ProcessSection headline={processData.headline} description={processData.description} steps={processData.steps} />
+  <CTASection headline={ctaData.headline} description={ctaData.description} buttonText={ctaData.buttonText} />
+  <RelatedServices currentService={serviceData.name} services={allServices} />
+</ServiceLayout>

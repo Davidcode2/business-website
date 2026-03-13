@@ -1,30 +1,39 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { getTranslations, type Locale } from '../i18n/translations';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'de' } = Astro.props;
+const t = getTranslations(locale);
+const isGerman = locale === 'de';
 
 const services = [
   {
     icon: "lucide:code",
-    title: "Web Development & E-Commerce",
-    description: "Websites and shops that sell. Clean code, fast performance, seamless checkout, and exceptional user experience—everything in one service.",
-    href: "/services/web-development"
+    title: t.services.webDevelopment.title,
+    description: t.services.webDevelopment.description,
+    href: isGerman ? "/services/web-development" : "/en/services/web-development"
   },
   {
     icon: "lucide:brain",
-    title: "AI Enablement",
-    description: "Be at the forefront of the productivity enabled by AI. Strategy, implementation, and training to transform your business with artificial intelligence.",
-    href: "/services/ai-enablement"
+    title: t.services.aiEnablement.title,
+    description: t.services.aiEnablement.description,
+    href: isGerman ? "/services/ai-enablement" : "/en/services/ai-enablement"
   },
   {
     icon: "lucide:cloud",
-    title: "Cloud & DevOps",
-    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure. Your app stays online, always.",
-    href: "/services/cloud-devops"
+    title: t.services.cloudDevops.title,
+    description: t.services.cloudDevops.description,
+    href: isGerman ? "/services/cloud-devops" : "/en/services/cloud-devops"
   },
   {
     icon: "lucide:shield",
-    title: "Security Consulting",
-    description: "Protect your digital assets. Security audits, best practices implementation, and ongoing monitoring.",
-    href: "/services/security"
+    title: t.services.security.title,
+    description: t.services.security.description,
+    href: isGerman ? "/services/security" : "/en/services/security"
   }
 ];
 ---
@@ -37,14 +46,14 @@ const services = [
     <!-- Section header -->
     <div class="text-center mb-16">
       <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
-        What I offer
+        {t.services.sectionTagline}
       </p>
       <h2 class="text-4xl sm:text-5xl font-bold text-(--color-text-primary) mb-6">
-        Services built for
-        <span class="gradient-text">results</span>
+        {t.services.sectionTitle1}
+        <span class="gradient-text">{t.services.sectionTitle2}</span>
       </h2>
       <p class="text-lg text-(--color-text-secondary) max-w-2xl mx-auto">
-        From concept to launch, I provide end-to-end digital solutions that drive business growth.
+        {t.services.sectionDescription}
       </p>
     </div>
     
@@ -71,7 +80,7 @@ const services = [
           
           <!-- Learn more link -->
           <div class="mt-6 flex items-center text-(--color-accent) font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-            <span>Learn more</span>
+            <span>{t.services.webDevelopment.learnMore}</span>
             <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
           </div>
         </a>

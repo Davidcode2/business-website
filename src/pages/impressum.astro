@@ -2,10 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import { getTranslations } from '../i18n/translations';
+
+const locale = 'de';
+const t = getTranslations(locale);
 ---
 
-<Layout title="Impressum - Jakob Lingel" description="Legal notice and contact information for Jakob Lingel.">
-  <Navigation />
+<Layout title="Impressum - Jakob Lingel" description="Legal notice and contact information for Jakob Lingel." lang={locale}>
+  <Navigation currentLocale={locale} currentPath="/impressum" />
   
   <main class="pt-24 pb-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,5 +68,5 @@ import Footer from "../components/Footer.astro";
     </div>
   </main>
   
-  <Footer />
+  <Footer locale={locale} />
 </Layout>

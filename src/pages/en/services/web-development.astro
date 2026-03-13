@@ -1,0 +1,143 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import ServiceHero from '../../../components/service/ServiceHero.astro';
+import ProblemSection from '../../../components/service/ProblemSection.astro';
+import SolutionSection from '../../../components/service/SolutionSection.astro';
+import BenefitsGrid from '../../../components/service/BenefitsGrid.astro';
+import ProcessSection from '../../../components/service/ProcessSection.astro';
+import CTASection from '../../../components/service/CTASection.astro';
+import RelatedServices from '../../../components/service/RelatedServices.astro';
+import { getTranslations } from '../../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const serviceData = {
+  name: t.services.webDevelopment.title,
+  title: t.webDevelopment.meta.title,
+  description: t.webDevelopment.meta.description,
+  tagline: t.webDevelopment.tagline,
+  heroDescription: t.webDevelopment.heroDescription,
+  icon: "lucide:code",
+};
+
+const problemData = {
+  headline: t.webDevelopment.problem.headline,
+  description: t.webDevelopment.problem.description,
+  painPoints: t.webDevelopment.problem.painPoints,
+};
+
+const solutionData = {
+  headline: t.webDevelopment.solution.headline,
+  description: t.webDevelopment.solution.description,
+  features: [
+    t.webDevelopment.solution.features.conversionFirst,
+    t.webDevelopment.solution.features.ecommerce,
+    t.webDevelopment.solution.features.performance,
+    t.webDevelopment.solution.features.mobileFirst,
+  ],
+};
+
+const benefitsData = {
+  headline: t.webDevelopment.benefits.headline,
+  benefits: [
+    { icon: "lucide:zap", ...t.webDevelopment.benefits.items.lightningFast },
+    { icon: "lucide:shopping-cart", ...t.webDevelopment.benefits.items.highConverting },
+    { icon: "lucide:smartphone", ...t.webDevelopment.benefits.items.mobileOptimized },
+    { icon: "lucide:search", ...t.webDevelopment.benefits.items.seoReady },
+    { icon: "lucide:shield", ...t.webDevelopment.benefits.items.secure },
+    { icon: "lucide:clock", ...t.webDevelopment.benefits.items.fastDelivery },
+  ],
+};
+
+const processData = {
+  headline: t.webDevelopment.process.headline,
+  description: t.webDevelopment.process.description,
+  steps: [
+    t.webDevelopment.process.steps.discovery,
+    t.webDevelopment.process.steps.design,
+    t.webDevelopment.process.steps.review,
+    t.webDevelopment.process.steps.launch,
+  ],
+};
+
+const ctaData = {
+  headline: t.webDevelopment.cta.headline,
+  description: t.webDevelopment.cta.description,
+  buttonText: t.webDevelopment.cta.buttonText,
+};
+
+const allServices = [
+  {
+    icon: "lucide:code",
+    title: t.services.webDevelopment.title,
+    description: t.services.webDevelopment.description,
+    href: "/en/services/web-development",
+  },
+  {
+    icon: "lucide:brain",
+    title: t.services.aiEnablement.title,
+    description: t.services.aiEnablement.description,
+    href: "/en/services/ai-enablement",
+  },
+  {
+    icon: "lucide:cloud",
+    title: t.services.cloudDevops.title,
+    description: t.services.cloudDevops.description,
+    href: "/en/services/cloud-devops",
+  },
+  {
+    icon: "lucide:shield",
+    title: t.services.security.title,
+    description: t.services.security.description,
+    href: "/en/services/security",
+  },
+];
+---
+
+<ServiceLayout
+  title={serviceData.title}
+  description={serviceData.description}
+  serviceName={serviceData.name}
+>
+  <ServiceHero
+    title={serviceData.name}
+    tagline={serviceData.tagline}
+    description={serviceData.heroDescription}
+    icon={serviceData.icon}
+  />
+
+  <ProblemSection
+    headline={problemData.headline}
+    description={problemData.description}
+    painPoints={problemData.painPoints}
+  />
+
+  <SolutionSection
+    headline={solutionData.headline}
+    description={solutionData.description}
+    features={solutionData.features}
+  />
+
+  <BenefitsGrid
+    headline={benefitsData.headline}
+    benefits={benefitsData.benefits}
+  />
+
+  <ProcessSection
+    headline={processData.headline}
+    description={processData.description}
+    steps={processData.steps}
+  />
+
+  <CTASection
+    headline={ctaData.headline}
+    description={ctaData.description}
+    buttonText={ctaData.buttonText}
+  />
+
+  <RelatedServices
+    currentService={serviceData.name}
+    services={allServices}
+  />
+</ServiceLayout>

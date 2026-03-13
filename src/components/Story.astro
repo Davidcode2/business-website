@@ -1,17 +1,24 @@
 ---
+import { getTranslations, type Locale } from '../i18n/translations';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'de' } = Astro.props;
+const t = getTranslations(locale);
+
 const valueProps = [
-  {
-    title: "No endless meetings",
-    description: "Direct communication, quick decisions."
-  },
-  {
-    title: "No bloated teams",
-    description: "One expert, focused on your success."
-  },
-  {
-    title: "Just results",
-    description: "Measured in business value, not hours."
-  }
+  t.story.valueProps.noMeetings,
+  t.story.valueProps.noBloatedTeams,
+  t.story.valueProps.justResults,
+];
+
+const stats = [
+  { value: '5+', label: t.story.stats.experience },
+  { value: '20+', label: t.story.stats.projects },
+  { value: '100%', label: t.story.stats.satisfaction },
+  { value: '24/7', label: t.story.stats.support },
 ];
 ---
 
@@ -24,15 +31,14 @@ const valueProps = [
       <!-- Left content -->
       <div>
         <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
-          The difference
+          {t.story.sectionTagline}
         </p>
         <h2 class="text-4xl sm:text-5xl font-bold text-(--color-text-primary) mb-6 leading-tight">
-          From first call to live deployment—
-          <span class="gradient-text">measured in days, not months</span>
+          {t.story.sectionTitle1}
+          <span class="gradient-text">{t.story.sectionTitle2}</span>
         </h2>
         <p class="text-lg text-(--color-text-secondary) mb-8 leading-relaxed">
-          Technology should serve your business, not complicate it. I cut through the noise 
-          and deliver solutions that work—fast, reliable, and built to scale.
+          {t.story.description}
         </p>
         
         <!-- Value props -->
@@ -57,22 +63,12 @@ const valueProps = [
       <div class="relative">
         <!-- Stats cards -->
         <div class="grid grid-cols-2 gap-6">
-          <div class="p-6 rounded-2xl bg-(--color-surface-raised) border border-(--color-border)">
-            <div class="text-4xl font-bold text-(--color-accent) mb-2">5+</div>
-            <div class="text-(--color-text-secondary)">Years experience</div>
-          </div>
-          <div class="p-6 rounded-2xl bg-(--color-surface-raised) border border-(--color-border)">
-            <div class="text-4xl font-bold text-(--color-accent) mb-2">20+</div>
-            <div class="text-(--color-text-secondary)">Projects delivered</div>
-          </div>
-          <div class="p-6 rounded-2xl bg-(--color-surface-raised) border border-(--color-border)">
-            <div class="text-4xl font-bold text-(--color-accent) mb-2">100%</div>
-            <div class="text-(--color-text-secondary)">Client satisfaction</div>
-          </div>
-          <div class="p-6 rounded-2xl bg-(--color-surface-raised) border border-(--color-border)">
-            <div class="text-4xl font-bold text-(--color-accent) mb-2">24/7</div>
-            <div class="text-(--color-text-secondary)">Support available</div>
-          </div>
+          {stats.map((stat) => (
+            <div class="p-6 rounded-2xl bg-(--color-surface-raised) border border-(--color-border)">
+              <div class="text-4xl font-bold text-(--color-accent) mb-2">{stat.value}</div>
+              <div class="text-(--color-text-secondary)">{stat.label}</div>
+            </div>
+          ))}
         </div>
         
         <!-- Decorative element -->
