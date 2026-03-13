@@ -23,6 +23,7 @@ export default function Room({ isDarkMode = false }) {
         infiniteGrid={true}
         fadeDistance={30}
         fadeStrength={1}
+        fadeFrom={1}
         cellSize={2}
         cellThickness={0.5}
         sectionSize={10}
