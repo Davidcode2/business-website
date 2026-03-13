@@ -28,14 +28,15 @@ export default function Scene3D() {
 
   return (
     <Canvas
-      camera={{ position: [0, 0, 0], fov: 60 }}
+      camera={{ position: [0, 2, 12], fov: 60 }}
       dpr={[1, 2]}
       gl={{ antialias: true, alpha: true }}
+      style={{ width: "100%", height: "100%" }}
     >
       <color attach="background" args={[isDarkMode ? 0x111111 : 0xffffff]} />
       <fog attach="fog" args={[isDarkMode ? 0x111111 : 0xffffff, 10, 40]} />
 
-      <PerspectiveCamera makeDefault position={[0, 0, 0]} />
+      <PerspectiveCamera makeDefault position={[0, 2, 12]} />
 
       <ambientLight intensity={0.3} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
