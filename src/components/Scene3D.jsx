@@ -1,9 +1,31 @@
+import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, PerspectiveCamera } from "@react-three/drei";
 import Room from "./Room";
 import Spheres from "./Spheres";
 
-export default function Scene3D({ isDarkMode = false }) {
+export default function Scene3D() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Read initial theme
+    const theme = document.documentElement.getAttribute("data-theme");
+    setIsDarkMode(theme === "dark");
+
+    // Watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "data-theme") {
+          const newTheme = document.documentElement.getAttribute("data-theme");
+          setIsDarkMode(newTheme === "dark");
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Canvas
       camera={{ position: [0, 0, 0], fov: 60 }}
