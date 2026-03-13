@@ -10,7 +10,7 @@ const t = getTranslations(locale);
 ---
 
 <Layout title="Impressum - Jakob Lingel" description="Legal notice and contact information for Jakob Lingel." lang={locale}>
-  <Navigation currentLocale={locale} currentPath="/impressum" />
+  <Navigation currentLocale={locale} currentPath="/impressum" isServicePage={true} />
   
   <main class="pt-24 pb-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,5 +86,5 @@ const t = getTranslations(locale);
     </div>
   </main>
   
-  <Footer locale={locale} />
+  <Footer locale={locale} isServicePage={true} />
 </Layout>

@@ -14,10 +14,13 @@ interface Props {
 
 const { title, description, serviceName, locale = 'de' } = Astro.props;
 const isGerman = locale === 'de';
+
+// Get the actual current URL path
+const currentPath = Astro.url.pathname;
 ---
 
 <Layout title={title} description={description} lang={locale}>
-  <Navigation currentLocale={locale} currentPath={isGerman ? `/services/${serviceName.toLowerCase().replace(/\s+/g, '-')}` : `/en/services/${serviceName.toLowerCase().replace(/\s+/g, '-')}`} isServicePage={true} />
+  <Navigation currentLocale={locale} currentPath={currentPath} isServicePage={true} />
   <main class="pt-16">
     <slot />
   </main>
