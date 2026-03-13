@@ -64,10 +64,10 @@ const aboutUrl = isServicePage ? `${homeUrl}#about` : "#about";
             </a>
           </div>
         </div>
-        <a href="#about" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors">
+        <a href={aboutUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors">
           {isGerman ? 'Über mich' : 'About'}
         </a>
-        <a href="#contact" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors">
+        <a href={contactUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors">
           {isGerman ? 'Kontakt' : 'Contact'}
         </a>
         
@@ -125,10 +125,10 @@ const aboutUrl = isServicePage ? `${homeUrl}#about` : "#about";
           </a>
         </div>
       </div>
-      <a href="#about" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-2">
+      <a href={aboutUrl} class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-2">
         {isGerman ? 'Über mich' : 'About'}
       </a>
-      <a href="#contact" class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-2">
+      <a href={contactUrl} class="block text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors py-2">
         {isGerman ? 'Kontakt' : 'Contact'}
       </a>
       

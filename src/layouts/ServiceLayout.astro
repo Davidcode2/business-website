@@ -17,7 +17,7 @@ const isGerman = locale === 'de';
 ---
 
 <Layout title={title} description={description} lang={locale}>
-  <Navigation currentLocale={locale} currentPath={isGerman ? `/services/${serviceName.toLowerCase().replace(/\s+/g, '-')}` : `/en/services/${serviceName.toLowerCase().replace(/\s+/g, '-')}`} />
+  <Navigation currentLocale={locale} currentPath={isGerman ? `/services/${serviceName.toLowerCase().replace(/\s+/g, '-')}` : `/en/services/${serviceName.toLowerCase().replace(/\s+/g, '-')}`} isServicePage={true} />
   <main class="pt-16">
     <slot />
   </main>
