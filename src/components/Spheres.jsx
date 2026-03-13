@@ -1,23 +1,22 @@
-import { Instances, Instance, Environment } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useEffect } from "react";
 import * as THREE from "three";
 
 const GRAY_COLORS = [
-  "#333333",
-  "#444444",
-  "#555555",
   "#666666",
   "#777777",
   "#888888",
   "#999999",
   "#aaaaaa",
+  "#bbbbbb",
+  "#cccccc",
+  "#dddddd",
 ];
 
 // Pre-allocated temp vectors (NEVER create new Vector3() in useFrame)
 const tempVec = new THREE.Vector3();
 const tempPush = new THREE.Vector3();
-const tempMatrix = new THREE.Matrix4();
 
 // Boundary configuration: narrowed ranges for better visibility
 const BOUNDS = {
@@ -34,7 +33,8 @@ function randomRange(min, max) {
 }
 
 export default function Spheres({ count = 8 }) {
-  const instancesRef = useRef();
+  const instancedMeshRef = useRef();
+  const tempObject = useMemo(() => new THREE.Object3D(), []);
 
   // Sphere data with physics properties
   const spheresData = useMemo(() => {
@@ -51,6 +51,19 @@ export default function Spheres({ count = 8 }) {
       color: GRAY_COLORS[i % GRAY_COLORS.length],
     }));
   }, [count]);
+
+  // Set initial positions
+  useEffect(() => {
+    if (!instancedMeshRef.current) return;
+
+    spheresData.forEach((sphere, i) => {
+      tempObject.position.copy(sphere.position);
+      tempObject.updateMatrix();
+      instancedMeshRef.current.setMatrixAt(i, tempObject.matrix);
+    });
+
+    instancedMeshRef.current.instanceMatrix.needsUpdate = true;
+  }, []);
 
   useFrame((state, delta) => {
     const time = state.clock.elapsedTime;
@@ -109,19 +122,20 @@ export default function Spheres({ count = 8 }) {
     });
 
     // Update instance positions
-    if (instancesRef.current) {
+    if (instancedMeshRef.current) {
       spheresData.forEach((sphere, i) => {
-        tempMatrix.makeTranslation(sphere.position);
-        instancesRef.current.setMatrixAt(i, tempMatrix);
+        tempObject.position.copy(sphere.position);
+        tempObject.updateMatrix();
+        instancedMeshRef.current.setMatrixAt(i, tempObject.matrix);
       });
-      instancesRef.current.instanceMatrix.needsUpdate = true;
+      instancedMeshRef.current.instanceMatrix.needsUpdate = true;
     }
   });
 
   return (
     <>
       <Environment preset="city" />
-      <Instances ref={instancesRef} limit={count}>
+      <instancedMesh ref={instancedMeshRef} args={[null, null, count]}>
         <sphereGeometry args={[0.35, 32, 32]} />
         <meshPhysicalMaterial
           metalness={0.9}
@@ -129,10 +143,7 @@ export default function Spheres({ count = 8 }) {
           clearcoat={1}
           clearcoatRoughness={0}
         />
-        {spheresData.map((sphere) => (
-          <Instance key={sphere.id} color={sphere.color} />
-        ))}
-      </Instances>
+      </instancedMesh>
     </>
   );
 }
