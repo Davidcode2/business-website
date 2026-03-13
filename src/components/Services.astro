@@ -4,23 +4,27 @@ import { Icon } from 'astro-icon/components';
 const services = [
   {
     icon: "lucide:code",
-    title: "Custom Web Development",
-    description: "Websites tailored to your business needs. Clean code, fast performance, and exceptional user experience."
+    title: "Web Development & E-Commerce",
+    description: "Websites and shops that sell. Clean code, fast performance, seamless checkout, and exceptional user experience—everything in one service.",
+    href: "/services/web-development"
   },
   {
-    icon: "lucide:shopping-cart",
-    title: "E-Commerce Solutions",
-    description: "Webshops that convert visitors into customers. Seamless checkout experiences and inventory management."
+    icon: "lucide:brain",
+    title: "AI Enablement",
+    description: "Be at the forefront of the productivity enabled by AI. Strategy, implementation, and training to transform your business with artificial intelligence.",
+    href: "/services/ai-enablement"
   },
   {
     icon: "lucide:cloud",
     title: "Cloud & DevOps",
-    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure. Your app stays online, always."
+    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure. Your app stays online, always.",
+    href: "/services/cloud-devops"
   },
   {
     icon: "lucide:shield",
     title: "Security Consulting",
-    description: "Protect your digital assets. Security audits, best practices implementation, and ongoing monitoring."
+    description: "Protect your digital assets. Security audits, best practices implementation, and ongoing monitoring.",
+    href: "/services/security"
   }
 ];
 ---
@@ -47,8 +51,9 @@ const services = [
     <!-- Services grid -->
     <div class="grid md:grid-cols-2 gap-8">
       {services.map((service, index) => (
-        <div 
-          class="group p-8 rounded-2xl bg-(--color-surface-subtle) border border-(--color-border) hover:border-(--color-accent-weak) transition-all duration-300 hover:-translate-y-1"
+        <a 
+          href={service.href}
+          class="group p-8 rounded-2xl bg-(--color-surface-subtle) border border-(--color-border) hover:border-(--color-accent-weak) transition-all duration-300 hover:-translate-y-1 cursor-pointer"
           style={`animation-delay: ${index * 100}ms`}
         >
           <!-- Icon -->
@@ -57,13 +62,19 @@ const services = [
           </div>
           
           <!-- Content -->
-          <h3 class="text-xl font-semibold text-(--color-text-primary) mb-3">
+          <h3 class="text-xl font-semibold text-(--color-text-primary) mb-3 group-hover:text-(--color-accent) transition-colors">
             {service.title}
           </h3>
           <p class="text-(--color-text-secondary) leading-relaxed">
             {service.description}
           </p>
-        </div>
+          
+          <!-- Learn more link -->
+          <div class="mt-6 flex items-center text-(--color-accent) font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            <span>Learn more</span>
+            <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+          </div>
+        </a>
       ))}
     </div>
   </div>
