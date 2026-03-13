@@ -42,7 +42,7 @@ export default function Scene3D() {
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <directionalLight position={[-10, -10, -5]} intensity={0.5} />
 
-      <Environment preset="city" />
+      <Environment files="/autumn_field_puresky_1k.hdr" />
 
       <Room isDarkMode={isDarkMode} />
       <Spheres count={8} />

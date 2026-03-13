@@ -1,4 +1,3 @@
-import { Environment } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useMemo, useEffect } from "react";
 import * as THREE from "three";
@@ -133,17 +132,9 @@ export default function Spheres({ count = 8 }) {
   });
 
   return (
-    <>
-      <Environment preset="city" />
-      <instancedMesh ref={instancedMeshRef} args={[null, null, count]}>
-        <sphereGeometry args={[0.35, 32, 32]} />
-        <meshPhysicalMaterial
-          metalness={0.9}
-          roughness={0.1}
-          clearcoat={1}
-          clearcoatRoughness={0}
-        />
-      </instancedMesh>
-    </>
+    <instancedMesh ref={instancedMeshRef} args={[null, null, count]}>
+      <sphereGeometry args={[0.35, 32, 32]} />
+      <meshStandardMaterial color="#c0c0c0" metalness={1.0} roughness={0.15} />
+    </instancedMesh>
   );
 }
