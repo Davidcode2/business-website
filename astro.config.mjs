@@ -53,6 +53,9 @@ export default defineConfig({
           "alert-triangle",
           "eye",
           "award",
+          // Benefits - AI Enablement
+          "users",
+          "graduation-cap",
         ],
         "simple-icons": [
           "github",
