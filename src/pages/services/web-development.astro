@@ -7,142 +7,89 @@ import BenefitsGrid from '../../components/service/BenefitsGrid.astro';
 import ProcessSection from '../../components/service/ProcessSection.astro';
 import CTASection from '../../components/service/CTASection.astro';
 import RelatedServices from '../../components/service/RelatedServices.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'de';
+const t = getTranslations(locale);
 
 const serviceData = {
-  name: "Web Development & E-Commerce",
-  title: "Web Development & E-Commerce | Jakob Lingel",
-  description: "Websites and shops that sell. Clean code, fast performance, seamless checkout, and exceptional user experience—everything you need in one service.",
-  tagline: "Built for Results",
-  heroDescription: "Your website should be your best salesperson—working 24/7 to attract, engage, and convert visitors. I build fast, responsive websites and high-converting e-commerce stores that drive real business results.",
+  name: t.services.webDevelopment.title,
+  title: t.webDevelopment.meta.title,
+  description: t.webDevelopment.meta.description,
+  tagline: t.webDevelopment.tagline,
+  heroDescription: t.webDevelopment.heroDescription,
   icon: "lucide:code",
 };
 
 const problemData = {
-  headline: "Is your website costing you customers?",
-  description: "Every day, slow loading times, outdated designs, and clunky e-commerce experiences drive potential customers straight to your competitors. Your website should be your best salesperson—not a liability.",
-  painPoints: [
-    "53% of visitors leave if your site takes more than 3 seconds to load—costing you customers before they even see your offer",
-    "High cart abandonment from complicated checkout flows and poor mobile experience",
-    "Outdated design that makes your business look unprofessional compared to competitors",
-    "Technical headaches requiring expensive developers for every small change",
-  ],
+  headline: t.webDevelopment.problem.headline,
+  description: t.webDevelopment.problem.description,
+  painPoints: t.webDevelopment.problem.painPoints,
 };
 
 const solutionData = {
-  headline: "Websites that sell, stores that convert",
-  description: "I build digital experiences that drive business results. Every website and shop is hand-crafted for performance, optimized for conversions, and designed to grow with your business. From brochure sites to full e-commerce—everything you need.",
+  headline: t.webDevelopment.solution.headline,
+  description: t.webDevelopment.solution.description,
   features: [
-    {
-      title: "Conversion-First Design",
-      description: "Every element is designed to guide visitors toward action. Clear CTAs, streamlined flows, and psychological triggers that turn browsers into buyers.",
-    },
-    {
-      title: "E-Commerce Excellence",
-      description: "One-page checkout, seamless payment integration, and smart inventory management. Your store sells while you sleep.",
-    },
-    {
-      title: "Performance Optimized",
-      description: "Sub-2 second load times that keep visitors engaged and improve your Google rankings. Built with Astro for maximum speed.",
-    },
-    {
-      title: "Mobile-First Experience",
-      description: "Over 60% of traffic is mobile. Every design is touch-optimized and responsive, capturing customers on any device.",
-    },
+    t.webDevelopment.solution.features.conversionFirst,
+    t.webDevelopment.solution.features.ecommerce,
+    t.webDevelopment.solution.features.performance,
+    t.webDevelopment.solution.features.mobileFirst,
   ],
 };
 
 const benefitsData = {
-  headline: "Why these websites convert",
+  headline: t.webDevelopment.benefits.headline,
   benefits: [
-    {
-      icon: "lucide:zap",
-      title: "Lightning Fast",
-      description: "Sub-2 second load times that keep visitors engaged and boost your Google rankings.",
-    },
-    {
-      icon: "lucide:shopping-cart",
-      title: "High-Converting Stores",
-      description: "Optimized checkout flows that reduce abandonment and maximize sales.",
-    },
-    {
-      icon: "lucide:smartphone",
-      title: "Mobile First",
-      description: "Touch-optimized experiences that capture the 60%+ of customers browsing on mobile.",
-    },
-    {
-      icon: "lucide:search",
-      title: "SEO Ready",
-      description: "Clean code and optimized structure to help you rank higher in search results.",
-    },
-    {
-      icon: "lucide:shield",
-      title: "Secure & Compliant",
-      description: "HTTPS, security headers, and GDPR compliance built into every site from day one.",
-    },
-    {
-      icon: "lucide:clock",
-      title: "Fast Delivery",
-      description: "Most projects launch in 4-6 weeks. Get your new site selling faster than traditional agencies.",
-    },
+    { icon: "lucide:zap", ...t.webDevelopment.benefits.items.lightningFast },
+    { icon: "lucide:shopping-cart", ...t.webDevelopment.benefits.items.highConverting },
+    { icon: "lucide:smartphone", ...t.webDevelopment.benefits.items.mobileOptimized },
+    { icon: "lucide:search", ...t.webDevelopment.benefits.items.seoReady },
+    { icon: "lucide:shield", ...t.webDevelopment.benefits.items.secure },
+    { icon: "lucide:clock", ...t.webDevelopment.benefits.items.fastDelivery },
   ],
 };
 
 const processData = {
-  headline: "From concept to live site",
-  description: "A proven process that delivers results without the typical agency overhead.",
+  headline: t.webDevelopment.process.headline,
+  description: t.webDevelopment.process.description,
   steps: [
-    {
-      number: "1",
-      title: "Discovery & Strategy",
-      description: "We discuss your goals, target audience, and key requirements. I provide a clear proposal with timeline and pricing—no surprises.",
-    },
-    {
-      number: "2",
-      title: "Design & Development",
-      description: "I create a custom design and build your site with clean, maintainable code. Regular updates keep you in the loop.",
-    },
-    {
-      number: "3",
-      title: "Review & Refine",
-      description: "We review the site together, make refinements, and ensure everything meets your expectations before launch.",
-    },
-    {
-      number: "4",
-      title: "Launch & Support",
-      description: "Your site goes live with monitoring in place. I provide training and ongoing support to ensure continued success.",
-    },
+    t.webDevelopment.process.steps.discovery,
+    t.webDevelopment.process.steps.design,
+    t.webDevelopment.process.steps.review,
+    t.webDevelopment.process.steps.launch,
   ],
 };
 
 const ctaData = {
-  headline: "Ready for a website that works?",
-  description: "Let's discuss your project and see how a custom-built website can transform your online presence. No obligation, just a conversation about your goals.",
-  buttonText: "Start Your Project",
+  headline: t.webDevelopment.cta.headline,
+  description: t.webDevelopment.cta.description,
+  buttonText: t.webDevelopment.cta.buttonText,
 };
 
 const allServices = [
   {
     icon: "lucide:code",
-    title: "Web Development & E-Commerce",
-    description: "Websites and shops that sell with clean code and exceptional UX.",
+    title: t.services.webDevelopment.title,
+    description: t.services.webDevelopment.description,
     href: "/services/web-development",
   },
   {
     icon: "lucide:brain",
-    title: "AI Enablement",
-    description: "Be at the forefront of the productivity enabled by AI.",
+    title: t.services.aiEnablement.title,
+    description: t.services.aiEnablement.description,
     href: "/services/ai-enablement",
   },
   {
     icon: "lucide:cloud",
-    title: "Cloud & DevOps",
-    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure.",
+    title: t.services.cloudDevops.title,
+    description: t.services.cloudDevops.description,
     href: "/services/cloud-devops",
   },
   {
     icon: "lucide:shield",
-    title: "Security Consulting",
-    description: "Protect your digital assets with security audits and best practices.",
+    title: t.services.security.title,
+    description: t.services.security.description,
     href: "/services/security",
   },
 ];
@@ -152,7 +99,7 @@ const allServices = [
   title={serviceData.title}
   description={serviceData.description}
   serviceName={serviceData.name}
-  locale="de"
+  locale={locale}
 >
   <ServiceHero
     title={serviceData.name}

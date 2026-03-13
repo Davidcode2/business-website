@@ -7,142 +7,146 @@ import BenefitsGrid from '../../components/service/BenefitsGrid.astro';
 import ProcessSection from '../../components/service/ProcessSection.astro';
 import CTASection from '../../components/service/CTASection.astro';
 import RelatedServices from '../../components/service/RelatedServices.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'de';
+const t = getTranslations(locale);
 
 const serviceData = {
-  name: "Security Consulting",
-  title: "Security Consulting | Jakob Lingel",
-  description: "Protect your digital assets. Security audits, best practices implementation, and ongoing monitoring to keep your business safe.",
-  tagline: "Built for Protection",
-  heroDescription: "Security isn't an afterthought—it's the foundation. I help you identify vulnerabilities, implement protections, and build a security posture that gives you and your customers confidence.",
+  name: t.services.security.title,
+  title: t.security.meta.title,
+  description: t.security.meta.description,
+  tagline: t.security.tagline,
+  heroDescription: t.security.heroDescription,
   icon: "lucide:shield",
 };
 
 const problemData = {
-  headline: "Are you vulnerable to attacks?",
-  description: "Data breaches, ransomware, and compliance violations can destroy your business overnight. Most companies don't know where they're exposed until it's too late.",
+  headline: "Sind Sie für Angriffe verwundbar?",
+  description: "Datenlecks, Ransomware und Compliance-Verstöße können Ihr Unternehmen über Nacht zerstören. Die meisten Unternehmen wissen nicht, wo sie verwundbar sind, bis es zu spät ist.",
   painPoints: [
-    "Unknown vulnerabilities that hackers could exploit at any moment",
-    "No incident response plan when something inevitably goes wrong",
-    "Compliance requirements like GDPR that you're not sure how to meet",
-    "Security patches that never get applied because they might break something",
+    "Unbekannte Schwachstellen, die Hacker jederzeit ausnutzen könnten",
+    "Kein Incident-Response-Plan, wenn unweigerlich etwas schiefgeht",
+    "Compliance-Anforderungen wie DSGVO, bei denen Sie unsicher sind, wie Sie sie erfüllen",
+    "Sicherheitspatches, die nie eingespielt werden, weil sie etwas kaputt machen könnten",
   ],
 };
 
 const solutionData = {
-  headline: "Proactive protection that works",
-  description: "I take a comprehensive approach to security—finding vulnerabilities before attackers do, implementing layered defenses, and establishing processes that keep you protected long-term.",
+  headline: "Proaktiver Schutz, der funktioniert",
+  description: "Ich verfolge einen ganzheitlichen Sicherheitsansatz—finde Schwachstellen, bevor Angreifer sie finden, implementiere mehrschichtige Abwehr und etabliere Prozesse, die Sie langfristig schützen.",
   features: [
     {
-      title: "Comprehensive Audits",
-      description: "Thorough security assessments covering infrastructure, applications, and processes. Know exactly where you stand.",
+      title: "Umfassende Audits",
+      description: "Gründliche Sicherheitsbewertungen von Infrastruktur, Anwendungen und Prozessen. Wissen Sie genau, wo Sie stehen.",
     },
     {
-      title: "Vulnerability Management",
-      description: "Continuous scanning, prioritized remediation, and patch management that keeps systems secure without breaking functionality.",
+      title: "Schwachstellen-Management",
+      description: "Kontinuierliches Scanning, priorisierte Behebung und Patch-Management, das Systeme sicher hält—ohne Funktionalität zu beeinträchtigen.",
     },
     {
-      title: "Compliance Guidance",
-      description: "Navigate GDPR, SOC 2, and other requirements with clear roadmaps and implementation support.",
+      title: "Compliance-Beratung",
+      description: "Navigieren Sie DSGVO, BSI und andere Anforderungen mit klaren Roadmaps und Implementierungsunterstützung.",
     },
     {
       title: "Incident Response",
-      description: "Preparation, playbooks, and rapid response capabilities. When something happens, you'll know exactly what to do.",
+      description: "Vorbereitung, Playbooks und schnelle Response-Fähigkeiten. Wenn etwas passiert, wissen Sie genau, was zu tun ist.",
     },
   ],
 };
 
 const benefitsData = {
-  headline: "Why security-first matters",
+  headline: "Warum Security-First zählt",
   benefits: [
     {
       icon: "lucide:search",
-      title: "Find Vulnerabilities",
-      description: "Discover security gaps before attackers do with comprehensive penetration testing and code review.",
+      title: "Schwachstellen finden",
+      description: "Entdecken Sie Sicherheitslücken, bevor Angreifer sie finden—durch umfassende Penetrationstests und Code-Reviews.",
     },
     {
       icon: "lucide:lock",
-      title: "Protect Data",
-      description: "Implement encryption, access controls, and data protection that meets industry standards.",
+      title: "Daten schützen",
+      description: "Implementieren Sie Verschlüsselung, Zugriffskontrollen und Datenschutz, die Industriestandards erfüllen.",
     },
     {
       icon: "lucide:file-check",
-      title: "Achieve Compliance",
-      description: "Meet GDPR, SOC 2, and other regulatory requirements with documented security controls.",
+      title: "Compliance erreichen",
+      description: "Erfüllen Sie DSGVO, BSI und andere regulatorische Anforderungen mit dokumentierten Sicherheitskontrollen.",
     },
     {
       icon: "lucide:alert-triangle",
-      title: "Rapid Response",
-      description: "Incident response plans and support when security events occur. Minimize damage and recover quickly.",
+      title: "Schnelle Response",
+      description: "Incident-Response-Pläne und Support bei Sicherheitsvorfällen. Minimieren Sie Schäden und erholen Sie sich schnell.",
     },
     {
       icon: "lucide:eye",
-      title: "Continuous Monitoring",
-      description: "Ongoing security monitoring with alerts for suspicious activity and emerging threats.",
+      title: "Kontinuierliches Monitoring",
+      description: "Laufendes Sicherheitsmonitoring mit Alerts bei verdächtigen Aktivitäten und neuen Bedrohungen.",
     },
     {
       icon: "lucide:award",
-      title: "Build Trust",
-      description: "Demonstrable security posture that builds customer confidence and competitive advantage.",
+      title: "Vertrauen aufbauen",
+      description: "Nachweisbare Sicherheitsmaßnahmen, die Kundenvertrauen und Wettbewerbsvorteile schaffen.",
     },
   ],
 };
 
 const processData = {
-  headline: "From assessment to protection",
-  description: "A systematic approach that gives you visibility into your security posture and a clear path to improvement.",
+  headline: "Vom Assessment zum Schutz",
+  description: "Ein systematischer Ansatz, der Ihre Sicherheitslage transparent macht und einen klaren Verbesserungspfad aufzeigt.",
   steps: [
     {
       number: "1",
-      title: "Discovery & Assessment",
-      description: "I conduct a thorough security audit of your infrastructure, applications, and processes to identify vulnerabilities and compliance gaps.",
+      title: "Discovery & Bewertung",
+      description: "Ich führe ein gründliches Sicherheitsaudit Ihrer Infrastruktur, Anwendungen und Prozesse durch, um Schwachstellen und Compliance-Lücken zu identifizieren.",
     },
     {
       number: "2",
-      title: "Risk Analysis & Prioritization",
-      description: "We analyze findings by severity and business impact, creating a prioritized roadmap that addresses critical issues first.",
+      title: "Risikoanalyse & Priorisierung",
+      description: "Wir analysieren die Ergebnisse nach Schweregrad und Geschäftsauswirkung, erstellen eine priorisierte Roadmap und behandeln kritische Issues zuerst.",
     },
     {
       number: "3",
-      title: "Implementation & Hardening",
-      description: "I implement security controls, fix vulnerabilities, set up monitoring, and establish secure development practices.",
+      title: "Implementierung & Härtung",
+      description: "Ich implementiere Sicherheitskontrollen, behebe Schwachstellen, richte Monitoring ein und etabliere sichere Entwicklungspraktiken.",
     },
     {
       number: "4",
-      title: "Documentation & Training",
-      description: "Security policies, incident response plans, and team training ensure your security posture remains strong over time.",
+      title: "Dokumentation & Training",
+      description: "Sicherheitsrichtlinien, Incident-Response-Pläne und Team-Training stellen sicher, dass Ihre Sicherheitslage langfristig stark bleibt.",
     },
   ],
 };
 
 const ctaData = {
-  headline: "Ready to secure your business?",
-  description: "Let's discuss your security concerns and design a protection strategy tailored to your business. From audits to ongoing support, I'll help you sleep better at night.",
-  buttonText: "Get Security Assessment",
+  headline: "Bereit, Ihr Unternehmen abzusichern?",
+  description: "Lassen Sie uns Ihre Sicherheitsbedenken besprechen und eine maßgeschneiderte Schutzstrategie für Ihr Unternehmen entwickeln. Von Audits bis laufendem Support—ich helfe Ihnen, ruhiger zu schlafen.",
+  buttonText: "Sicherheits-Assessment",
 };
 
 const allServices = [
   {
     icon: "lucide:code",
-    title: "Web Development & E-Commerce",
-    description: "Websites and shops that sell with clean code and exceptional UX.",
+    title: t.services.webDevelopment.title,
+    description: t.services.webDevelopment.description,
     href: "/services/web-development",
   },
   {
     icon: "lucide:brain",
-    title: "AI Enablement",
-    description: "Be at the forefront of the productivity enabled by AI.",
+    title: t.services.aiEnablement.title,
+    description: t.services.aiEnablement.description,
     href: "/services/ai-enablement",
   },
   {
     icon: "lucide:cloud",
-    title: "Cloud & DevOps",
-    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure.",
+    title: t.services.cloudDevops.title,
+    description: t.services.cloudDevops.description,
     href: "/services/cloud-devops",
   },
   {
     icon: "lucide:shield",
-    title: "Security Consulting",
-    description: "Protect your digital assets with security audits and best practices.",
+    title: t.services.security.title,
+    description: t.services.security.description,
     href: "/services/security",
   },
 ];
@@ -152,7 +156,7 @@ const allServices = [
   title={serviceData.title}
   description={serviceData.description}
   serviceName={serviceData.name}
-  locale="de"
+  locale={locale}
 >
   <ServiceHero
     title={serviceData.name}

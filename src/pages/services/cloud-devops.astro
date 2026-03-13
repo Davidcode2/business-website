@@ -7,142 +7,146 @@ import BenefitsGrid from '../../components/service/BenefitsGrid.astro';
 import ProcessSection from '../../components/service/ProcessSection.astro';
 import CTASection from '../../components/service/CTASection.astro';
 import RelatedServices from '../../components/service/RelatedServices.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'de';
+const t = getTranslations(locale);
 
 const serviceData = {
-  name: "Cloud & DevOps",
-  title: "Cloud & DevOps | Jakob Lingel",
-  description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure. Your app stays online, always performs, and grows with your business.",
-  tagline: "Built for Scale",
-  heroDescription: "Stop worrying about servers, deployments, and downtime. I set up modern cloud infrastructure that automatically scales, self-heals, and deploys your code with zero downtime.",
+  name: t.services.cloudDevops.title,
+  title: t.cloudDevops.meta.title,
+  description: t.cloudDevops.meta.description,
+  tagline: t.cloudDevops.tagline,
+  heroDescription: t.cloudDevops.heroDescription,
   icon: "lucide:cloud",
 };
 
 const problemData = {
-  headline: "Tired of deployment nightmares?",
-  description: "Manual deployments, server crashes, and scaling headaches drain your team's energy. Traditional hosting can't handle traffic spikes, and every release feels like a gamble.",
+  headline: "Genug von Deployment-Albträumen?",
+  description: "Manuelle Deployments, Server-Abstürze und Skalierungsprobleme zehren an der Energie Ihres Teams. Traditionelles Hosting kann Traffic-Spitzen nicht bewältigen, und jedes Release fühlt sich wie ein Glücksspiel an.",
   painPoints: [
-    "Manual deployments that take hours and often fail at the worst possible moment",
-    "Servers crashing during traffic spikes, losing customers and revenue",
-    "No easy rollback when something breaks in production",
-    "Security patches and updates that never get applied because they're too risky",
+    "Manuelle Deployments, die Stunden dauern und oft im schlimmsten Moment fehlschlagen",
+    "Server-Abstürze während Traffic-Spitzen, die Kunden und Umsatz kosten",
+    "Kein einfaches Rollback, wenn etwas in Produktion kaputt geht",
+    "Sicherheitspatches und Updates, die nie eingespielt werden, weil sie zu riskant erscheinen",
   ],
 };
 
 const solutionData = {
-  headline: "Infrastructure that just works",
-  description: "I build cloud-native infrastructure using Kubernetes, automated CI/CD, and industry best practices. Your application deploys automatically, scales on demand, and stays secure without you lifting a finger.",
+  headline: "Infrastruktur, die einfach funktioniert",
+  description: "Ich baue Cloud-native Infrastruktur mit Kubernetes, automatisierten CI/CD-Pipelines und branchenerprobten Best Practices. Ihre Anwendung deployt automatisch, skaliert bei Bedarf und bleibt sicher—ohne dass Sie einen Finger rühren müssen.",
   features: [
     {
-      title: "Kubernetes Orchestration",
-      description: "Container orchestration that automatically scales your app, handles failures, and optimizes resource usage.",
+      title: "Kubernetes-Orchestrierung",
+      description: "Container-Orchestrierung, die Ihre App automatisch skaliert, Fehler behebt und Ressourcennutzung optimiert.",
     },
     {
-      title: "Zero-Downtime Deploys",
-      description: "Blue-green deployments with automatic rollback. New code goes live seamlessly with instant rollback if issues arise.",
+      title: "Zero-Downtime Deployments",
+      description: "Blue-Green-Deployments mit automatischem Rollback. Neuer Code geht nahtlos live mit sofortigem Rollback bei Problemen.",
     },
     {
       title: "Auto-Scaling",
-      description: "Your app scales from one to hundreds of instances automatically based on demand. Pay only for what you use.",
+      description: "Ihre App skaliert automatisch von einer zu hunderten Instanzen basierend auf der Nachfrage. Bezahlen Sie nur das, was Sie nutzen.",
     },
     {
-      title: "Security Hardened",
-      description: "Network policies, secrets management, vulnerability scanning, and security updates applied automatically.",
+      title: "Sicherheitshärtung",
+      description: "Netzwerk-Richtlinien, Secrets-Management, Vulnerability-Scanning und automatische Sicherheitsupdates.",
     },
   ],
 };
 
 const benefitsData = {
-  headline: "Why modern infrastructure matters",
+  headline: "Warum moderne Infrastruktur entscheidend ist",
   benefits: [
     {
       icon: "lucide:zap",
-      title: "Deploy Faster",
-      description: "Push code and it's live in minutes. Automated testing and deployment pipelines do the work.",
+      title: "Schneller deployen",
+      description: "Code pushen und in Minuten live. Automatisierte Tests und Deployment-Pipelines erledigen die Arbeit.",
     },
     {
       icon: "lucide:activity",
-      title: "99.9% Uptime",
-      description: "Self-healing infrastructure that restarts failed containers and routes around problems.",
+      title: "99,9% Verfügbarkeit",
+      description: "Selbstheilende Infrastruktur, die fehlgeschlagene Container neu startet und Probleme umgeht.",
     },
     {
       icon: "lucide:trending-up",
-      title: "Auto-Scale",
-      description: "Handle traffic spikes without breaking a sweat. Scale up instantly, scale down to save costs.",
+      title: "Auto-Scaling",
+      description: "Bewältigen Sie Traffic-Spitzen problemlos. Sofort hochskalieren, herunterskalieren um Kosten zu sparen.",
     },
     {
       icon: "lucide:shield",
-      title: "Secure by Design",
-      description: "Network isolation, encrypted secrets, and automatic security patches keep you protected.",
+      title: "Sicher von Haus aus",
+      description: "Netzwerk-Isolation, verschlüsselte Secrets und automatische Sicherheitspatches halten Sie geschützt.",
     },
     {
       icon: "lucide:git-branch",
       title: "GitOps Workflow",
-      description: "Your Git repo is the source of truth. Changes are tracked, auditable, and reversible.",
+      description: "Ihr Git-Repository ist die Single Source of Truth. Änderungen sind nachvollziehbar, auditierbar und reversibel.",
     },
     {
       icon: "lucide:bar-chart",
-      title: "Full Observability",
-      description: "Monitoring, logging, and alerting out of the box. Know what's happening before users do.",
+      title: "Volle Observability",
+      description: "Monitoring, Logging und Alerting out of the box. Wissen Sie vor Ihren Nutzern, was passiert.",
     },
   ],
 };
 
 const processData = {
-  headline: "From code to cloud",
-  description: "A methodical approach that gets your infrastructure production-ready with best practices built-in.",
+  headline: "Vom Code zur Cloud",
+  description: "Ein methodischer Ansatz, der Ihre Infrastruktur produktionsreif macht—mit eingebauten Best Practices.",
   steps: [
     {
       number: "1",
-      title: "Assessment & Design",
-      description: "I analyze your current setup, understand your requirements, and design a cloud architecture that meets your needs and budget.",
+      title: "Bewertung & Design",
+      description: "Ich analysiere Ihr aktuelles Setup, verstehe Ihre Anforderungen und designe eine Cloud-Architektur, die Ihren Bedürfnissen und Budget entspricht.",
     },
     {
       number: "2",
-      title: "Infrastructure Setup",
-      description: "I provision Kubernetes clusters, set up CI/CD pipelines, configure networking, and establish security policies.",
+      title: "Infrastruktur-Setup",
+      description: "Ich provisioniere Kubernetes-Cluster, richte CI/CD-Pipelines ein, konfiguriere Netzwerke und etabliere Sicherheitsrichtlinien.",
     },
     {
       number: "3",
       title: "Migration & Testing",
-      description: "We migrate your application to the new infrastructure, run comprehensive tests, and validate everything works perfectly.",
+      description: "Wir migrieren Ihre Anwendung auf die neue Infrastruktur, führen umfassende Tests durch und validieren, dass alles perfekt funktioniert.",
     },
     {
       number: "4",
-      title: "Monitoring & Handoff",
-      description: "I set up monitoring dashboards, document the infrastructure, and train your team on day-to-day operations.",
+      title: "Monitoring & Übergabe",
+      description: "Ich richte Monitoring-Dashboards ein, dokumentiere die Infrastruktur und schule Ihr Team für den täglichen Betrieb.",
     },
   ],
 };
 
 const ctaData = {
-  headline: "Ready for infrastructure that scales?",
-  description: "Let's discuss your current setup and design a cloud infrastructure that grows with your business. From greenfield projects to migrations, I've got you covered.",
-  buttonText: "Start Your Migration",
+  headline: "Bereit für skalierbare Infrastruktur?",
+  description: "Lassen Sie uns Ihr aktuelles Setup besprechen und eine Cloud-Infrastruktur designen, die mit Ihrem Geschäft wächst. Von Greenfield-Projekten bis Migrationen—ich begleite Sie.",
+  buttonText: "Migration starten",
 };
 
 const allServices = [
   {
     icon: "lucide:code",
-    title: "Web Development & E-Commerce",
-    description: "Websites and shops that sell with clean code and exceptional UX.",
+    title: t.services.webDevelopment.title,
+    description: t.services.webDevelopment.description,
     href: "/services/web-development",
   },
   {
     icon: "lucide:brain",
-    title: "AI Enablement",
-    description: "Be at the forefront of the productivity enabled by AI.",
+    title: t.services.aiEnablement.title,
+    description: t.services.aiEnablement.description,
     href: "/services/ai-enablement",
   },
   {
     icon: "lucide:cloud",
-    title: "Cloud & DevOps",
-    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure.",
+    title: t.services.cloudDevops.title,
+    description: t.services.cloudDevops.description,
     href: "/services/cloud-devops",
   },
   {
     icon: "lucide:shield",
-    title: "Security Consulting",
-    description: "Protect your digital assets with security audits and best practices.",
+    title: t.services.security.title,
+    description: t.services.security.description,
     href: "/services/security",
   },
 ];
@@ -152,7 +156,7 @@ const allServices = [
   title={serviceData.title}
   description={serviceData.description}
   serviceName={serviceData.name}
-  locale="de"
+  locale={locale}
 >
   <ServiceHero
     title={serviceData.name}

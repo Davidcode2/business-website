@@ -5,9 +5,10 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 interface Props {
   currentLocale?: string;
   currentPath?: string;
+  isServicePage?: boolean;
 }
 
-const { currentLocale = 'de', currentPath = '' } = Astro.props;
+const { currentLocale = 'de', currentPath = '', isServicePage = false } = Astro.props;
 
 const isGerman = currentLocale === 'de';
 const alternateLocale = isGerman ? 'en' : 'de';
@@ -21,6 +22,11 @@ if (alternateLocale === 'en') {
   // Going to German - remove /en prefix
   alternatePath = currentPath.replace(/^\/en/, '') || '/';
 }
+
+const homeUrl = isGerman ? "/" : "/en/";
+const servicesUrl = isServicePage ? `${homeUrl}#services` : "#services";
+const contactUrl = isServicePage ? `${homeUrl}#contact` : "#contact";
+const aboutUrl = isServicePage ? `${homeUrl}#about` : "#about";
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-(--color-border)">
@@ -34,7 +40,7 @@ if (alternateLocale === 'en') {
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center gap-8">
         <div class="relative group">
-          <a href="#services" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors flex items-center gap-1">
+          <a href={servicesUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors flex items-center gap-1">
             Services
             <Icon name="lucide:chevron-down" class="w-4 h-4" />
           </a>

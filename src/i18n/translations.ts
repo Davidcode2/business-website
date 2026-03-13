@@ -11,87 +11,88 @@ export const translations = {
       impressum: "Impressum",
       toggleLanguage: "Sprache wechseln",
     },
-    // Hero
+    // Hero - German market optimized
     hero: {
       tagline: "Digital Solutions Provider",
-      headline1: "Von der Idee zum",
-      headline2: "Deployment",
-      headline3: "in Rekordzeit",
+      headline1: "Von der Vision",
+      headline2: "zur produktiven Lösung",
+      headline3: "in kürzester Zeit",
       subheadline:
-        "Sie haben eine Vision. Ich habe die Tools, um sie Wirklichkeit werden zu lassen. Maßgeschneiderte Websites, Onlineshops und Cloud-Infrastruktur—schnell geliefert.",
-      ctaPrimary: "Lassen Sie uns sprechen",
-      ctaSecondary: "Services erkunden",
+        "Professionelle Digitalisierung für Unternehmen: Maßgeschneiderte Web-Lösungen, E-Commerce-Plattformen und Cloud-Infrastruktur mit höchsten Qualitätsansprüchen. Effizient umgesetzt, nachhaltig skalierbar.",
+      ctaPrimary: "Gespräch vereinbaren",
+      ctaSecondary: "Leistungen entdecken",
     },
-    // Services
+    // Services - German market optimized
     services: {
-      sectionTagline: "Was ich anbiete",
-      sectionTitle1: "Services gebaut für",
-      sectionTitle2: "Ergebnisse",
+      sectionTagline: "Mein Leistungsangebot",
+      sectionTitle1: "Technische Lösungen mit",
+      sectionTitle2: "messbarem Mehrwert",
       sectionDescription:
-        "Vom Konzept bis zum Launch biete ich End-to-End Digital-Lösungen, die Geschäftswachstum fördern.",
+        "Ich begleite Sie von der ersten Analyse bis zum erfolgreichen Launch: Strategische Digital-Lösungen, die Ihre Geschäftsprozesse optimieren und nachhaltiges Wachstum ermöglichen.",
       webDevelopment: {
-        title: "Web Development & E-Commerce",
+        title: "Webentwicklung & E-Commerce",
         description:
-          "Websites und Shops, die verkaufen. Sauberer Code, schnelle Performance, nahtloser Checkout und außergewöhnliche User Experience—alles in einem Service.",
-        learnMore: "Mehr erfahren",
+          "Performante Websites und conversion-optimierte Onlineshops: Technisch fundierte Architektur, zertifizierte Sicherheitsstandards und durchdachte User Experience für maximale Geschäftsergebnisse.",
+        learnMore: "Details ansehen",
       },
       aiEnablement: {
-        title: "AI Enablement",
+        title: "KI-Integration & Automatisierung",
         description:
-          "Seien Sie an der Spitze der durch KI ermöglichten Produktivität. Strategie, Implementierung und Training, um Ihr Geschäft mit Künstlicher Intelligenz zu transformieren.",
-        learnMore: "Mehr erfahren",
+          "Strategische KI-Implementierung für nachhaltige Effizienzsteigerung: Praxiserprobte Lösungen zur Prozessoptimierung, die direkt messbare Produktivitätsgewinne liefern.",
+        learnMore: "Details ansehen",
       },
       cloudDevops: {
-        title: "Cloud & DevOps",
+        title: "Cloud-Infrastruktur & DevOps",
         description:
-          "Kubernetes-Deployment, CI/CD-Pipelines und skalierbare Infrastruktur. Ihre App bleibt immer online.",
-        learnMore: "Mehr erfahren",
+          "Enterprise-grade Infrastruktur mit 99,9% Verfügbarkeit: Automatisierte Deployment-Prozesse, skalierbare Architekturen und durchgängige Sicherheitskonzepte.",
+        learnMore: "Details ansehen",
       },
       security: {
-        title: "Security Consulting",
+        title: "IT-Security & Compliance",
         description:
-          "Schützen Sie Ihre digitalen Assets. Security Audits, Implementierung von Best Practices und kontinuierliches Monitoring.",
-        learnMore: "Mehr erfahren",
+          "Umfassende IT-Sicherheit nach industrieerprobten Standards: Systematische Audits, DSGVO-konforme Prozesse und kontinuierliches Sicherheitsmanagement für Ihre digitalen Assets.",
+        learnMore: "Details ansehen",
       },
     },
-    // Story/About
+    // Story/About - German market optimized
     story: {
-      sectionTagline: "Der Unterschied",
-      sectionTitle1: "Vom ersten Gespräch bis zum Live-Deployment—",
-      sectionTitle2: "gemessen in Tagen, nicht Monaten",
+      sectionTagline: "Wieso mit mir arbeiten?",
+      sectionTitle1: "Von der Anforderung bis zur Live-Schaltung—",
+      sectionTitle2: "effizient umgesetzt, Qualität garantiert",
       description:
-        "Technologie sollte Ihr Geschäft bedienen, nicht komplizieren. Ich durchbreche den Lärm und liefere Lösungen, die funktionieren—schnell, zuverlässig und skalierbar.",
+        "Als erfahrener Entwickler setze ich Ihre Anforderungen pragmatisch und effizient um. Ohne Umwege, ohne überflüssige Prozesse—fokussiert auf das Ergebnis. Qualität, Zuverlässigkeit und nachhaltige Lösungen stehen dabei im Mittelpunkt.",
       valueProps: {
         noMeetings: {
-          title: "Keine endlosen Meetings",
-          description: "Direkte Kommunikation, schnelle Entscheidungen.",
+          title: "Direkte Kommunikation",
+          description: "Schnelle Entscheidungswege ohne bürokratische Hürden.",
         },
         noBloatedTeams: {
-          title: "Keine aufgeblähten Teams",
-          description: "Ein Experte, fokussiert auf Ihren Erfolg.",
+          title: "Spezialisierte Expertise",
+          description:
+            "Persönliche Betreuung durch einen erfahrenen Entwickler.",
         },
         justResults: {
-          title: "Nur Ergebnisse",
-          description: "Gemessen in Geschäftswert, nicht Stunden.",
+          title: "Ergebnisorientiert",
+          description: "Messbarer Geschäftswert durch technische Excellence.",
         },
       },
       stats: {
-        experience: "Jahre Erfahrung",
-        projects: "Projekte umgesetzt",
+        experience: "Jahre Berufserfahrung",
+        projects: "Erfolgreich umgesetzte Projekte",
         satisfaction: "Kundenzufriedenheit",
-        support: "Support verfügbar",
+        support: "Erreichbarkeit",
       },
     },
-    // Contact
+    // Contact - German market optimized
     contact: {
-      sectionTagline: "Kontakt aufnehmen",
-      sectionTitle1: "Bereit, Ihre",
-      sectionTitle2: "Vision zum Leben zu erwecken?",
+      sectionTagline: "Kontakt",
+      sectionTitle1: "Interesse an einer",
+      sectionTitle2: "Zusammenarbeit?",
       description:
-        "Lassen Sie uns über Ihr Projekt sprechen. Keine Verpflichtungen, nur ein Gespräch darüber, was möglich ist.",
+        "Ich freue mich auf Ihre Anfrage. In einem unverbindlichen Erstgespräch klären wir Ihre Anforderungen und besprechen mögliche Lösungsansätze—ganz ohne Zeitdruck.",
       buttonText: "Kontakt aufnehmen",
-      emailHint: "Klicken Sie, um E-Mail-Adresse anzuzeigen",
-      trustedTech: "Vertraute Technologien",
+      emailHint: "Klicken Sie, um Kontakt aufzunehmen",
+      trustedTech: "Technologie-Stack",
     },
     // Footer
     footer: {

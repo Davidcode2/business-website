@@ -7,142 +7,146 @@ import BenefitsGrid from '../../components/service/BenefitsGrid.astro';
 import ProcessSection from '../../components/service/ProcessSection.astro';
 import CTASection from '../../components/service/CTASection.astro';
 import RelatedServices from '../../components/service/RelatedServices.astro';
+import { getTranslations } from '../../i18n/translations';
+
+const locale = 'de';
+const t = getTranslations(locale);
 
 const serviceData = {
-  name: "AI Enablement",
-  title: "AI Enablement | Jakob Lingel",
-  description: "Be at the forefront of the productivity enabled by AI. Strategy, implementation, and training to transform your business with artificial intelligence.",
-  tagline: "Built for the Future",
-  heroDescription: "The AI revolution is here. While others hesitate, forward-thinking businesses are already gaining competitive advantage. I help you identify the right AI opportunities, implement practical solutions, and train your team—no PhD required.",
+  name: t.services.aiEnablement.title,
+  title: t.aiEnablement.meta.title,
+  description: t.aiEnablement.meta.description,
+  tagline: t.aiEnablement.tagline,
+  heroDescription: t.aiEnablement.heroDescription,
   icon: "lucide:brain",
 };
 
 const problemData = {
-  headline: "Is AI leaving you behind?",
-  description: "Every day, businesses are falling behind because they can't keep up with AI adoption. Meanwhile, competitors are automating tasks, making better decisions, and scaling faster with AI-powered tools.",
+  headline: "Hängen Sie bei der KI-Transformation hinterher?",
+  description: "Unternehmen verlieren täglich an Wettbewerbsfähigkeit, weil sie den Einstieg in Künstliche Intelligenz verpassen. Währenddessen nutzen Wettbewerber KI zur Automatisierung, besseren Entscheidungen und schnellerem Wachstum.",
   painPoints: [
-    "Competitors are already using AI to automate customer service, content creation, and decision-making",
-    "Your team is overwhelmed with repetitive tasks while AI could handle them in seconds",
-    "Thousands of AI tools exist but you don't know which ones actually work for your business",
-    "No internal AI expertise means every AI decision feels like a gamble",
+    "Wettbewerber automatisieren bereits Kundenservice, Content-Erstellung und Entscheidungsprozesse mit KI",
+    "Ihr Team ist mit repetitiven Aufgaben überlastet, die KI in Sekunden erledigen könnte",
+    "Tausende KI-Tools existieren, aber Sie wissen nicht, welche für Ihr Unternehmen wirklich relevant sind",
+    "Ohne interne KI-Expertise fühlt sich jede Entscheidung wie ein Risiko an",
   ],
 };
 
 const solutionData = {
-  headline: "AI that actually works for your business",
-  description: "I cut through the AI hype to find practical, high-ROI opportunities for your specific business. From strategy to implementation to training—I handle the complexity so you get the results.",
+  headline: "Praxiserprobte KI-Lösungen für Ihr Unternehmen",
+  description: "Ich filtere das KI-Hype-Rauschen heraus und identifiziere konkrete, ROI-orientierte Potenziale für Ihr spezifisches Geschäftsmodell. Von Strategie über Implementierung bis Training—ich übernehme die Komplexität, damit Sie die Ergebnisse erzielen.",
   features: [
     {
-      title: "AI Strategy Consulting",
-      description: "Identify the highest-ROI AI opportunities for your business. We analyze your processes, prioritize use cases, and create a clear roadmap.",
+      title: "KI-Strategieberatung",
+      description: "Identifikation der höchsten ROI-Potenziale für Ihr Unternehmen. Analyse Ihrer Prozesse, Priorisierung von Use Cases und Erstellung einer klaren Roadmap.",
     },
     {
-      title: "Process Automation",
-      description: "Automate repetitive tasks with AI-powered workflows. Customer inquiries, document processing, content generation—done in seconds.",
+      title: "Prozessautomatisierung",
+      description: "Automatisierung repetitiver Aufgaben durch KI-gestützte Workflows. Kundenanfragen, Dokumentenverarbeitung, Content-Generierung—in Sekunden erledigt.",
     },
     {
-      title: "Tool Selection & Integration",
-      description: "Cut through the noise. I select, configure, and integrate the right AI tools into your existing systems without disruption.",
+      title: "Tool-Auswahl & Integration",
+      description: "Durchblick im Tool-Dschungel. Ich wähle, konfiguriere und integriere die passenden KI-Tools in Ihre bestehenden Systeme—ohne Disruption.",
     },
     {
-      title: "Team Training & Enablement",
-      description: "Make your team AI-capable, not AI-dependent. Practical training that empowers your people to leverage AI independently.",
+      title: "Team-Training & Enablement",
+      description: "Machen Sie Ihr Team KI-kompetent, nicht KI-abhängig. Praxisnahes Training, das Ihre Mitarbeiter befähigt, KI selbstständig zu nutzen.",
     },
   ],
 };
 
 const benefitsData = {
-  headline: "What AI enablement delivers",
+  headline: "Was KI-Integration konkret bringt",
   benefits: [
     {
       icon: "lucide:zap",
-      title: "40% Time Savings",
-      description: "Average productivity gain from AI automation of routine tasks and workflows.",
+      title: "40% Zeitersparnis",
+      description: "Durchschnittliche Produktivitätssteigerung durch KI-Automatisierung repetitiver Aufgaben und Workflows.",
     },
     {
       icon: "lucide:trending-up",
-      title: "3x Faster Content",
-      description: "Content creation, reporting, and analysis completed in a fraction of the time.",
+      title: "3x schnellere Content-Erstellung",
+      description: "Content-Erstellung, Reporting und Analyse in einem Bruchteil der bisherigen Zeit.",
     },
     {
       icon: "lucide:brain",
-      title: "Better Decisions",
-      description: "AI-powered analytics and insights that help you make data-driven choices faster.",
+      title: "Bessere Entscheidungen",
+      description: "KI-gestützte Analysen und Insights für datenbasierte Entscheidungen in Echtzeit.",
     },
     {
       icon: "lucide:users",
-      title: "Scaled Customer Service",
-      description: "Handle more customer inquiries without hiring—AI handles routine questions.",
+      title: "Skalierbarer Kundenservice",
+      description: "Mehr Kundenanfragen bearbeiten ohne zusätzliches Personal—KI übernimmt Routinefragen.",
     },
     {
       icon: "lucide:shield",
-      title: "Competitive Advantage",
-      description: "Move faster, scale smarter, and stay ahead of competitors still doing things manually.",
+      title: "Wettbewerbsvorteil",
+      description: "Schneller arbeiten, intelligenter skalieren und der Konkurrenz einen Schritt voraus sein.",
     },
     {
       icon: "lucide:graduation-cap",
-      title: "AI-Capable Team",
-      description: "Your people become AI-native, using AI tools confidently and independently.",
+      title: "KI-kompetentes Team",
+      description: "Ihre Mitarbeiter werden KI-native und nutzen KI-Tools souverän und selbstständig.",
     },
   ],
 };
 
 const processData = {
-  headline: "From AI confusion to clarity",
-  description: "A structured approach that identifies opportunities, proves value quickly, and scales what works.",
+  headline: "Von der KI-Verwirrung zur Klarheit",
+  description: "Ein strukturierter Ansatz, der Potenziale identifiziert, schnell Wert nachweist und Erfolgreiches skaliert.",
   steps: [
     {
       number: "1",
-      title: "Discovery & Opportunity Mapping",
-      description: "We analyze your business processes, identify automation potential, and prioritize use cases by ROI. You get a clear AI roadmap.",
+      title: "Analyse & Potenzial-Mapping",
+      description: "Wir analysieren Ihre Geschäftsprozesse, identifizieren Automatisierungspotenziale und priorisieren Use Cases nach ROI. Sie erhalten eine klare KI-Roadmap.",
     },
     {
       number: "2",
-      title: "Strategy & Tool Selection",
-      description: "I recommend the right AI tools and approaches for your specific needs. No cookie-cutter solutions—everything tailored to your business.",
+      title: "Strategie & Tool-Auswahl",
+      description: "Ich empfehle die passenden KI-Tools und Vorgehensweisen für Ihre spezifischen Anforderungen. Keine Einheitslösungen—alles maßgeschneidert.",
     },
     {
       number: "3",
-      title: "Pilot Implementation",
-      description: "We start with a 30-day pilot to prove value quickly. Configure tools, set up integrations, and automate your first high-impact workflow.",
+      title: "Pilot-Implementierung",
+      description: "Wir starten mit einem 30-Tage-Piloten, um schnell Wert zu beweisen. Tools konfigurieren, Integrationen aufsetzen und ersten Workflow automatisieren.",
     },
     {
       number: "4",
-      title: "Scale & Enable",
-      description: "Expand successful pilots across your organization. Train your team, document processes, and establish ongoing optimization.",
+      title: "Skalierung & Enablement",
+      description: "Erfolgreiche Piloten über das ganze Unternehmen ausrollen. Team schulen, Prozesse dokumentieren und kontinuierliche Optimierung etablieren.",
     },
   ],
 };
 
 const ctaData = {
-  headline: "Ready to lead the AI revolution?",
-  description: "Let's discuss your AI opportunities in a free 30-minute assessment. I'll identify your top 3 AI use cases and show you exactly how to get started.",
-  buttonText: "Get Your Free AI Assessment",
+  headline: "Bereit für die KI-Transformation?",
+  description: "Lassen Sie uns Ihre KI-Potenziale in einem kostenlosen 30-minütigen Assessment besprechen. Ich identifiziere Ihre Top-3-KI-Use-Cases und zeige Ihnen den konkreten Einstieg.",
+  buttonText: "Kostenloses KI-Assessment",
 };
 
 const allServices = [
   {
     icon: "lucide:code",
-    title: "Web Development & E-Commerce",
-    description: "Websites and shops that sell with clean code and exceptional UX.",
+    title: t.services.webDevelopment.title,
+    description: t.services.webDevelopment.description,
     href: "/services/web-development",
   },
   {
     icon: "lucide:brain",
-    title: "AI Enablement",
-    description: "Be at the forefront of the productivity enabled by AI.",
+    title: t.services.aiEnablement.title,
+    description: t.services.aiEnablement.description,
     href: "/services/ai-enablement",
   },
   {
     icon: "lucide:cloud",
-    title: "Cloud & DevOps",
-    description: "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure.",
+    title: t.services.cloudDevops.title,
+    description: t.services.cloudDevops.description,
     href: "/services/cloud-devops",
   },
   {
     icon: "lucide:shield",
-    title: "Security Consulting",
-    description: "Protect your digital assets with security audits and best practices.",
+    title: t.services.security.title,
+    description: t.services.security.description,
     href: "/services/security",
   },
 ];
@@ -152,7 +156,7 @@ const allServices = [
   title={serviceData.title}
   description={serviceData.description}
   serviceName={serviceData.name}
-  locale="de"
+  locale={locale}
 >
   <ServiceHero
     title={serviceData.name}
