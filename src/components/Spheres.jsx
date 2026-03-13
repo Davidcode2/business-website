@@ -122,7 +122,7 @@ export default function Spheres({ count = 8 }) {
     <>
       <Environment preset="city" />
       <Instances ref={instancesRef} limit={count}>
-        <sphereGeometry args={[1, 32, 32]} />
+        <sphereGeometry args={[0.35, 32, 32]} />
         <meshPhysicalMaterial
           metalness={0.9}
           roughness={0.1}
