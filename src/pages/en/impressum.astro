@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Navigation from "../../components/Navigation.astro";
 import Footer from "../../components/Footer.astro";
+import { Icon } from 'astro-icon/components';
 import { getTranslations } from '../../i18n/translations';
 
 const locale = 'en';
@@ -19,24 +20,41 @@ const t = getTranslations(locale);
         <section>
           <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.provider}</h2>
           <p class="leading-relaxed">
-            {t.impressum.name}<br />
-            [Street Address]<br />
-            [Postal Code] [City]
+            Jakob Lingel<br />
+            Amselweg 3<br />
+            73560 Böbingen an der Rems
+          </p>
+        </section>
+        
+        <section>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">Tax Identification Number</h2>
+          <p class="leading-relaxed">
+            according to § 139c German Fiscal Code:<br />
+            DE457840760-00001
           </p>
         </section>
         
         <section>
           <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.contact}</h2>
           <p class="leading-relaxed">
-            {t.impressum.email}: <a href="mailto:jakob.lingel@hotmail.de" class="text-(--color-accent) hover:text-(--color-accent-weak)">jakob.lingel@hotmail.de</a>
+            <a 
+              href="https://linkedin.com/in/jakob-lingel" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-(--color-accent) hover:text-(--color-accent-weak) transition-colors"
+            >
+              <Icon name="simple-icons:linkedin" class="w-5 h-5" />
+              LinkedIn
+            </a>
           </p>
         </section>
         
         <section>
           <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.responsible}</h2>
           <p class="leading-relaxed">
-            {t.impressum.name}<br />
-            [Address as above]
+            Jakob Lingel<br />
+            Amselweg 3<br />
+            73560 Böbingen an der Rems
           </p>
         </section>
         

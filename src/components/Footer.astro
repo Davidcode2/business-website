@@ -4,11 +4,17 @@ import { getTranslations, type Locale } from '../i18n/translations';
 
 interface Props {
   locale?: Locale;
+  isServicePage?: boolean;
 }
 
-const { locale = 'de' } = Astro.props;
+const { locale = 'de', isServicePage = false } = Astro.props;
 const t = getTranslations(locale);
 const isGerman = locale === 'de';
+
+const homeUrl = isGerman ? "/" : "/en/";
+const servicesUrl = isServicePage ? `${homeUrl}#services` : "#services";
+const contactUrl = isServicePage ? `${homeUrl}#contact` : "#contact";
+const aboutUrl = isServicePage ? `${homeUrl}#about` : "#about";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -18,7 +24,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid md:grid-cols-3 gap-8 items-center">
       <!-- Logo/Name -->
       <div class="text-center md:text-left">
-        <a href={isGerman ? "/" : "/en/"} class="text-xl font-semibold text-(--color-text-primary) hover:text-(--color-accent) transition-colors">
+        <a href={homeUrl} class="text-xl font-semibold text-(--color-text-primary) hover:text-(--color-accent) transition-colors">
           Jakob Lingel
         </a>
         <p class="text-(--color-text-muted) text-sm mt-2">
@@ -28,13 +34,16 @@ const currentYear = new Date().getFullYear();
       
       <!-- Navigation -->
       <div class="flex justify-center gap-6">
-        <a href={isGerman ? "/" : "/en/"} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+        <a href={homeUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
           {t.nav.home}
         </a>
-        <a href="#services" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+        <a href={aboutUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+          {t.nav.about}
+        </a>
+        <a href={servicesUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
           {t.nav.services}
         </a>
-        <a href="#contact" class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+        <a href={contactUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
           {t.nav.contact}
         </a>
         <a href={isGerman ? "/impressum" : "/en/impressum"} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
