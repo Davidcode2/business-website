@@ -42,28 +42,183 @@ const t = getTranslations(locale);
       </p>
     </div>
     
-    <!-- Trust indicators -->
-    <div class="mt-16 pt-8 border-t border-(--color-border)">
-      <p class="text-(--color-text-muted) text-sm mb-4">{t.contact.trustedTech}</p>
-      <div class="flex flex-wrap justify-center gap-8 text-(--color-text-secondary)">
-        <span class="flex items-center gap-2">
-          <Icon name="simple-icons:astro" class="w-5 h-5" />
-          Astro
-        </span>
-        <span class="flex items-center gap-2">
-          <Icon name="simple-icons:react" class="w-5 h-5" />
-          React
-        </span>
-        <span class="flex items-center gap-2">
-          <Icon name="simple-icons:kubernetes" class="w-5 h-5" />
-          Kubernetes
-        </span>
-        <span class="flex items-center gap-2">
-          <Icon name="simple-icons:terraform" class="w-5 h-5" />
-          Terraform
-        </span>
+    <!-- Technology Stack Marquee -->
+    <div class="mt-20 pt-12 border-t border-(--color-border)">
+      <p class="text-(--color-text-muted) text-sm mb-8">{t.contact.trustedTech}</p>
+      
+      <div class="relative overflow-hidden">
+        <!-- Gradient masks for smooth fade -->
+        <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-(--color-background) to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-(--color-background) to-transparent z-10"></div>
+        
+        <!-- Scrolling marquee container -->
+        <div class="marquee-container">
+          <div class="marquee-content">
+            <!-- First set of technologies -->
+            <div class="tech-item">
+              <Icon name="simple-icons:astro" class="w-10 h-10" />
+              <span>Astro</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:react" class="w-10 h-10" />
+              <span>React</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:typescript" class="w-10 h-10" />
+              <span>TypeScript</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:angular" class="w-10 h-10" />
+              <span>Angular</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:python" class="w-10 h-10" />
+              <span>Python</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:rust" class="w-10 h-10" />
+              <span>Rust</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:kubernetes" class="w-10 h-10" />
+              <span>Kubernetes</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:terraform" class="w-10 h-10" />
+              <span>Terraform</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:amazonaws" class="w-10 h-10" />
+              <span>AWS</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:ansible" class="w-10 h-10" />
+              <span>Ansible</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:github" class="w-10 h-10" />
+              <span>GitHub</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:digitalocean" class="w-10 h-10" />
+              <span>DigitalOcean</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:hetzner" class="w-10 h-10" />
+              <span>Hetzner</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:strapi" class="w-10 h-10" />
+              <span>Strapi</span>
+            </div>
+            
+            <!-- Duplicate for seamless loop -->
+            <div class="tech-item">
+              <Icon name="simple-icons:astro" class="w-10 h-10" />
+              <span>Astro</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:react" class="w-10 h-10" />
+              <span>React</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:typescript" class="w-10 h-10" />
+              <span>TypeScript</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:angular" class="w-10 h-10" />
+              <span>Angular</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:python" class="w-10 h-10" />
+              <span>Python</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:rust" class="w-10 h-10" />
+              <span>Rust</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:kubernetes" class="w-10 h-10" />
+              <span>Kubernetes</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:terraform" class="w-10 h-10" />
+              <span>Terraform</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:amazonaws" class="w-10 h-10" />
+              <span>AWS</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:ansible" class="w-10 h-10" />
+              <span>Ansible</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:github" class="w-10 h-10" />
+              <span>GitHub</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:digitalocean" class="w-10 h-10" />
+              <span>DigitalOcean</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:hetzner" class="w-10 h-10" />
+              <span>Hetzner</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:strapi" class="w-10 h-10" />
+              <span>Strapi</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    
+    <style>
+      .marquee-container {
+        width: 100%;
+        overflow: hidden;
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      }
+      
+      .marquee-content {
+        display: flex;
+        gap: 4rem;
+        animation: scroll 60s linear infinite;
+        width: max-content;
+      }
+      
+      .tech-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--color-text-secondary);
+        font-size: 0.875rem;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: color 0.3s ease;
+      }
+      
+      .tech-item:hover {
+        color: var(--color-text-primary);
+      }
+      
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      /* Pause animation on hover */
+      .marquee-container:hover .marquee-content {
+        animation-play-state: paused;
+      }
+    </style>
   </div>
 </section>
 
