@@ -10,24 +10,26 @@
     border-color: var(--color-border);
     divide-color: var(--color-border);
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     font-family: var(--font-inter);
     background-color: var(--color-background);
     color: var(--color-text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
-  
+
   a {
     color: var(--color-accent);
     text-decoration: none;
     transition: color 0.2s ease-in-out;
   }
-  
+
   a:hover {
     color: var(--color-accent-weak);
   }
@@ -37,55 +39,55 @@
 [data-theme="light"] {
   --color-background: hsl(0, 0%, 100%);
   --color-foreground: hsl(222, 47%, 11%);
-  
+
   --color-surface-base: hsl(0, 0%, 100%);
   --color-surface-subtle: hsl(210, 20%, 98%);
   --color-surface-raised: hsl(210, 20%, 96%);
   --color-surface-overlay: hsl(210, 20%, 93%);
-  
+
   --color-accent-subtle: hsl(220, 60%, 96%);
   --color-accent-muted: hsl(220, 50%, 90%);
   --color-accent-weak: hsl(220, 60%, 65%);
   --color-accent: hsl(220, 70%, 50%);
   --color-accent-emphasis: hsl(220, 80%, 45%);
   --color-accent-strong: hsl(220, 90%, 40%);
-  
+
   --color-text-primary: hsl(222, 47%, 11%);
   --color-text-secondary: hsl(215, 20%, 35%);
   --color-text-muted: hsl(215, 15%, 50%);
   --color-text-inverse: hsl(0, 0%, 100%);
-  
+
   --color-border: hsl(214, 20%, 90%);
-  
+
   --gradient-blob-1: hsl(220, 80%, 65%);
   --gradient-blob-2: hsl(260, 70%, 60%);
   --gradient-blob-3: hsl(200, 80%, 55%);
 }
 
-/* Dark theme (default) */
+/* Dark theme (default) - Matching 3D scene background (#111111) */
 [data-theme="dark"] {
-  --color-background: hsl(222, 47%, 6%);
-  --color-foreground: hsl(210, 20%, 95%);
-  
-  --color-surface-base: hsl(222, 47%, 6%);
-  --color-surface-subtle: hsl(222, 40%, 10%);
-  --color-surface-raised: hsl(222, 35%, 14%);
-  --color-surface-overlay: hsl(222, 30%, 18%);
-  
+  --color-background: hsl(0, 0%, 7%);
+  --color-foreground: hsl(0, 0%, 95%);
+
+  --color-surface-base: hsl(0, 0%, 7%);
+  --color-surface-subtle: hsl(0, 0%, 10%);
+  --color-surface-raised: hsl(0, 0%, 14%);
+  --color-surface-overlay: hsl(0, 0%, 18%);
+
   --color-accent-subtle: hsl(220, 40%, 20%);
   --color-accent-muted: hsl(220, 45%, 28%);
   --color-accent-weak: hsl(220, 60%, 55%);
   --color-accent: hsl(220, 70%, 60%);
   --color-accent-emphasis: hsl(220, 80%, 65%);
   --color-accent-strong: hsl(220, 90%, 70%);
-  
-  --color-text-primary: hsl(210, 20%, 95%);
-  --color-text-secondary: hsl(215, 15%, 75%);
-  --color-text-muted: hsl(215, 15%, 55%);
-  --color-text-inverse: hsl(222, 47%, 6%);
-  
-  --color-border: hsl(222, 25%, 20%);
-  
+
+  --color-text-primary: hsl(0, 0%, 95%);
+  --color-text-secondary: hsl(0, 0%, 75%);
+  --color-text-muted: hsl(0, 0%, 55%);
+  --color-text-inverse: hsl(0, 0%, 7%);
+
+  --color-border: hsl(0, 0%, 20%);
+
   --gradient-blob-1: hsl(220, 80%, 45%);
   --gradient-blob-2: hsl(260, 70%, 40%);
   --gradient-blob-3: hsl(200, 80%, 35%);
@@ -106,7 +108,8 @@
 
 /* Gradient animation for blobs */
 @keyframes blob {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   25% {
@@ -152,7 +155,12 @@
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--gradient-blob-1), var(--gradient-blob-2), var(--gradient-blob-3));
+  background: linear-gradient(
+    135deg,
+    var(--gradient-blob-1),
+    var(--gradient-blob-2),
+    var(--gradient-blob-3)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -164,4 +172,3 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-
