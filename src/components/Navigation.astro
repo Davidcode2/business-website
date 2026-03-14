@@ -133,16 +133,16 @@ const aboutUrl = isServicePage ? `${homeUrl}#about` : "#about";
       </a>
       
       <!-- Mobile Language Toggle -->
-      <div class="py-2 border-t border-(--color-border) mt-2">
+      <div class="py-4 border-t border-(--color-border) mt-4">
         <a 
           href={alternatePath}
-          class="flex items-center justify-center gap-2 py-2 text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors"
+          class="flex items-center justify-between px-4 py-3 rounded-xl bg-(--color-surface-raised) border border-(--color-border) text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-overlay) transition-all"
         >
-          <span class="text-sm">{isGerman ? 'Switch to English' : 'Zu Deutsch wechseln'}</span>
-          <span class="flex items-center gap-1 text-sm font-medium">
-            <span class={isGerman ? 'text-(--color-accent)' : ''}>DE</span>
-            <span class="text-(--color-text-muted)">/</span>
-            <span class={!isGerman ? 'text-(--color-accent)' : ''}>EN</span>
+          <span class="text-sm font-medium">{isGerman ? 'Switch to English' : 'Zu Deutsch wechseln'}</span>
+          <span class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-(--color-surface-base) border border-(--color-border) text-sm font-semibold">
+            <span class={isGerman ? 'text-(--color-accent)' : 'text-(--color-text-muted)'}>DE</span>
+            <span class="text-(--color-border)">|</span>
+            <span class={!isGerman ? 'text-(--color-accent)' : 'text-(--color-text-muted)'}>EN</span>
           </span>
         </a>
       </div>
