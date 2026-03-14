@@ -5,7 +5,7 @@ export const home = {
     headline2: "deployment" as string,
     headline3: "in record time" as string,
     subheadline:
-      "You have a vision. I have the tools to make it real. Custom websites, webshops, and cloud infrastructure—delivered fast." as string,
+      "Harness the full power of digitalization in the AI age. AI-enabled solutions, custom software, and intelligent automation—built to multiply your productivity." as string,
     ctaPrimary: "Let's talk" as string,
     ctaSecondary: "Explore services" as string,
   },
@@ -16,15 +16,15 @@ export const home = {
     sectionDescription:
       "From concept to launch, I provide end-to-end digital solutions that drive business growth." as string,
     webDevelopment: {
-      title: "Web Development & E-Commerce" as string,
+      title: "Web, Shop & Tailor-Made Software" as string,
       description:
-        "Websites and shops that sell. Clean code, fast performance, seamless checkout, and exceptional user experience—everything in one service." as string,
+        "Custom websites, high-converting shops, and intelligent software that automates your workflows. From customer-facing solutions to internal tools that boost productivity—built for real business impact." as string,
       learnMore: "Learn more" as string,
     },
     aiEnablement: {
-      title: "AI Enablement" as string,
+      title: "AI Enablement & Training" as string,
       description:
-        "Be at the forefront of the productivity enabled by AI. Strategy, implementation, and training to transform your business with artificial intelligence." as string,
+        "Transform how your team works with practical AI integration. You get working solutions plus hands-on training—so your people can leverage AI independently long after the project ends. Real productivity gains, not just promises." as string,
       learnMore: "Learn more" as string,
     },
     cloudDevops: {
