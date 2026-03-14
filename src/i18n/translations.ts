@@ -79,7 +79,7 @@ export const translations = {
       stats: {
         experience: "Jahre Berufserfahrung",
         projects: "Erfolgreich umgesetzte Projekte",
-        satisfaction: "Kundenzufriedenheit",
+        satisfaction: "Kunden-zufriedenheit",
         support: "Erreichbarkeit",
       },
     },
