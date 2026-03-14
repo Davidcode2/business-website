@@ -34,19 +34,19 @@ const currentYear = new Date().getFullYear();
       
       <!-- Navigation -->
       <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-6 text-center">
-        <a href={homeUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
+        <a href={homeUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
           {t.nav.home}
         </a>
-        <a href={aboutUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
+        <a href={aboutUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
           {t.nav.about}
         </a>
-        <a href={servicesUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
+        <a href={servicesUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
           {t.nav.services}
         </a>
-        <a href={contactUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
+        <a href={contactUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
           {t.nav.contact}
         </a>
-        <a href={isGerman ? "/impressum" : "/en/impressum"} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
+        <a href={isGerman ? "/impressum" : "/en/impressum"} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
           {t.nav.impressum}
         </a>
       </div>
