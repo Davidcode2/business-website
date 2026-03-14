@@ -5,7 +5,7 @@ export const home = {
     headline2: "zur produktiven Lösung" as string,
     headline3: "in kürzester Zeit" as string,
     subheadline:
-      "Professionelle Digitalisierung für Unternehmen: Maßgeschneiderte Web-Lösungen, E-Commerce-Plattformen und Cloud-Infrastruktur mit höchsten Qualitätsansprüchen. Effizient umgesetzt, nachhaltig skalierbar." as string,
+      "Nutzen Sie die volle Kraft der Digitalisierung im KI-Zeitalter. KI-gestützte Lösungen, maßgeschneiderte Software und intelligente Automation—entwickelt, um Ihre Produktivität zu multiplizieren." as string,
     ctaPrimary: "Gespräch vereinbaren" as string,
     ctaSecondary: "Leistungen entdecken" as string,
   },
@@ -16,15 +16,15 @@ export const home = {
     sectionDescription:
       "Ich begleite Sie von der ersten Analyse bis zum erfolgreichen Launch: Strategische Digital-Lösungen, die Ihre Geschäftsprozesse optimieren und nachhaltiges Wachstum ermöglichen." as string,
     webDevelopment: {
-      title: "Webentwicklung & E-Commerce" as string,
+      title: "Web, Shop & Maßgeschneiderte Software" as string,
       description:
-        "Performante Websites und conversion-optimierte Onlineshops: Technisch fundierte Architektur, zertifizierte Sicherheitsstandards und durchdachte User Experience für maximale Geschäftsergebnisse." as string,
+        "Individuelle Websites, hochkonvertierende Onlineshops und intelligente Software, die Ihre Arbeitsabläufe automatisiert. Von kundenorientierten Lösungen bis zu internen Tools, die die Produktivität steigern—entwickelt für echten geschäftlichen Impact." as string,
       learnMore: "Details ansehen" as string,
     },
     aiEnablement: {
-      title: "KI-Integration & Automatisierung" as string,
+      title: "KI-Integration & Training" as string,
       description:
-        "Strategische KI-Implementierung für nachhaltige Effizienzsteigerung: Praxiserprobte Lösungen zur Prozessoptimierung, die direkt messbare Produktivitätsgewinne liefern." as string,
+        "Transformieren Sie die Art und Weise, wie Ihr Team arbeitet, durch praxisnahe KI-Integration. Sie erhalten funktionierende Lösungen plus praktisches Training—damit Ihre Mitarbeiter KI auch langfristig selbstständig nutzen können. Echte Produktivitätsgewinne, nicht nur Versprechen." as string,
       learnMore: "Details ansehen" as string,
     },
     cloudDevops: {
