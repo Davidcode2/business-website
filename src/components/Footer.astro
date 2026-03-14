@@ -33,20 +33,20 @@ const currentYear = new Date().getFullYear();
       </div>
       
       <!-- Navigation -->
-      <div class="flex justify-center gap-6">
-        <a href={homeUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+      <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-6 text-center">
+        <a href={homeUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
           {t.nav.home}
         </a>
-        <a href={aboutUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+        <a href={aboutUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
           {t.nav.about}
         </a>
-        <a href={servicesUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+        <a href={servicesUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
           {t.nav.services}
         </a>
-        <a href={contactUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+        <a href={contactUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
           {t.nav.contact}
         </a>
-        <a href={isGerman ? "/impressum" : "/en/impressum"} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm">
+        <a href={isGerman ? "/impressum" : "/en/impressum"} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0">
           {t.nav.impressum}
         </a>
       </div>
