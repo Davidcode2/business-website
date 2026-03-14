@@ -18,38 +18,37 @@ const t = getTranslations(locale);
   </div>
   
   <!-- Content -->
-  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div class="relative z-10 max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 text-center">
     <div class="animate-fade-in-up">
       <!-- Tagline -->
-      <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
+      <p class="text-(--color-accent) font-medium mb-3 sm:mb-4 tracking-wide uppercase text-xs sm:text-sm">
         {t.hero.tagline}
       </p>
       
       <!-- Main headline -->
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-(--color-text-primary) mb-6 leading-tight">
-        {t.hero.headline1}
-        <span class="gradient-text">{t.hero.headline2}</span>
-        <br />
-        {t.hero.headline3}
+      <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-(--color-text-primary) mb-4 sm:mb-6 leading-tight">
+        <span class="block sm:inline">{t.hero.headline1}</span>
+        <span class="gradient-text block sm:inline">{t.hero.headline2}</span>
+        <span class="block sm:inline">{t.hero.headline3}</span>
       </h1>
       
       <!-- Subheadline -->
-      <p class="text-xl text-(--color-text-secondary) mb-10 max-w-2xl mx-auto">
+      <p class="text-base sm:text-xl text-(--color-text-secondary) mb-8 sm:mb-10 max-w-2xl mx-auto px-2 sm:px-0">
         {t.hero.subheadline}
       </p>
       
       <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
         <a 
           href="#contact" 
-          class="group inline-flex items-center gap-2 px-8 py-4 bg-(--color-accent) text-(--color-text-inverse) rounded-full font-medium hover:bg-(--color-accent-emphasis) transition-all hover:scale-105 backdrop-blur-sm"
+          class="group inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-(--color-accent) text-(--color-text-inverse) rounded-full font-medium hover:bg-(--color-accent-emphasis) transition-all hover:scale-105 backdrop-blur-sm w-full sm:w-auto justify-center"
         >
           {t.hero.ctaPrimary}
           <Icon name="lucide:arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </a>
         <a 
           href="#services" 
-          class="inline-flex items-center gap-2 px-8 py-4 border border-(--color-border) text-(--color-text-primary) rounded-full font-medium hover:bg-(--color-surface-raised) transition-all backdrop-blur-md bg-(--color-surface-base)/30"
+          class="inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 border border-(--color-border) text-(--color-text-primary) rounded-full font-medium hover:bg-(--color-surface-raised) transition-all backdrop-blur-md bg-(--color-surface-base)/30 w-full sm:w-auto justify-center"
         >
           {t.hero.ctaSecondary}
         </a>
