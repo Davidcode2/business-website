@@ -44,15 +44,11 @@ const t = getTranslations(locale);
     
     <!-- Technology Stack Marquee -->
     <div class="mt-20">
-      <div class="relative overflow-hidden">
-        <!-- Gradient masks for smooth fade -->
-        <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-(--color-background) to-transparent z-10"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-(--color-background) to-transparent z-10"></div>
-        
-        <!-- Scrolling marquee container -->
-        <div class="marquee-container">
+      <div class="space-y-8">
+        <!-- Row 1: Scrolling left -->
+        <div class="marquee-row">
           <div class="marquee-content">
-            <!-- First set of technologies -->
+            <!-- First set -->
             <div class="tech-item">
               <Icon name="simple-icons:astro" class="w-10 h-10" />
               <span>Astro</span>
@@ -70,13 +66,94 @@ const t = getTranslations(locale);
               <span>Angular</span>
             </div>
             <div class="tech-item">
+              <Icon name="simple-icons:nextdotjs" class="w-10 h-10" />
+              <span>Next.js</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:nestjs" class="w-10 h-10" />
+              <span>NestJS</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:tailwindcss" class="w-10 h-10" />
+              <span>Tailwind CSS</span>
+            </div>
+            <div class="tech-item">
               <Icon name="simple-icons:python" class="w-10 h-10" />
               <span>Python</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:dotnet" class="w-10 h-10" />
+              <span>.NET</span>
             </div>
             <div class="tech-item">
               <Icon name="simple-icons:rust" class="w-10 h-10" />
               <span>Rust</span>
             </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:neovim" class="w-10 h-10" />
+              <span>Neovim</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:archlinux" class="w-10 h-10" />
+              <span>Arch Linux</span>
+            </div>
+
+            <!-- Duplicate for seamless loop -->
+            <div class="tech-item">
+              <Icon name="simple-icons:astro" class="w-10 h-10" />
+              <span>Astro</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:react" class="w-10 h-10" />
+              <span>React</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:typescript" class="w-10 h-10" />
+              <span>TypeScript</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:angular" class="w-10 h-10" />
+              <span>Angular</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:nextdotjs" class="w-10 h-10" />
+              <span>Next.js</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:nestjs" class="w-10 h-10" />
+              <span>NestJS</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:tailwindcss" class="w-10 h-10" />
+              <span>Tailwind CSS</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:python" class="w-10 h-10" />
+              <span>Python</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:dotnet" class="w-10 h-10" />
+              <span>.NET</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:rust" class="w-10 h-10" />
+              <span>Rust</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:neovim" class="w-10 h-10" />
+              <span>Neovim</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:archlinux" class="w-10 h-10" />
+              <span>Arch Linux</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Scrolling right -->
+        <div class="marquee-row">
+          <div class="marquee-content-reverse">
+            <!-- First set -->
             <div class="tech-item">
               <Icon name="simple-icons:kubernetes" class="w-10 h-10" />
               <span>Kubernetes</span>
@@ -84,6 +161,10 @@ const t = getTranslations(locale);
             <div class="tech-item">
               <Icon name="simple-icons:terraform" class="w-10 h-10" />
               <span>Terraform</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:argo" class="w-10 h-10" />
+              <span>ArgoCD</span>
             </div>
             <div class="tech-item">
               <Icon name="simple-icons:amazonaws" class="w-10 h-10" />
@@ -109,32 +190,8 @@ const t = getTranslations(locale);
               <Icon name="simple-icons:strapi" class="w-10 h-10" />
               <span>Strapi</span>
             </div>
-            
+
             <!-- Duplicate for seamless loop -->
-            <div class="tech-item">
-              <Icon name="simple-icons:astro" class="w-10 h-10" />
-              <span>Astro</span>
-            </div>
-            <div class="tech-item">
-              <Icon name="simple-icons:react" class="w-10 h-10" />
-              <span>React</span>
-            </div>
-            <div class="tech-item">
-              <Icon name="simple-icons:typescript" class="w-10 h-10" />
-              <span>TypeScript</span>
-            </div>
-            <div class="tech-item">
-              <Icon name="simple-icons:angular" class="w-10 h-10" />
-              <span>Angular</span>
-            </div>
-            <div class="tech-item">
-              <Icon name="simple-icons:python" class="w-10 h-10" />
-              <span>Python</span>
-            </div>
-            <div class="tech-item">
-              <Icon name="simple-icons:rust" class="w-10 h-10" />
-              <span>Rust</span>
-            </div>
             <div class="tech-item">
               <Icon name="simple-icons:kubernetes" class="w-10 h-10" />
               <span>Kubernetes</span>
@@ -142,6 +199,10 @@ const t = getTranslations(locale);
             <div class="tech-item">
               <Icon name="simple-icons:terraform" class="w-10 h-10" />
               <span>Terraform</span>
+            </div>
+            <div class="tech-item">
+              <Icon name="simple-icons:argo" class="w-10 h-10" />
+              <span>ArgoCD</span>
             </div>
             <div class="tech-item">
               <Icon name="simple-icons:amazonaws" class="w-10 h-10" />
@@ -171,22 +232,42 @@ const t = getTranslations(locale);
         </div>
       </div>
     </div>
-    
+
     <style>
-      .marquee-container {
+      .marquee-row {
         width: 100%;
         overflow: hidden;
-        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        position: relative;
+        mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 8%,
+          black 92%,
+          transparent 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 8%,
+          black 92%,
+          transparent 100%
+        );
       }
-      
+
       .marquee-content {
         display: flex;
         gap: 4rem;
-        animation: scroll 60s linear infinite;
+        animation: scroll-left 40s linear infinite;
         width: max-content;
       }
-      
+
+      .marquee-content-reverse {
+        display: flex;
+        gap: 4rem;
+        animation: scroll-right 40s linear infinite;
+        width: max-content;
+      }
+
       .tech-item {
         display: flex;
         flex-direction: column;
@@ -198,12 +279,12 @@ const t = getTranslations(locale);
         white-space: nowrap;
         transition: color 0.3s ease;
       }
-      
+
       .tech-item:hover {
         color: var(--color-text-primary);
       }
-      
-      @keyframes scroll {
+
+      @keyframes scroll-left {
         0% {
           transform: translateX(0);
         }
@@ -211,9 +292,19 @@ const t = getTranslations(locale);
           transform: translateX(-50%);
         }
       }
-      
+
+      @keyframes scroll-right {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
       /* Pause animation on hover */
-      .marquee-container:hover .marquee-content {
+      .marquee-row:hover .marquee-content,
+      .marquee-row:hover .marquee-content-reverse {
         animation-play-state: paused;
       }
     </style>
