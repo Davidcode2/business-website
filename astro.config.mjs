@@ -37,6 +37,7 @@ export default defineConfig({
           "arrow-right",
           // Contact
           "mail",
+          "send",
           // Problem section
           "x",
           // Benefits - Web Development
