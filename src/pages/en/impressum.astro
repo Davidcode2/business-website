@@ -18,14 +18,31 @@ const t = getTranslations(locale);
       
       <div class="space-y-8 text-(--color-text-secondary)">
         <section>
-          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.provider}</h2>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">Information according to § 5 DDG</h2>
           <p class="leading-relaxed">
             Jakob Lingel<br />
             Amselweg 3<br />
-            73560 Böbingen an der Rems
+            73560 Böbingen an der Rems<br />
+            Germany
           </p>
         </section>
-        
+
+        <section>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">Contact</h2>
+          <p class="leading-relaxed">
+            Email: <a href="mailto:jakob.lingel@hotmail.de" class="text-(--color-accent) hover:text-(--color-accent-weak) transition-colors">jakob.lingel@hotmail.de</a><br />
+            <a
+              href="https://linkedin.com/in/jakob-lingel"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-(--color-accent) hover:text-(--color-accent-weak) transition-colors mt-2"
+            >
+              <Icon name="simple-icons:linkedin" class="w-5 h-5" />
+              LinkedIn
+            </a>
+          </p>
+        </section>
+
         <section>
           <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">Tax Identification Number</h2>
           <p class="leading-relaxed">
@@ -33,47 +50,27 @@ const t = getTranslations(locale);
             DE457840760-00001
           </p>
         </section>
-        
+
         <section>
-          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.contact}</h2>
-          <p class="leading-relaxed">
-            <a 
-              href="https://linkedin.com/in/jakob-lingel" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-(--color-accent) hover:text-(--color-accent-weak) transition-colors"
-            >
-              <Icon name="simple-icons:linkedin" class="w-5 h-5" />
-              LinkedIn
-            </a>
-          </p>
-        </section>
-        
-        <section>
-          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.responsible}</h2>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">Responsible for Content according to § 18 Abs. 2 MStV</h2>
           <p class="leading-relaxed">
             Jakob Lingel<br />
             Amselweg 3<br />
             73560 Böbingen an der Rems
           </p>
         </section>
-        
+
         <section>
-          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">{t.impressum.disclaimer}</h2>
-          
-          <h3 class="text-lg font-medium text-(--color-text-primary) mt-6 mb-3">Liability for Content</h3>
-          <p class="leading-relaxed mb-4">
-            As a service provider, I am responsible for my own content on these pages in accordance with general laws. However, I am not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
-          </p>
-          
-          <h3 class="text-lg font-medium text-(--color-text-primary) mt-6 mb-3">Liability for Links</h3>
-          <p class="leading-relaxed mb-4">
-            {t.impressum.disclaimerText}
-          </p>
-          
-          <h3 class="text-lg font-medium text-(--color-text-primary) mt-6 mb-3">Copyright</h3>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">EU Dispute Resolution</h2>
           <p class="leading-relaxed">
-            The content and works created by the site operators on these pages are subject to German copyright law. The reproduction, processing, distribution, and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator.
+            The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" class="text-(--color-accent) hover:text-(--color-accent-weak) transition-colors">https://ec.europa.eu/consumers/odr/</a>. Our email address can be found above in the legal notice.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-(--color-text-primary) mb-4">Consumer Dispute Resolution</h2>
+          <p class="leading-relaxed">
+            We are not willing or obligated to participate in dispute resolution proceedings before a consumer arbitration board.
           </p>
         </section>
       </div>
