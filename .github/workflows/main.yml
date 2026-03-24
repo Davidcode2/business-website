@@ -106,6 +106,9 @@ jobs:
       image_name: ghcr.io/${{ github.repository }}
       dockerfile: dockerfile
       ref: ${{ needs.bump-version.outputs.sha }}
+      build_args: |
+        PUBLIC_MESSAGE_ROUTER_URL=${{ vars.PUBLIC_MESSAGE_ROUTER_URL }}
+        PUBLIC_MESSAGE_ROUTER_API_KEY=${{ secrets.PUBLIC_MESSAGE_ROUTER_API_KEY }}
     secrets: inherit
 
   deploy-app:

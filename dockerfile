@@ -3,6 +3,10 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
+# Build arguments for environment variables
+ARG PUBLIC_MESSAGE_ROUTER_URL
+ARG PUBLIC_MESSAGE_ROUTER_API_KEY
+
 # Copy package files
 COPY package*.json ./
 
