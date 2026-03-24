@@ -79,6 +79,20 @@ export const home = {
     buttonText: "Kontakt aufnehmen" as string,
     emailHint: "Klicken Sie, um Kontakt aufzunehmen" as string,
     trustedTech: "Technologie-Stack" as string,
+    form: {
+      name: "Name" as string,
+      namePlaceholder: "Ihr Name" as string,
+      email: "E-Mail" as string,
+      emailPlaceholder: "ihre@email.de" as string,
+      message: "Nachricht" as string,
+      messagePlaceholder: "Beschreiben Sie Ihr Projekt..." as string,
+      submit: "Nachricht senden" as string,
+      sending: "Wird gesendet..." as string,
+      successMessage:
+        "Vielen Dank! Ich werde mich so schnell wie möglich bei Ihnen melden." as string,
+      errorMessage:
+        "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut." as string,
+    },
   },
 };
 

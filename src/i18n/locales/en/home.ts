@@ -76,6 +76,19 @@ export const home = {
     buttonText: "Get in touch" as string,
     emailHint: "Click to reveal email address" as string,
     trustedTech: "Trusted technologies" as string,
+    form: {
+      name: "Name" as string,
+      namePlaceholder: "Your name" as string,
+      email: "Email" as string,
+      emailPlaceholder: "your@email.com" as string,
+      message: "Message" as string,
+      messagePlaceholder: "Describe your project..." as string,
+      submit: "Send message" as string,
+      sending: "Sending..." as string,
+      successMessage:
+        "Thank you! I'll get back to you as soon as possible." as string,
+      errorMessage: "An error occurred. Please try again later." as string,
+    },
   },
 };
 
