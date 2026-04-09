@@ -6,6 +6,7 @@ interface Service {
   title: string;
   description: string;
   href: string;
+  code?: string;
 }
 
 interface Props {
@@ -15,48 +16,60 @@ interface Props {
 
 const { currentService, services } = Astro.props;
 
-// Filter out current service
-const relatedServices = services.filter(s => s.title !== currentService).slice(0, 3);
+// Filter out current service and assign codes
+const relatedServices = services
+  .filter(s => s.title !== currentService)
+  .slice(0, 3)
+  .map((s, i) => ({ ...s, code: `SRV-00${i + 2}` }));
 ---
 
 {relatedServices.length > 0 && (
-  <section class="py-24 sm:py-32 relative border-t border-(--color-border)">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-24 sm:py-32 relative border-t border-[var(--color-border)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <!-- Section header -->
-      <div class="text-center mb-16">
-        <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
-          Explore More
-        </p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-(--color-text-primary)">
+      <div class="text-center mb-16 space-y-4">
+        <div class="flex items-center justify-center gap-4">
+          <div class="w-12 h-[1px] bg-[var(--color-accent-primary)]"></div>
+          <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-primary)] uppercase">
+            Explore More
+          </span>
+          <div class="w-12 h-[1px] bg-[var(--color-accent-primary)]"></div>
+        </div>
+
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)]">
           Related <span class="gradient-text">Services</span>
         </h2>
       </div>
-      
+
       <!-- Services grid -->
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-3 gap-6">
         {relatedServices.map((service) => (
-          <a 
+          <a
             href={service.href}
-            class="group p-8 rounded-2xl bg-(--color-surface-raised) border border-(--color-border) hover:border-(--color-accent-weak) transition-all duration-300 hover:-translate-y-1"
+            class="service-card group"
           >
-            <!-- Icon -->
-            <div class="w-14 h-14 rounded-xl bg-(--color-accent-subtle) flex items-center justify-center mb-6 group-hover:bg-(--color-accent-muted) transition-colors">
-              <Icon name={service.icon} class="w-7 h-7 text-(--color-accent)" />
+            <div class="flex items-start justify-between mb-5">
+              <!-- Icon -->
+              <div class="w-14 h-14 border border-[var(--color-border)] flex items-center justify-center group-hover:border-[var(--color-accent-primary)] transition-colors">
+                <Icon name={service.icon} class="w-6 h-6 text-[var(--color-accent-primary)]" />
+              </div>
+              <!-- Code -->
+              <span class="font-display text-xs text-[var(--color-text-muted)]">{service.code}</span>
             </div>
-            
+
             <!-- Content -->
-            <h3 class="text-xl font-semibold text-(--color-text-primary) mb-3">
+            <h3 class="font-display text-lg font-semibold text-[var(--color-text-primary)] mb-2 group-hover:text-[var(--color-accent-primary)] transition-colors">
               {service.title}
             </h3>
-            <p class="text-(--color-text-secondary) leading-relaxed mb-4">
+            <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4 font-body text-sm">
               {service.description}
             </p>
-            
+
             <!-- Link indicator -->
-            <span class="inline-flex items-center gap-2 text-(--color-accent) font-medium group-hover:gap-3 transition-all">
-              Learn more
+            <div class="flex items-center gap-2 text-[var(--color-accent-primary)] font-display text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+              <span>Learn more</span>
               <Icon name="lucide:arrow-right" class="w-4 h-4" />
-            </span>
+            </div>
           </a>
         ))}
       </div>

@@ -15,76 +15,111 @@ const services = [
     icon: "lucide:brain",
     title: t.services.aiEnablement.title,
     description: t.services.aiEnablement.description,
-    href: isGerman ? "/services/ai-enablement" : "/en/services/ai-enablement"
+    href: isGerman ? "/services/ai-enablement" : "/en/services/ai-enablement",
+    code: "AI-001",
   },
   {
     icon: "lucide:code",
     title: t.services.webDevelopment.title,
     description: t.services.webDevelopment.description,
-    href: isGerman ? "/services/web-development" : "/en/services/web-development"
+    href: isGerman ? "/services/web-development" : "/en/services/web-development",
+    code: "WD-002",
   },
   {
     icon: "lucide:cloud",
     title: t.services.cloudDevops.title,
     description: t.services.cloudDevops.description,
-    href: isGerman ? "/services/cloud-devops" : "/en/services/cloud-devops"
+    href: isGerman ? "/services/cloud-devops" : "/en/services/cloud-devops",
+    code: "CD-003",
   },
   {
     icon: "lucide:shield",
     title: t.services.security.title,
     description: t.services.security.description,
-    href: isGerman ? "/services/security" : "/en/services/security"
+    href: isGerman ? "/services/security" : "/en/services/security",
+    code: "SC-004",
   }
 ];
 ---
 
-<section id="services" class="py-24 sm:py-32 relative">
-  <!-- Subtle background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-(--color-surface-subtle)/30 to-transparent"></div>
-  
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header -->
-    <div class="text-center mb-16">
-      <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
-        {t.services.sectionTagline}
-      </p>
-      <h2 class="text-4xl sm:text-5xl font-bold text-(--color-text-primary) mb-6">
-        {t.services.sectionTitle1}
-        <span class="gradient-text">{t.services.sectionTitle2}</span>
-      </h2>
-      <p class="text-lg text-(--color-text-secondary) max-w-2xl mx-auto">
-        {t.services.sectionDescription}
-      </p>
+<section id="services" class="relative py-32 overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Large section number -->
+    <div class="absolute -left-8 top-20 text-[20rem] font-display font-bold text-[var(--color-text-primary)] opacity-[0.015] leading-none select-none">
+      02
     </div>
-    
-    <!-- Services grid -->
-    <div class="grid md:grid-cols-2 gap-8">
+    <!-- Subtle gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-bg-secondary)]/30 to-transparent"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="grid lg:grid-cols-2 gap-12 mb-20">
+      <div class="space-y-6">
+        <!-- Section Marker -->
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-[1px] bg-[var(--color-accent-secondary)]"></div>
+          <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-secondary)] uppercase">
+            {t.services.sectionTagline}
+          </span>
+        </div>
+
+        <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-text-primary)] leading-[0.95]">
+          <span class="block">{t.services.sectionTitle1}</span>
+          <span class="block gradient-text-warm">{t.services.sectionTitle2}</span>
+        </h2>
+      </div>
+
+      <div class="flex items-end">
+        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-lg">
+          {t.services.sectionDescription}
+        </p>
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-2 gap-6">
       {services.map((service, index) => (
-        <a 
+        <a
           href={service.href}
-          class="group p-8 rounded-2xl bg-(--color-surface-subtle) border border-(--color-border) hover:border-(--color-accent-weak) transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-          style={`animation-delay: ${index * 100}ms`}
+          class="service-card group"
         >
-          <!-- Icon -->
-          <div class="w-14 h-14 rounded-xl bg-(--color-accent-subtle) flex items-center justify-center mb-6 group-hover:bg-(--color-accent-muted) transition-colors">
-            <Icon name={service.icon} class="w-7 h-7 text-(--color-accent)" />
+          <div class="flex items-start justify-between mb-6">
+            <!-- Icon Container -->
+            <div class="w-16 h-16 border border-[var(--color-border)] flex items-center justify-center relative group-hover:border-[var(--color-accent-primary)] transition-colors">
+              <Icon name={service.icon} class="w-7 h-7 text-[var(--color-accent-primary)]" />
+              <!-- Corner accent -->
+              <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-[var(--color-accent-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+
+            <!-- Service Code -->
+            <span class="font-display text-xs tracking-wider text-[var(--color-text-muted)]">{service.code}</span>
           </div>
-          
+
           <!-- Content -->
-          <h3 class="text-xl font-semibold text-(--color-text-primary) mb-3 group-hover:text-(--color-accent) transition-colors">
+          <h3 class="font-display text-xl font-semibold text-[var(--color-text-primary)] mb-3 group-hover:text-[var(--color-accent-primary)] transition-colors">
             {service.title}
           </h3>
-          <p class="text-(--color-text-secondary) leading-relaxed">
+
+          <p class="text-[var(--color-text-secondary)] leading-relaxed mb-6 font-body">
             {service.description}
           </p>
-          
-          <!-- Learn more link -->
-          <div class="mt-6 flex items-center text-(--color-accent) font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+
+          <!-- Learn More Link -->
+          <div class="flex items-center gap-2 text-[var(--color-accent-primary)] font-display text-sm tracking-wide opacity-0 group-hover:opacity-100 transition-opacity">
             <span>{t.services.webDevelopment.learnMore}</span>
-            <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+            <Icon name="lucide:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </div>
         </a>
       ))}
+    </div>
+
+    <!-- Bottom decorative element -->
+    <div class="mt-20 flex items-center justify-center gap-4">
+      <div class="w-24 h-[1px] bg-[var(--color-border)]"></div>
+      <span class="font-display text-xs tracking-[0.2em] text-[var(--color-text-muted)] uppercase">End of Section</span>
+      <div class="w-24 h-[1px] bg-[var(--color-border)]"></div>
     </div>
   </div>
 </section>

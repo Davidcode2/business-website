@@ -8,33 +8,46 @@ interface Props {
   buttonHref?: string;
 }
 
-const { 
-  headline, 
-  description, 
+const {
+  headline,
+  description,
   buttonText = "Get Started",
   buttonHref = "#contact"
 } = Astro.props;
 ---
 
-<section id="contact" class="py-24 sm:py-32 relative overflow-hidden">
-  <!-- Gradient blob decoration -->
-  <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-(--gradient-blob-1) via-(--gradient-blob-2) to-(--gradient-blob-3) rounded-full filter blur-[100px] opacity-15 animate-blob"></div>
-  
-  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-(--color-text-primary) mb-6 leading-tight">
-      <span class="gradient-text">{headline}</span>
+<section id="contact" class="py-24 sm:py-32 relative overflow-hidden border-t border-[var(--color-border)]">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 blueprint-grid opacity-20"></div>
+
+  <!-- Decorative corner markers -->
+  <div class="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-[var(--color-accent-primary)] opacity-20"></div>
+  <div class="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-[var(--color-accent-primary)] opacity-20"></div>
+
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <!-- Section Marker -->
+    <div class="flex items-center justify-center gap-4 mb-6">
+      <div class="w-12 h-[1px] bg-[var(--color-accent-secondary)]"></div>
+      <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-secondary)] uppercase">
+        Next Steps
+      </span>
+      <div class="w-12 h-[1px] bg-[var(--color-accent-secondary)]"></div>
+    </div>
+
+    <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text-primary)] mb-6 leading-[0.95]">
+      <span class="gradient-text-warm">{headline}</span>
     </h2>
-    
-    <p class="text-xl text-(--color-text-secondary) mb-10 max-w-2xl mx-auto">
+
+    <p class="text-lg sm:text-xl text-[var(--color-text-secondary)] mb-10 max-w-2xl mx-auto font-body">
       {description}
     </p>
-    
-    <a 
+
+    <a
       href={buttonHref}
-      class="group inline-flex items-center gap-3 px-10 py-5 bg-(--color-accent) text-(--color-text-inverse) rounded-full font-medium text-lg hover:bg-(--color-accent-emphasis) transition-all hover:scale-105"
+      class="btn-primary group"
     >
-      {buttonText}
-      <Icon name="lucide:arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+      <span>{buttonText}</span>
+      <Icon name="lucide:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
     </a>
   </div>
 </section>

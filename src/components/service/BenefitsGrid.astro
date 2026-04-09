@@ -15,41 +15,49 @@ const { headline, description, benefits } = Astro.props;
 ---
 
 <section class="py-24 sm:py-32 relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <!-- Section header -->
-    <div class="text-center mb-16">
-      <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
-        Key Benefits
-      </p>
-      <h2 class="text-3xl sm:text-4xl font-bold text-(--color-text-primary) mb-6">
-        <span class="gradient-text">{headline}</span>
+    <div class="text-center mb-16 space-y-6">
+      <div class="flex items-center justify-center gap-4">
+        <div class="w-12 h-[1px] bg-[var(--color-accent-secondary)]"></div>
+        <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-secondary)] uppercase">
+          Key Benefits
+        </span>
+        <div class="w-12 h-[1px] bg-[var(--color-accent-secondary)]"></div>
+      </div>
+
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)]">
+        <span class="gradient-text-warm">{headline}</span>
       </h2>
+
       {description && (
-        <p class="text-lg text-(--color-text-secondary) max-w-2xl mx-auto">
+        <p class="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto font-body">
           {description}
         </p>
       )}
     </div>
-    
+
     <!-- Benefits grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {benefits.map((benefit, index) => (
-        <div 
-          class="group p-8 rounded-2xl bg-(--color-surface-raised) border border-(--color-border) hover:border-(--color-accent-weak) transition-all duration-300 hover:-translate-y-1"
-          style={`animation-delay: ${index * 100}ms`}
-        >
+        <div class="service-card group">
           <!-- Icon -->
-          <div class="w-14 h-14 rounded-xl bg-(--color-accent-subtle) flex items-center justify-center mb-6 group-hover:bg-(--color-accent-muted) transition-colors">
-            <Icon name={benefit.icon} class="w-7 h-7 text-(--color-accent)" />
+          <div class="w-14 h-14 border border-[var(--color-border)] flex items-center justify-center mb-5 group-hover:border-[var(--color-accent-primary)] transition-colors">
+            <Icon name={benefit.icon} class="w-6 h-6 text-[var(--color-accent-primary)]" />
           </div>
-          
+
           <!-- Content -->
-          <h3 class="text-xl font-semibold text-(--color-text-primary) mb-3">
+          <h3 class="font-display text-lg font-semibold text-[var(--color-text-primary)] mb-2">
             {benefit.title}
           </h3>
-          <p class="text-(--color-text-secondary) leading-relaxed">
+          <p class="text-[var(--color-text-secondary)] leading-relaxed font-body text-sm">
             {benefit.description}
           </p>
+
+          <!-- Index number -->
+          <div class="absolute top-4 right-4 font-display text-xs text-[var(--color-text-muted)] opacity-50">
+            {String(index + 1).padStart(2, '0')}
+          </div>
         </div>
       ))}
     </div>

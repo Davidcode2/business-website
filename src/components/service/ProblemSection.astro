@@ -11,29 +11,38 @@ const { headline, description, painPoints } = Astro.props;
 ---
 
 <section class="py-24 sm:py-32 relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
-      <!-- Content -->
-      <div>
-        <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
-          The Challenge
-        </p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-(--color-text-primary) mb-6 leading-tight">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <!-- Left: Content -->
+      <div class="space-y-6 lg:sticky lg:top-32">
+        <div class="flex items-center gap-4">
+          <div class="w-8 h-[1px] bg-[var(--color-accent-secondary)]"></div>
+          <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-secondary)] uppercase">
+            The Challenge
+          </span>
+        </div>
+
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] leading-[1]">
           {headline}
         </h2>
-        <p class="text-lg text-(--color-text-secondary) mb-8 leading-relaxed">
+
+        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed font-body">
           {description}
         </p>
       </div>
-      
-      <!-- Pain points cards -->
+
+      <!-- Right: Pain points -->
       <div class="space-y-4">
         {painPoints.map((point, index) => (
-          <div class="flex items-start gap-4 p-6 rounded-xl bg-(--color-surface-raised) border border-(--color-border)">
-            <div class="w-8 h-8 rounded-lg bg-(--color-accent-subtle) flex items-center justify-center flex-shrink-0">
-              <Icon name="lucide:x" class="w-5 h-5 text-(--color-accent)" />
+          <div class="service-card group flex items-start gap-4">
+            <!-- X icon -->
+            <div class="flex-shrink-0 w-10 h-10 border border-[var(--color-border)] flex items-center justify-center group-hover:border-[var(--color-accent-secondary)] transition-colors">
+              <Icon name="lucide:x" class="w-5 h-5 text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-secondary)] transition-colors" />
             </div>
-            <p class="text-(--color-text-secondary)">{point}</p>
+            <!-- Text -->
+            <p class="text-[var(--color-text-secondary)] pt-2 font-body">
+              {point}
+            </p>
           </div>
         ))}
       </div>

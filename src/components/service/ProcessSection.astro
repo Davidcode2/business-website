@@ -14,42 +14,54 @@ interface Props {
 const { headline, description, steps } = Astro.props;
 ---
 
-<section id="process" class="py-24 sm:py-32 relative bg-(--color-surface-subtle)">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="process" class="py-24 sm:py-32 relative border-t border-[var(--color-border)]">
+  <div class="absolute inset-0 bg-[var(--color-bg-secondary)]"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
     <!-- Section header -->
-    <div class="text-center mb-16">
-      <p class="text-(--color-accent) font-medium mb-4 tracking-wide uppercase text-sm">
-        How It Works
-      </p>
-      <h2 class="text-3xl sm:text-4xl font-bold text-(--color-text-primary) mb-6">
+    <div class="text-center mb-16 space-y-6">
+      <div class="flex items-center justify-center gap-4">
+        <div class="w-12 h-[1px] bg-[var(--color-accent-primary)]"></div>
+        <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-primary)] uppercase">
+          Process
+        </span>
+        <div class="w-12 h-[1px] bg-[var(--color-accent-primary)]"></div>
+      </div>
+
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)]">
         <span class="gradient-text">{headline}</span>
       </h2>
+
       {description && (
-        <p class="text-lg text-(--color-text-secondary) max-w-2xl mx-auto">
+        <p class="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto font-body">
           {description}
         </p>
       )}
     </div>
-    
+
     <!-- Process steps -->
     <div class="relative">
       <!-- Connecting line -->
-      <div class="absolute left-8 top-8 bottom-8 w-px bg-(--color-border) hidden md:block"></div>
-      
+      <div class="absolute left-8 md:left-12 top-12 bottom-12 w-[1px] bg-[var(--color-border)] hidden sm:block"></div>
+
       <div class="space-y-8">
         {steps.map((step, index) => (
-          <div class="relative flex gap-8 items-start">
+          <div class="relative flex gap-6 md:gap-8 items-start group">
             <!-- Step number -->
-            <div class="relative z-10 flex-shrink-0 w-16 h-16 rounded-full bg-(--color-accent) text-(--color-text-inverse) flex items-center justify-center text-2xl font-bold">
-              {step.number}
+            <div class="relative z-10 flex-shrink-0 w-16 h-16 md:w-24 md:h-12 border border-[var(--color-border)] bg-[var(--color-bg-secondary)] flex items-center justify-center group-hover:border-[var(--color-accent-primary)] transition-colors">
+              <span class="font-display text-lg font-bold text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-primary)] transition-colors">
+                {step.number}
+              </span>
+              <!-- Corner accent on hover -->
+              <div class="absolute top-0 right-0 w-3 h-3 border-t border-r border-[var(--color-accent-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            
+
             <!-- Content -->
-            <div class="flex-1 pt-2">
-              <h3 class="text-xl font-semibold text-(--color-text-primary) mb-2">
+            <div class="flex-1 pt-3 pb-8 border-b border-[var(--color-border)] sm:border-b-0 sm:pb-0">
+              <h3 class="font-display text-xl font-semibold text-[var(--color-text-primary)] mb-2">
                 {step.title}
               </h3>
-              <p class="text-(--color-text-secondary) leading-relaxed">
+              <p class="text-[var(--color-text-secondary)] leading-relaxed font-body max-w-2xl">
                 {step.description}
               </p>
             </div>

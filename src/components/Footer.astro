@@ -17,68 +17,98 @@ const contactUrl = isServicePage ? `${homeUrl}#contact` : "#contact";
 const aboutUrl = isServicePage ? `${homeUrl}#about` : "#about";
 
 const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  { label: t.nav.home, href: homeUrl },
+  { label: t.nav.about, href: aboutUrl },
+  { label: t.nav.services, href: servicesUrl },
+  { label: t.nav.contact, href: contactUrl },
+  { label: t.nav.impressum, href: isGerman ? "/impressum" : "/en/impressum" },
+];
 ---
 
-<footer class="border-t border-(--color-border) bg-(--color-surface-subtle)">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-    <div class="grid md:grid-cols-3 gap-8 items-center">
-      <!-- Logo/Name -->
-      <div class="text-center md:text-left">
-        <a href={homeUrl} class="text-xl font-semibold text-(--color-text-primary) hover:text-(--color-accent) transition-colors">
-          Jakob Lingel
+<footer class="relative border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+  <!-- Decorative top line -->
+  <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent-primary)]/30 to-transparent"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <div class="grid md:grid-cols-12 gap-12">
+      <!-- Brand -->
+      <div class="md:col-span-5 space-y-4">
+        <a href={homeUrl} class="inline-flex items-center gap-3 group">
+          <div class="w-10 h-10 border border-[var(--color-accent-primary)] flex items-center justify-center">
+            <span class="font-display text-lg font-bold text-[var(--color-accent-primary)]">JL</span>
+          </div>
+          <div>
+            <span class="font-display text-lg font-semibold text-[var(--color-text-primary)] block">Jakob Lingel</span>
+            <span class="font-display text-[10px] tracking-[0.2em] text-[var(--color-text-muted)] uppercase">Digital Solutions</span>
+          </div>
         </a>
-        <p class="text-(--color-text-muted) text-sm mt-2">
+        <p class="text-[var(--color-text-secondary)] font-body max-w-sm">
           {t.footer.tagline}
         </p>
       </div>
-      
+
       <!-- Navigation -->
-      <div class="flex flex-col md:flex-row justify-center gap-3 md:gap-6 text-center">
-        <a href={homeUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
-          {t.nav.home}
-        </a>
-        <a href={aboutUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
-          {t.nav.about}
-        </a>
-        <a href={servicesUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
-          {t.nav.services}
-        </a>
-        <a href={contactUrl} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
-          {t.nav.contact}
-        </a>
-        <a href={isGerman ? "/impressum" : "/en/impressum"} class="text-(--color-text-secondary) hover:text-(--color-text-primary) transition-colors text-sm py-1 md:py-0 whitespace-nowrap">
-          {t.nav.impressum}
-        </a>
+      <div class="md:col-span-3">
+        <span class="font-display text-xs tracking-[0.2em] text-[var(--color-text-muted)] uppercase block mb-4">Navigation</span>
+        <div class="space-y-3">
+          {footerLinks.map((link) => (
+            <a
+              href={link.href}
+              class="block text-[var(--color-text-secondary)] hover:text-[var(--color-accent-primary)] font-display text-sm transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </div>
-      
-      <!-- Social/Contact -->
-      <div class="flex justify-center md:justify-end gap-4">
-        <a 
-          href="https://github.com/Davidcode2" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-(--color-surface-raised) flex items-center justify-center text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-overlay) transition-all"
-          aria-label="GitHub"
-        >
-          <Icon name="simple-icons:github" class="w-5 h-5" />
-        </a>
-        <a 
-          href="https://de.linkedin.com/in/jakob-lingel-613976253" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-(--color-surface-raised) flex items-center justify-center text-(--color-text-secondary) hover:text-(--color-text-primary) hover:bg-(--color-surface-overlay) transition-all"
-          aria-label="LinkedIn"
-        >
-          <Icon name="simple-icons:linkedin" class="w-5 h-5" />
-        </a>
+
+      <!-- Connect -->
+      <div class="md:col-span-4">
+        <span class="font-display text-xs tracking-[0.2em] text-[var(--color-text-muted)] uppercase block mb-4">
+          {isGerman ? 'Verbinden' : 'Connect'}
+        </span>
+        <div class="flex gap-3">
+          <a
+            href="https://github.com/Davidcode2"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-12 h-12 border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] hover:border-[var(--color-accent-primary)] transition-all"
+            aria-label="GitHub"
+          >
+            <Icon name="simple-icons:github" class="w-5 h-5" />
+          </a>
+          <a
+            href="https://de.linkedin.com/in/jakob-lingel-613976253"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-12 h-12 border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] hover:border-[var(--color-accent-primary)] transition-all"
+            aria-label="LinkedIn"
+          >
+            <Icon name="simple-icons:linkedin" class="w-5 h-5" />
+          </a>
+          <a
+            href="mailto:hello@jakob-lingel.dev"
+            class="w-12 h-12 border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] hover:border-[var(--color-accent-primary)] transition-all"
+            aria-label="Email"
+          >
+            <Icon name="lucide:mail" class="w-5 h-5" />
+          </a>
+        </div>
       </div>
     </div>
-    
-    <!-- Copyright -->
-    <div class="mt-16 pt-12 border-t border-(--color-border) text-center">
-      <p class="text-(--color-text-muted) text-sm">
+
+    <!-- Bottom Bar -->
+    <div class="mt-16 pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-[var(--color-text-muted)] text-sm font-display">
         © {currentYear} Jakob Lingel. {t.footer.copyright}
       </p>
+      <div class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-display tracking-wider">
+        <span>MADE WITH</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-accent-primary)]"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <span>ASTRO + TAILWIND</span>
+      </div>
     </div>
   </div>
 </footer>

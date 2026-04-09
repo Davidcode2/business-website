@@ -64,6 +64,13 @@ export default defineConfig({
           // Benefits - AI Enablement
           "users",
           "graduation-cap",
+          // Story section
+          "user",
+          "crosshair",
+          "info",
+          // Contact form
+          "check-circle",
+          "alert-circle",
         ],
         "simple-icons": [
           "github",
@@ -88,6 +95,8 @@ export default defineConfig({
           "nextdotjs",
           "nestjs",
           "archlinux",
+          "nodedotjs",
+          "github",
         ],
       },
     }),
