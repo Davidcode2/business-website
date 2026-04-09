@@ -150,7 +150,7 @@ const t = getTranslations(locale);
       </div>
     </div>
 
-    <!-- Technology Stack -->
+    <!-- Technology Stack Marquee -->
     <div class="mt-24">
       <div class="flex items-center gap-4 mb-8">
         <div class="flex-1 h-[1px] bg-[var(--color-border)]"></div>
@@ -160,22 +160,90 @@ const t = getTranslations(locale);
         <div class="flex-1 h-[1px] bg-[var(--color-border)]"></div>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-6 opacity-60">
-        {[
-          { name: 'Astro', icon: 'simple-icons:astro' },
-          { name: 'React', icon: 'simple-icons:react' },
-          { name: 'TypeScript', icon: 'simple-icons:typescript' },
-          { name: 'Tailwind', icon: 'simple-icons:tailwindcss' },
-          { name: 'Node.js', icon: 'simple-icons:nodedotjs' },
-          { name: 'Kubernetes', icon: 'simple-icons:kubernetes' },
-          { name: 'AWS', icon: 'simple-icons:amazonaws' },
-          { name: 'Terraform', icon: 'simple-icons:terraform' },
-        ].map((tech) => (
-          <div class="flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] transition-colors">
-            <Icon name={tech.icon} class="w-5 h-5" />
-            <span class="font-display text-xs tracking-wider">{tech.name}</span>
+      <div class="space-y-6">
+        <!-- Row 1: Scrolling left -->
+        <div class="marquee-row">
+          <div class="marquee-content">
+            {[
+              { name: 'Astro', icon: 'simple-icons:astro' },
+              { name: 'React', icon: 'simple-icons:react' },
+              { name: 'TypeScript', icon: 'simple-icons:typescript' },
+              { name: 'Angular', icon: 'simple-icons:angular' },
+              { name: 'Next.js', icon: 'simple-icons:nextdotjs' },
+              { name: 'NestJS', icon: 'simple-icons:nestjs' },
+              { name: 'Tailwind CSS', icon: 'simple-icons:tailwindcss' },
+              { name: 'Python', icon: 'simple-icons:python' },
+              { name: '.NET', icon: 'simple-icons:dotnet' },
+              { name: 'Rust', icon: 'simple-icons:rust' },
+              { name: 'Neovim', icon: 'simple-icons:neovim' },
+              { name: 'Arch Linux', icon: 'simple-icons:archlinux' },
+            ].map((tech) => (
+              <div class="tech-item">
+                <Icon name={tech.icon} class="w-8 h-8" />
+                <span>{tech.name}</span>
+              </div>
+            ))}
+            {/* Duplicate for seamless loop */}
+            {[
+              { name: 'Astro', icon: 'simple-icons:astro' },
+              { name: 'React', icon: 'simple-icons:react' },
+              { name: 'TypeScript', icon: 'simple-icons:typescript' },
+              { name: 'Angular', icon: 'simple-icons:angular' },
+              { name: 'Next.js', icon: 'simple-icons:nextdotjs' },
+              { name: 'NestJS', icon: 'simple-icons:nestjs' },
+              { name: 'Tailwind CSS', icon: 'simple-icons:tailwindcss' },
+              { name: 'Python', icon: 'simple-icons:python' },
+              { name: '.NET', icon: 'simple-icons:dotnet' },
+              { name: 'Rust', icon: 'simple-icons:rust' },
+              { name: 'Neovim', icon: 'simple-icons:neovim' },
+              { name: 'Arch Linux', icon: 'simple-icons:archlinux' },
+            ].map((tech) => (
+              <div class="tech-item">
+                <Icon name={tech.icon} class="w-8 h-8" />
+                <span>{tech.name}</span>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <!-- Row 2: Scrolling right -->
+        <div class="marquee-row">
+          <div class="marquee-content-reverse">
+            {[
+              { name: 'Kubernetes', icon: 'simple-icons:kubernetes' },
+              { name: 'Terraform', icon: 'simple-icons:terraform' },
+              { name: 'ArgoCD', icon: 'simple-icons:argo' },
+              { name: 'AWS', icon: 'simple-icons:amazonaws' },
+              { name: 'Ansible', icon: 'simple-icons:ansible' },
+              { name: 'GitHub', icon: 'simple-icons:github' },
+              { name: 'DigitalOcean', icon: 'simple-icons:digitalocean' },
+              { name: 'Hetzner', icon: 'simple-icons:hetzner' },
+              { name: 'Strapi', icon: 'simple-icons:strapi' },
+            ].map((tech) => (
+              <div class="tech-item">
+                <Icon name={tech.icon} class="w-8 h-8" />
+                <span>{tech.name}</span>
+              </div>
+            ))}
+            {/* Duplicate for seamless loop */}
+            {[
+              { name: 'Kubernetes', icon: 'simple-icons:kubernetes' },
+              { name: 'Terraform', icon: 'simple-icons:terraform' },
+              { name: 'ArgoCD', icon: 'simple-icons:argo' },
+              { name: 'AWS', icon: 'simple-icons:amazonaws' },
+              { name: 'Ansible', icon: 'simple-icons:ansible' },
+              { name: 'GitHub', icon: 'simple-icons:github' },
+              { name: 'DigitalOcean', icon: 'simple-icons:digitalocean' },
+              { name: 'Hetzner', icon: 'simple-icons:hetzner' },
+              { name: 'Strapi', icon: 'simple-icons:strapi' },
+            ].map((tech) => (
+              <div class="tech-item">
+                <Icon name={tech.icon} class="w-8 h-8" />
+                <span>{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -262,3 +330,68 @@ const t = getTranslations(locale);
     }
   });
 </script>
+
+<style>
+  .marquee-row {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 4rem;
+    animation: marquee-left 30s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-content-reverse {
+    display: flex;
+    gap: 4rem;
+    animation: marquee-right 25s linear infinite;
+    width: max-content;
+  }
+
+  .tech-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: var(--color-text-muted);
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-right {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+</style>

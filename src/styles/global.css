@@ -66,8 +66,8 @@
   --color-bg-tertiary: #080808;
   --color-bg-elevated: #0c0c0c;
 
-  /* Accent colors - electric cyan and warm amber */
-  --color-accent-primary: #00f0ff;
+  /* Accent colors - muted cyan and warm amber */
+  --color-accent-primary: #00a0a8;
   --color-accent-secondary: #ffaa33;
   --color-accent-muted: rgba(0, 240, 255, 0.08);
   --color-accent-amber-muted: rgba(255, 170, 51, 0.08);
