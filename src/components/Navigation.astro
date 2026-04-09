@@ -56,27 +56,16 @@ const serviceLinks = [
 
       <!-- Desktop Navigation -->
       <div class="hidden lg:flex items-center gap-8">
-        <!-- Services Dropdown -->
-        <div class="relative group">
-          <button class="flex items-center gap-2 py-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] font-display text-sm tracking-wide transition-colors">
-            <span>{isGerman ? 'Leistungen' : 'Services'}</span>
-            <Icon name="lucide:chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180" />
-          </button>
-
-          <!-- Dropdown Menu -->
-          <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-            <div class="bg-[var(--color-bg-elevated)] border border-[var(--color-border)] p-2 min-w-[220px]">
-              {serviceLinks.map((service, index) => (
-                <a
-                  href={service.href}
-                  class="block px-4 py-3 text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-accent-muted)] transition-all"
-                >
-                  <span class="font-display">{service.label}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+        <!-- Services Popover Trigger -->
+        <button
+          id="services-popover-trigger"
+          class="flex items-center gap-2 py-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] font-display text-sm tracking-wide transition-colors"
+          aria-expanded="false"
+          aria-controls="services-popover"
+        >
+          <span>{isGerman ? 'Leistungen' : 'Services'}</span>
+          <Icon name="lucide:chevron-down" class="w-4 h-4 transition-transform" id="services-chevron" />
+        </button>
 
         {navLinks.slice(1).map((link) => (
           <a
@@ -182,6 +171,150 @@ const serviceLinks = [
   </div>
 </nav>
 
+<!-- Services Popover Overlay -->
+<div
+  id="services-popover-overlay"
+  class="fixed inset-0 z-40 bg-[var(--color-bg-primary)]/60 backdrop-blur-md opacity-0 invisible transition-all duration-500"
+  aria-hidden="true"
+></div>
+
+<!-- Services Popover -->
+<div
+  id="services-popover"
+  class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 opacity-0 invisible transition-all duration-500 scale-95"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="services-popover-title"
+>
+  <!-- Clean Container -->
+  <div class="relative bg-[var(--color-bg-secondary)] min-w-[520px] max-w-[600px] shadow-2xl">
+    
+    <!-- Diagonal Background Pattern -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, var(--color-accent-primary) 35px, var(--color-accent-primary) 36px);"></div>
+    
+    <!-- Content Container -->
+    <div class="relative p-10 border border-[var(--color-border)]">
+      
+      <!-- Header with System Status -->
+      <div class="flex items-start justify-between mb-8">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="w-2 h-2 rounded-full bg-[var(--color-accent-primary)] animate-pulse"></div>
+            <span class="font-display text-[10px] tracking-[0.3em] text-[var(--color-accent-primary)] uppercase">System.Active</span>
+          </div>
+          <h2 id="services-popover-title" class="font-display text-3xl font-bold text-[var(--color-text-primary)] tracking-tight">
+            {isGerman ? 'Leistungen' : 'Services'}
+          </h2>
+          <p class="font-body text-sm text-[var(--color-text-secondary)] mt-1 italic">
+            {isGerman ? 'Wählen Sie ein Fachgebiet' : 'Select a specialty area'}
+          </p>
+        </div>
+        
+        <!-- Close Button - Technical Style -->
+        <button
+          id="services-popover-close"
+          class="group relative w-10 h-10 border border-[var(--color-border)] hover:border-[var(--color-accent-primary)] transition-colors"
+          aria-label="Close"
+        >
+          <span class="absolute inset-0 flex items-center justify-center">
+            <Icon name="lucide:x" class="w-4 h-4 text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-primary)] transition-colors" />
+          </span>
+          <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[8px] font-display tracking-wider text-[var(--color-text-muted)] opacity-0 group-hover:opacity-100 transition-opacity">ESC</span>
+        </button>
+      </div>
+
+      <!-- Service Links - Horizontal Cards with Numbers -->
+      <div class="space-y-0">
+        {serviceLinks.map((service, index) => (
+          <a
+            href={service.href}
+            class="service-link-item group relative flex items-stretch border-b border-[var(--color-border)] hover:border-[var(--color-accent-primary)] transition-all duration-300"
+            style={`--delay: ${index * 80}ms`}
+          >
+            <!-- Number Column -->
+            <div class="w-16 flex items-center justify-center border-r border-[var(--color-border)] group-hover:border-[var(--color-accent-primary)] group-hover:bg-[var(--color-accent-muted)] transition-all duration-300">
+              <span class="font-display text-2xl font-bold text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-primary)] transition-colors">
+                0{index + 1}
+              </span>
+            </div>
+            
+            <!-- Content Column -->
+            <div class="flex-1 flex items-center justify-between px-6 py-5 group-hover:bg-[var(--color-bg-elevated)] transition-colors duration-300">
+              <div>
+                <span class="font-display text-base font-semibold text-[var(--color-text-primary)] block tracking-wide">
+                  {service.label}
+                </span>
+                <span class="font-body text-xs text-[var(--color-text-muted)] italic opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-1 group-hover:translate-y-0">
+                  {index === 0 ? (isGerman ? 'KI-Lösungen & Automation' : 'AI Solutions & Automation') :
+                   index === 1 ? (isGerman ? 'Moderne Webtechnologien' : 'Modern Web Technologies') :
+                   index === 2 ? (isGerman ? 'Cloud-Infrastruktur' : 'Cloud Infrastructure') :
+                   (isGerman ? 'Sicherheitskonzepte' : 'Security Concepts')}
+                </span>
+              </div>
+              
+              <!-- Arrow Indicator -->
+              <div class="w-10 h-10 border border-[var(--color-border)] group-hover:border-[var(--color-accent-primary)] flex items-center justify-center overflow-hidden">
+                <Icon name="lucide:arrow-right" class="w-4 h-4 text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-primary)] transform -translate-x-8 group-hover:translate-x-0 transition-transform duration-300" />
+                <Icon name="lucide:arrow-right" class="w-4 h-4 text-[var(--color-accent-primary)] absolute transform translate-x-0 group-hover:translate-x-8 transition-transform duration-300" />
+              </div>
+            </div>
+            
+            <!-- Hover Accent Line -->
+            <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--color-accent-primary)] group-hover:w-full transition-all duration-500"></div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Footer - System Status Bar -->
+      <div class="mt-8 pt-6 border-t border-[var(--color-border)] flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent-secondary)]"></div>
+            <span class="font-display text-[10px] tracking-[0.2em] text-[var(--color-text-muted)] uppercase">4 Modules</span>
+          </div>
+          <div class="w-px h-4 bg-[var(--color-border)]"></div>
+          <div class="flex items-center gap-2">
+            <Icon name="lucide:check-circle" class="w-3 h-3 text-[var(--color-accent-primary)]" />
+            <span class="font-display text-[10px] tracking-[0.2em] text-[var(--color-text-muted)] uppercase">Active</span>
+          </div>
+        </div>
+        
+        <a
+          href={servicesUrl}
+          id="services-overview-link"
+          class="group flex items-center gap-3 font-display text-xs tracking-wider text-[var(--color-text-secondary)] hover:text-[var(--color-accent-primary)] transition-colors"
+        >
+          <span>{isGerman ? 'ÜBERSICHT' : 'OVERVIEW'}</span>
+          <span class="w-8 h-[1px] bg-[var(--color-border)] group-hover:bg-[var(--color-accent-primary)] group-hover:w-12 transition-all"></span>
+          <Icon name="lucide:arrow-right" class="w-3 h-3" />
+        </a>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<style>
+  /* Popover Animation States */
+  #services-popover.visible .service-link-item {
+    animation: slideInRight 0.5s ease-out forwards;
+    animation-delay: calc(var(--delay) + 0.3s);
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
 <script>
   // Theme toggle functionality
   function toggleTheme() {
@@ -222,5 +355,59 @@ const serviceLinks = [
       openIcon?.classList.remove('hidden');
       closeIcon?.classList.add('hidden');
     });
+  });
+
+  // Services Popover functionality
+  const servicesTrigger = document.getElementById('services-popover-trigger');
+  const servicesPopover = document.getElementById('services-popover');
+  const servicesOverlay = document.getElementById('services-popover-overlay');
+  const servicesClose = document.getElementById('services-popover-close');
+  const servicesChevron = document.getElementById('services-chevron');
+  const servicesOverviewLink = document.getElementById('services-overview-link');
+
+  function openServicesPopover() {
+    servicesPopover?.classList.remove('opacity-0', 'invisible', 'scale-95');
+    servicesPopover?.classList.add('opacity-100', 'visible', 'scale-100');
+    servicesOverlay?.classList.remove('opacity-0', 'invisible');
+    servicesOverlay?.classList.add('opacity-100', 'visible');
+    servicesChevron?.classList.add('rotate-180');
+    servicesTrigger?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeServicesPopover() {
+    servicesPopover?.classList.add('opacity-0', 'invisible', 'scale-95');
+    servicesPopover?.classList.remove('opacity-100', 'visible', 'scale-100');
+    servicesOverlay?.classList.add('opacity-0', 'invisible');
+    servicesOverlay?.classList.remove('opacity-100', 'visible');
+    servicesChevron?.classList.remove('rotate-180');
+    servicesTrigger?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  servicesTrigger?.addEventListener('click', () => {
+    const isExpanded = servicesTrigger.getAttribute('aria-expanded') === 'true';
+    if (isExpanded) {
+      closeServicesPopover();
+    } else {
+      openServicesPopover();
+    }
+  });
+
+  servicesClose?.addEventListener('click', closeServicesPopover);
+  servicesOverlay?.addEventListener('click', closeServicesPopover);
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && servicesTrigger?.getAttribute('aria-expanded') === 'true') {
+      closeServicesPopover();
+    }
+  });
+
+  // Close popover when clicking service links (navigate to new page)
+  servicesPopover?.querySelectorAll('a').forEach(link => {
+    if (link.id !== 'services-overview-link') {
+      link.addEventListener('click', closeServicesPopover);
+    }
   });
 </script>

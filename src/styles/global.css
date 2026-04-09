@@ -58,42 +58,42 @@
   }
 }
 
-/* Dark Theme (Default) - Blueprint Aesthetic */
+/* Dark Theme (Default) - Ultra High Contrast Black with Electric Cyan */
 [data-theme="dark"] {
-  /* Primary backgrounds - deep slate */
-  --color-bg-primary: #0a0f14;
-  --color-bg-secondary: #0d1219;
-  --color-bg-tertiary: #111820;
-  --color-bg-elevated: #151e28;
+  /* Primary backgrounds - pure to near black for maximum drama */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #050505;
+  --color-bg-tertiary: #080808;
+  --color-bg-elevated: #0c0c0c;
 
-  /* Accent colors - cyan and amber */
-  --color-accent-primary: #00d4ff;
-  --color-accent-secondary: #ff9f1c;
-  --color-accent-muted: rgba(0, 212, 255, 0.15);
-  --color-accent-amber-muted: rgba(255, 159, 28, 0.15);
+  /* Accent colors - electric cyan and warm amber */
+  --color-accent-primary: #00f0ff;
+  --color-accent-secondary: #ffaa33;
+  --color-accent-muted: rgba(0, 240, 255, 0.08);
+  --color-accent-amber-muted: rgba(255, 170, 51, 0.08);
 
-  /* Text colors */
-  --color-text-primary: #e8eef4;
-  --color-text-secondary: #8b9aae;
-  --color-text-muted: #4a5568;
-  --color-text-inverse: #0a0f14;
+  /* Text colors - maximum contrast */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #999999;
+  --color-text-muted: #444444;
+  --color-text-inverse: #000000;
 
-  /* Borders - blueprint grid lines */
-  --color-border: rgba(0, 212, 255, 0.12);
-  --color-border-subtle: rgba(0, 212, 255, 0.06);
-  --color-grid: rgba(0, 212, 255, 0.03);
+  /* Borders - extremely subtle on pure black */
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-subtle: rgba(255, 255, 255, 0.03);
+  --color-grid: rgba(0, 240, 255, 0.015);
 
   /* Gradients */
   --gradient-accent: linear-gradient(
     135deg,
-    #00d4ff 0%,
-    #00a8cc 50%,
-    #0088a8 100%
+    #00f0ff 0%,
+    #00c8d4 50%,
+    #00a0aa 100%
   );
-  --gradient-warm: linear-gradient(135deg, #ff9f1c 0%, #ff7b00 100%);
+  --gradient-warm: linear-gradient(135deg, #ffaa33 0%, #ff8800 100%);
   --gradient-surface: linear-gradient(
     180deg,
-    rgba(0, 212, 255, 0.03) 0%,
+    rgba(0, 240, 255, 0.015) 0%,
     transparent 100%
   );
 }
