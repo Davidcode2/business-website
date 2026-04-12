@@ -15,8 +15,9 @@ interface Props {
 const { title, description, serviceName, locale = 'de' } = Astro.props;
 const isGerman = locale === 'de';
 
-// Get the actual current URL path
-const currentPath = Astro.url.pathname;
+// Get the actual current URL path and remove locale prefix if present
+const pathname = Astro.url.pathname;
+const currentPath = pathname.replace(/^\/en/, '') || '/';
 ---
 
 <Layout title={title} description={description} lang={locale}>
