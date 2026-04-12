@@ -1,0 +1,64 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  headline: string;
+  price: string;
+  subheadline: string;
+  description: string;
+  cta: string;
+}
+
+const { headline, price, subheadline, description, cta } = Astro.props;
+---
+
+<section class="relative min-h-[60vh] flex items-center overflow-hidden py-16 sm:py-24 blueprint-grid">
+  <!-- Decorative Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute left-[10%] top-0 bottom-0 w-[1px] bg-[var(--color-border)]"></div>
+    <div class="absolute right-[15%] top-0 bottom-0 w-[1px] bg-[var(--color-border)]"></div>
+    <!-- Corner accent -->
+    <div class="absolute top-20 left-8 w-12 h-12 border-l-2 border-t-2 border-[var(--color-accent-primary)] opacity-40"></div>
+    <div class="absolute bottom-20 right-8 w-12 h-12 border-r-2 border-b-2 border-[var(--color-accent-primary)] opacity-40"></div>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <!-- Tagline -->
+    <div class="flex items-center justify-center gap-4 mb-6">
+      <div class="w-10 h-[1px] bg-[var(--color-accent-secondary)]"></div>
+      <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-secondary)] uppercase">
+        Website Paket
+      </span>
+      <div class="w-10 h-[1px] bg-[var(--color-accent-secondary)]"></div>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-2 leading-tight">
+      {headline}
+    </h1>
+
+    <!-- Price - The Hero Element -->
+    <div class="mb-4">
+      <span class="font-display text-7xl sm:text-8xl lg:text-9xl font-bold gradient-text tracking-tighter">
+        {price}
+      </span>
+      <span class="block font-display text-sm tracking-[0.2em] text-[var(--color-text-secondary)] uppercase mt-2">
+        {subheadline}
+      </span>
+    </div>
+
+    <!-- Description -->
+    <p class="text-base sm:text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed mb-8 font-body">
+      {description}
+    </p>
+
+    <!-- CTA -->
+    <a
+      href="#contact"
+      class="btn-primary group inline-flex"
+    >
+      <span>{cta}</span>
+      <Icon name="lucide:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+    </a>
+  </div>
+</section>

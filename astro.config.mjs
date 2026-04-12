@@ -71,6 +71,10 @@ export default defineConfig({
           // Contact form
           "check-circle",
           "alert-circle",
+          // Small business package
+          "check",
+          "server",
+          "monitor",
         ],
         "simple-icons": [
           "github",

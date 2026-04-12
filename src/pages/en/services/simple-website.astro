@@ -1,0 +1,49 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import Hero from '../../../components/small-business/Hero.astro';
+import ValueProps from '../../../components/small-business/ValueProps.astro';
+import PricingCards from '../../../components/small-business/PricingCards.astro';
+import SimpleCTA from '../../../components/small-business/SimpleCTA.astro';
+import { getTranslations } from '../../../i18n/translations';
+
+const locale = 'en';
+const t = getTranslations(locale);
+
+const pageData = {
+  title: t.sbMeta.title,
+  description: t.sbMeta.description,
+  serviceName: "Website Package",
+};
+---
+
+<ServiceLayout
+  title={pageData.title}
+  description={pageData.description}
+  serviceName={pageData.serviceName}
+  locale={locale}
+>
+  <Hero
+    headline={t.sbHero.headline}
+    price={t.sbHero.price}
+    subheadline={t.sbHero.subheadline}
+    description={t.sbHero.description}
+    cta={t.sbHero.cta}
+  />
+
+  <ValueProps
+    title={t.sbIncludes.title}
+    items={t.sbIncludes.items}
+  />
+
+  <PricingCards
+    title={t.sbPricing.title}
+    newWebsite={t.sbPricing.newWebsite}
+    rebuild={t.sbPricing.rebuild}
+  />
+
+  <SimpleCTA
+    headline={t.sbCta.headline}
+    description={t.sbCta.description}
+    button={t.sbCta.button}
+  />
+</ServiceLayout>

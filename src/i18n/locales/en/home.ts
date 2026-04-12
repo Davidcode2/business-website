@@ -24,13 +24,13 @@ export const home = {
     aiEnablement: {
       title: "AI Enablement & Training" as string,
       description:
-        "Transform how your team works with practical AI integration. You get working solutions plus hands-on training—so your people can leverage AI independently long after the project ends. Real productivity gains, not just promises." as string,
+        "Transform how your team works with practical AI integration. You get working solutions plus hands-on training—so your people can leverage AI independently long after the project ends. Measurable productivity gains, not just promises." as string,
       learnMore: "Learn more" as string,
     },
     cloudDevops: {
       title: "Cloud & DevOps" as string,
       description:
-        "Kubernetes deployment, CI/CD pipelines, and scalable infrastructure. Your app stays online, always." as string,
+        "Cost-efficient and reliable infrastructure from the Ostalbkreis region: Automated deployments, scalable architecture, and comprehensive security." as string,
       learnMore: "Learn more" as string,
     },
     security: {
@@ -63,8 +63,8 @@ export const home = {
     stats: {
       experience: "Years experience" as string,
       projects: "Projects delivered" as string,
-      satisfaction: "Client satisfaction" as string,
-      support: "Support available" as string,
+      satisfaction: "Developed & hosted in Germany" as string,
+      support: "Single point of contact" as string,
     },
   },
   contact: {

@@ -137,6 +137,33 @@ const allServices = [
     buttonText={ctaData.buttonText}
   />
 
+  <!-- Simple Website Package Promo -->
+  <section class="py-16 border-t border-[var(--color-border)]">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8">
+      <div class="p-8 border border-[var(--color-accent-primary)]/30 bg-[var(--color-accent-muted)]">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <span class="font-display text-xs tracking-[0.2em] text-[var(--color-accent-secondary)] uppercase mb-2 block">
+              Für Selbstständige & Kleinunternehmen
+            </span>
+            <h3 class="font-display text-2xl font-bold text-[var(--color-text-primary)] mb-2">
+              Einfacher Einstieg: Komplette Website für 500 €
+            </h3>
+            <p class="text-[var(--color-text-secondary)] font-body">
+              Alles inklusive – Design, Hosting, Domain, Updates & Rechtliches. Keine versteckten Kosten.
+            </p>
+          </div>
+          <a
+            href="/services/simple-website"
+            class="btn-primary whitespace-nowrap"
+          >
+            Details ansehen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <RelatedServices
     currentService={serviceData.name}
     services={allServices}

@@ -13,7 +13,7 @@ export const services = {
       description:
         "Jeden Tag verlieren langsame Ladezeiten, veraltete Designs und unhandliche E-Commerce-Erfahrungen potenzielle Kunden an Ihre Konkurrenz. Ihre Website sollte Ihr bester Verkäufer sein—kein Risiko." as string,
       painPoints: [
-        "53% der Besucher verlassen Ihre Seite, wenn sie länger als 3 Sekunden lädt—Kosten für Kunden, bevor sie Ihr Angebot überhaupt sehen",
+        "Langsame Ladezeiten vergraulen Besucher—potenzielle Kunden verlassen Ihre Seite, bevor sie Ihr Angebot überhaupt gesehen haben",
         "Hoher Warenkorbabbruch durch komplizierte Checkout-Flows und schlechte mobile Erfahrung",
         "Veraltetes Design, das Ihr Geschäft unprofessionell wirken lässt im Vergleich zur Konkurrenz",
         "Technische Kopfschmerzen, die teure Entwickler für jede kleine Änderung erfordern",
@@ -27,7 +27,7 @@ export const services = {
         conversionFirst: {
           title: "Conversion-First Design" as string,
           description:
-            "Jedes Element ist darauf ausgelegt, Besucher zur Handlung zu führen. Klare CTAs, optimierte Flows und psychologische Trigger, die Browser zu Käufern machen." as string,
+            "Jedes Element ist darauf ausgelegt, Besucher zur Handlung zu führen. Klare CTAs, optimierte Flows und bewährte Conversion-Elemente, die Browser zu Käufern machen." as string,
         },
         ecommerce: {
           title: "E-Commerce Excellence" as string,
@@ -37,12 +37,12 @@ export const services = {
         performance: {
           title: "Performance-optimiert" as string,
           description:
-            "Ladezeiten unter 2 Sekunden, die Besucher begeistern und Ihre Google-Rankings verbessern. Gebaut mit Astro für maximale Geschwindigkeit." as string,
+            "Performance-optimierte Ladezeiten, die Besucher begeistern und Ihre Google-Rankings verbessern. Gebaut mit Astro für maximale Geschwindigkeit." as string,
         },
         mobileFirst: {
           title: "Mobile-First Experience" as string,
           description:
-            "Über 60% des Traffics ist mobil. Jedes Design ist touch-optimiert und responsive, um Kunden auf jedem Gerät zu erreichen." as string,
+            "Mehr als 60% des Traffics kommt von mobilen Geräten. Jedes Design ist touch-optimiert und responsive, um Kunden auf jedem Gerät zu erreichen." as string,
         },
       },
     },
@@ -52,7 +52,7 @@ export const services = {
         lightningFast: {
           title: "Blitzschnell" as string,
           description:
-            "Ladezeiten unter 2 Sekunden, die Besucher begeistern und Ihre Google-Rankings verbessern." as string,
+            "Performance-optimierte Ladezeiten, die Besucher begeistern und Ihre Google-Rankings verbessern." as string,
         },
         highConverting: {
           title: "Hochkonvertierende Shops" as string,
@@ -62,7 +62,7 @@ export const services = {
         mobileOptimized: {
           title: "Mobile First" as string,
           description:
-            "Touch-optimierte Erlebnisse, die die 60%+ Kunden erreichen, die mobil browsen." as string,
+            "Touch-optimierte Erlebnisse für über 60% der Kunden, die mobil browsen." as string,
         },
         seoReady: {
           title: "SEO Ready" as string,
@@ -137,7 +137,7 @@ export const services = {
     },
     tagline: "Infrastruktur, die skaliert" as string,
     heroDescription:
-      "Moderne Anwendungen brauchen moderne Infrastruktur. Ich designe und implementiere Cloud-native Lösungen, die mit Ihrem Geschäft wachsen, automatisierte Deployments ermöglichen und 99.9% Uptime garantieren." as string,
+      "Moderne Anwendungen brauchen moderne Infrastruktur. Ich designe und implementiere Cloud-native Lösungen, die mit Ihrem Geschäft wachsen, automatisierte Deployments ermöglichen und maximale Zuverlässigkeit bieten—mit iSAQB Foundation und Advanced (IMPROVE) Zertifizierung." as string,
   },
   security: {
     meta: {

@@ -13,7 +13,7 @@ export const services = {
       description:
         "Every day, slow loading times, outdated designs, and clunky e-commerce experiences drive potential customers straight to your competitors. Your website should be your best salesperson—not a liability." as string,
       painPoints: [
-        "53% of visitors leave if your site takes more than 3 seconds to load—costing you customers before they even see your offer",
+        "Slow loading times drive visitors away—potential customers leave your site before they even see your offer",
         "High cart abandonment from complicated checkout flows and poor mobile experience",
         "Outdated design that makes your business look unprofessional compared to competitors",
         "Technical headaches requiring expensive developers for every small change",
@@ -27,7 +27,7 @@ export const services = {
         conversionFirst: {
           title: "Conversion-First Design" as string,
           description:
-            "Every element is designed to guide visitors toward action. Clear CTAs, streamlined flows, and psychological triggers that turn browsers into buyers." as string,
+            "Every element is designed to guide visitors toward action. Clear CTAs, streamlined flows, and proven conversion elements that turn browsers into buyers." as string,
         },
         ecommerce: {
           title: "E-Commerce Excellence" as string,
@@ -37,12 +37,12 @@ export const services = {
         performance: {
           title: "Performance Optimized" as string,
           description:
-            "Sub-2 second load times that keep visitors engaged and improve your Google rankings. Built with Astro for maximum speed." as string,
+            "Performance-optimized loading times that keep visitors engaged and improve your Google rankings. Built with Astro for maximum speed." as string,
         },
         mobileFirst: {
           title: "Mobile-First Experience" as string,
           description:
-            "Over 60% of traffic is mobile. Every design is touch-optimized and responsive, capturing customers on any device." as string,
+            "More than 60% of traffic comes from mobile devices. Every design is touch-optimized and responsive, capturing customers on any device." as string,
         },
       },
     },
@@ -52,7 +52,7 @@ export const services = {
         lightningFast: {
           title: "Lightning Fast" as string,
           description:
-            "Sub-2 second load times that keep visitors engaged and boost your Google rankings." as string,
+            "Performance-optimized loading times that keep visitors engaged and boost your Google rankings." as string,
         },
         highConverting: {
           title: "High-Converting Stores" as string,
@@ -62,7 +62,7 @@ export const services = {
         mobileOptimized: {
           title: "Mobile First" as string,
           description:
-            "Touch-optimized experiences that capture the 60%+ of customers browsing on mobile." as string,
+            "Touch-optimized experiences for the 60%+ of customers browsing on mobile." as string,
         },
         seoReady: {
           title: "SEO Ready" as string,
@@ -137,7 +137,7 @@ export const services = {
     },
     tagline: "Infrastructure that scales" as string,
     heroDescription:
-      "Modern applications need modern infrastructure. I design and implement cloud-native solutions that grow with your business, enable automated deployments, and guarantee 99.9% uptime." as string,
+      "Modern applications need modern infrastructure. I design and implement cloud-native solutions that grow with your business, enable automated deployments, and ensure maximum reliability—with iSAQB Foundation and Advanced (IMPROVE) certification." as string,
   },
   security: {
     meta: {

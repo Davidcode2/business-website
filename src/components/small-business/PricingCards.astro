@@ -1,0 +1,106 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface PricingPackage {
+  name: string;
+  price: string;
+  priceSubtext: string;
+  monthly: string;
+  description: string;
+  features: string[];
+  cta: string;
+  highlighted?: boolean;
+}
+
+interface Props {
+  title: string;
+  newWebsite: PricingPackage;
+  rebuild: PricingPackage;
+}
+
+const { title, newWebsite, rebuild } = Astro.props;
+
+const packages = [
+  { ...newWebsite, highlighted: true },
+  { ...rebuild, highlighted: false },
+];
+---
+
+<section class="relative py-16 sm:py-20 border-t border-[var(--color-border)]">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <div class="flex items-center justify-center gap-4 mb-4">
+        <div class="w-8 h-[1px] bg-[var(--color-accent-primary)]"></div>
+        <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-primary)] uppercase">
+          {title}
+        </span>
+        <div class="w-8 h-[1px] bg-[var(--color-accent-primary)]"></div>
+      </div>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid md:grid-cols-2 gap-6">
+      {packages.map((pkg) => (
+        <div class={`relative p-6 border ${pkg.highlighted ? 'border-[var(--color-accent-primary)]' : 'border-[var(--color-border)]'} bg-[var(--color-bg-secondary)]`}>
+          {/* Highlight badge */}
+          {pkg.highlighted && (
+            <div class="absolute -top-3 left-6">
+              <span class="bg-[var(--color-accent-primary)] text-[var(--color-text-inverse)] text-xs font-display uppercase tracking-wider px-3 py-1">
+                Beliebt
+              </span>
+            </div>
+          )}
+          
+          {/* Package name */}
+          <h3 class="font-display text-xl font-semibold text-[var(--color-text-primary)] mb-4">
+            {pkg.name}
+          </h3>
+          
+          {/* Price */}
+          <div class="mb-2">
+            <span class="font-display text-4xl font-bold text-[var(--color-text-primary)]">
+              {pkg.price}
+            </span>
+            <span class="text-sm text-[var(--color-text-secondary)] ml-2">
+              {pkg.priceSubtext}
+            </span>
+          </div>
+          
+          {/* Monthly */}
+          <div class="font-display text-sm text-[var(--color-accent-secondary)] mb-4">
+            {pkg.monthly}
+          </div>
+          
+          {/* Description */}
+          <p class="text-sm text-[var(--color-text-muted)] mb-6 font-body">
+            {pkg.description}
+          </p>
+          
+          {/* Features */}
+          <ul class="space-y-3 mb-6">
+            {pkg.features.map((feature) => (
+              <li class="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
+                <Icon name="lucide:check" class="w-4 h-4 text-[var(--color-accent-primary)] flex-shrink-0 mt-0.5" />
+                <span class="font-body">{feature}</span>
+              </li>
+            ))}
+          </ul>
+          
+          {/* CTA */}
+          <a
+            href="#contact"
+            class={`w-full inline-flex justify-center items-center gap-2 py-3 font-display text-sm uppercase tracking-wider transition-colors ${pkg.highlighted ? 'bg-[var(--color-accent-primary)] text-[var(--color-text-inverse)] hover:bg-[var(--color-accent-secondary)]' : 'border border-[var(--color-border)] text-[var(--color-text-primary)] hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)]'}`}
+          >
+            {pkg.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+    
+    {/* Trust note */}
+    <p class="text-center text-xs text-[var(--color-text-muted)] mt-8 font-body">
+      Keine versteckten Kosten. Keine Mindestlaufzeit. Jederzeit kündbar.
+    </p>
+  </div>
+</section>

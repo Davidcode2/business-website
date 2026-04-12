@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  headline: string;
+  description: string;
+  button: string;
+}
+
+const { headline, description, button } = Astro.props;
+---
+
+<section id="contact" class="relative py-16 sm:py-20 border-t border-[var(--color-border)]">
+  <div class="max-w-2xl mx-auto px-6 lg:px-8 text-center">
+    {/* Decorative line */}
+    <div class="flex items-center justify-center gap-4 mb-8">
+      <div class="w-12 h-[1px] bg-[var(--color-accent-primary)]"></div>
+      <Icon name="lucide:message-circle" class="w-5 h-5 text-[var(--color-accent-primary)]" />
+      <div class="w-12 h-[1px] bg-[var(--color-accent-primary)]"></div>
+    </div>
+
+    {/* Headline */}
+    <h2 class="font-display text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] mb-4">
+      {headline}
+    </h2>
+
+    {/* Description */}
+    <p class="text-base text-[var(--color-text-secondary)] mb-8 font-body max-w-lg mx-auto">
+      {description}
+    </p>
+
+    {/* CTA Button */}
+    <a
+      href="/services/web-development#contact"
+      class="btn-primary group inline-flex"
+    >
+      <span>{button}</span>
+      <Icon name="lucide:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+    </a>
+
+    {/* Contact hint */}
+    <p class="text-xs text-[var(--color-text-muted)] mt-6 font-body">
+      Oder direkt per E-Mail: <a href="mailto:info@jakob-lingel.de" class="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-secondary)] transition-colors">info@jakob-lingel.de</a>
+    </p>
+  </div>
+</section>

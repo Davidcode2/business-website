@@ -24,13 +24,13 @@ export const home = {
     aiEnablement: {
       title: "KI-Integration & Training" as string,
       description:
-        "Transformieren Sie die Art und Weise, wie Ihr Team arbeitet, durch praxisnahe KI-Integration. Sie erhalten funktionierende Lösungen plus praktisches Training—damit Ihre Mitarbeiter KI auch langfristig selbstständig nutzen können. Echte Produktivitätsgewinne, nicht nur Versprechen." as string,
+        "Transformieren Sie die Art und Weise, wie Ihr Team arbeitet, durch praxisnahe KI-Integration. Sie erhalten funktionierende Lösungen plus praktisches Training—damit Ihre Mitarbeiter KI auch langfristig selbstständig nutzen können. Nachweisbare Produktivitätsgewinne, nicht nur Versprechen." as string,
       learnMore: "Details ansehen" as string,
     },
     cloudDevops: {
       title: "Cloud-Infrastruktur & DevOps" as string,
       description:
-        "Enterprise-grade Infrastruktur mit 99,9% Verfügbarkeit: Automatisierte Deployment-Prozesse, skalierbare Architekturen und durchgängige Sicherheitskonzepte." as string,
+        "Kosteneffiziente und zuverlässige Infrastruktur aus der Region Ostalbkreis: Automatisierte Deployment-Prozesse, skalierbare Architekturen und durchgängige Sicherheitskonzepte." as string,
       learnMore: "Details ansehen" as string,
     },
     security: {
@@ -66,8 +66,8 @@ export const home = {
     stats: {
       experience: "Jahre Berufserfahrung" as string,
       projects: "Erfolgreich umgesetzte Projekte" as string,
-      satisfaction: "Kunden-zufriedenheit" as string,
-      support: "Erreichbarkeit" as string,
+      satisfaction: "Entwickelt & gehostet in Deutschland" as string,
+      support: "1 Ansprechpartner" as string,
     },
   },
   contact: {
