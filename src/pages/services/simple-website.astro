@@ -4,6 +4,7 @@ import Hero from '../../components/small-business/Hero.astro';
 import ValueProps from '../../components/small-business/ValueProps.astro';
 import PricingCards from '../../components/small-business/PricingCards.astro';
 import SimpleCTA from '../../components/small-business/SimpleCTA.astro';
+import Contact from '../../components/Contact.astro';
 import { getTranslations } from '../../i18n/translations';
 
 const locale = 'de';
@@ -46,4 +47,6 @@ const pageData = {
     description={t.sbCta.description}
     button={t.sbCta.button}
   />
+
+  <Contact locale={locale} />
 </ServiceLayout>

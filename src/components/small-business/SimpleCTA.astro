@@ -30,17 +30,13 @@ const { headline, description, button } = Astro.props;
     </p>
 
     {/* CTA Button */}
-    <a
-      href="/services/web-development#contact"
-      class="btn-primary group inline-flex"
+    <button
+      type="button"
+      onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})"
+      class="btn-primary group inline-flex cursor-pointer"
     >
       <span>{button}</span>
       <Icon name="lucide:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-    </a>
-
-    {/* Contact hint */}
-    <p class="text-xs text-[var(--color-text-muted)] mt-6 font-body">
-      Oder direkt per E-Mail: <a href="mailto:info@jakob-lingel.de" class="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-secondary)] transition-colors">info@jakob-lingel.de</a>
-    </p>
+    </button>
   </div>
 </section>

@@ -53,12 +53,13 @@ const { headline, price, subheadline, description, cta } = Astro.props;
     </p>
 
     <!-- CTA -->
-    <a
-      href="#contact"
-      class="btn-primary group inline-flex"
+    <button
+      type="button"
+      onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})"
+      class="btn-primary group inline-flex cursor-pointer"
     >
       <span>{cta}</span>
       <Icon name="lucide:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-    </a>
+    </button>
   </div>
 </section>
