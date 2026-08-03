@@ -19,15 +19,15 @@ const { headline, description, benefits } = Astro.props;
     <!-- Section header -->
     <div class="text-center mb-16 space-y-6">
       <div class="flex items-center justify-center gap-4">
-        <div class="w-12 h-[1px] bg-[var(--color-accent-secondary)]"></div>
-        <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-secondary)] uppercase">
+        <div class="w-12 h-[1px] bg-[var(--color-accent-primary)]"></div>
+        <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-primary)] uppercase">
           Key Benefits
         </span>
-        <div class="w-12 h-[1px] bg-[var(--color-accent-secondary)]"></div>
+        <div class="w-12 h-[1px] bg-[var(--color-accent-primary)]"></div>
       </div>
 
       <h2 class="font-display text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)]">
-        <span class="gradient-text-warm">{headline}</span>
+        <span class="gradient-text">{headline}</span>
       </h2>
 
       {description && (

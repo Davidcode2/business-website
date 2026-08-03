@@ -16,8 +16,8 @@ const { headline, description, painPoints } = Astro.props;
       <!-- Left: Content -->
       <div class="space-y-6 lg:sticky lg:top-32">
         <div class="flex items-center gap-4">
-          <div class="w-8 h-[1px] bg-[var(--color-accent-secondary)]"></div>
-          <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-secondary)] uppercase">
+          <div class="w-8 h-[1px] bg-[var(--color-accent-primary)]"></div>
+          <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-primary)] uppercase">
             The Challenge
           </span>
         </div>
@@ -36,8 +36,8 @@ const { headline, description, painPoints } = Astro.props;
         {painPoints.map((point, index) => (
           <div class="service-card group flex items-start gap-4">
             <!-- X icon -->
-            <div class="flex-shrink-0 w-10 h-10 border border-[var(--color-border)] flex items-center justify-center group-hover:border-[var(--color-accent-secondary)] transition-colors">
-              <Icon name="lucide:x" class="w-5 h-5 text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-secondary)] transition-colors" />
+            <div class="flex-shrink-0 w-10 h-10 border border-[var(--color-border)] flex items-center justify-center group-hover:border-[var(--color-accent-primary)] transition-colors">
+              <Icon name="lucide:x" class="w-5 h-5 text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-primary)] transition-colors" />
             </div>
             <!-- Text -->
             <p class="text-[var(--color-text-secondary)] pt-2 font-body">

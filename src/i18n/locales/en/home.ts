@@ -1,20 +1,20 @@
 export const home = {
   hero: {
-    tagline: "Digital Solutions Provider" as string,
-    headline1: "From idea to" as string,
-    headline2: "deployment" as string,
-    headline3: "in record time" as string,
+    tagline: "Software · Cloud · AI — from the Ostalbkreis" as string,
+    headline1: "Software that" as string,
+    headline2: "works." as string,
+    headline3: "No detours." as string,
     subheadline:
-      "Harness the full power of digitalization in the AI age. AI-enabled solutions, custom software, and intelligent automation—built to multiply your productivity." as string,
+      "I'm a software engineer from the Ostalbkreis region, building websites, shops, cloud infrastructure and AI integrations — personal, pragmatic, with a clear result. One point of contact from first idea to running operation." as string,
     ctaPrimary: "Let's talk" as string,
-    ctaSecondary: "Explore services" as string,
+    ctaSecondary: "View services" as string,
   },
   services: {
-    sectionTagline: "What I offer" as string,
-    sectionTitle1: "Services built for" as string,
-    sectionTitle2: "results" as string,
+    sectionTagline: "Services" as string,
+    sectionTitle1: "Four areas." as string,
+    sectionTitle2: " One standard: measurable value." as string,
     sectionDescription:
-      "From concept to launch, I provide end-to-end digital solutions that drive business growth." as string,
+      "I support you from first analysis to running operation — with solutions that noticeably simplify your processes and run reliably." as string,
     webDevelopment: {
       title: "Web, Shop & Tailor-Made Software" as string,
       description:
@@ -41,23 +41,23 @@ export const home = {
     },
   },
   story: {
-    sectionTagline: "The difference" as string,
-    sectionTitle1: "From first call to live deployment—" as string,
-    sectionTitle2: "measured in days, not months" as string,
+    sectionTagline: "Why me" as string,
+    sectionTitle1: "No project manager, no ticket queue — you talk directly to the person building it." as string,
+    sectionTitle2: "" as string,
     description:
-      "Technology should serve your business, not complicate it. I cut through the noise and deliver solutions that work—fast, reliable, and built to scale." as string,
+      "I implement your requirements pragmatically and efficiently: no unnecessary processes, no endless alignment loops. What I promise, I deliver — tested, documented, and built to still run in three years." as string,
     valueProps: {
       noMeetings: {
-        title: "No endless meetings" as string,
-        description: "Direct communication, quick decisions." as string,
+        title: "Direct communication" as string,
+        description: "Short decision paths. You reach me personally — no ticket systems, no intermediaries." as string,
       },
       noBloatedTeams: {
-        title: "No bloated teams" as string,
-        description: "One expert, focused on your success." as string,
+        title: "One expert for everything" as string,
+        description: "From architecture to deployment: one person who knows the whole system and takes responsibility." as string,
       },
       justResults: {
-        title: "Just results" as string,
-        description: "Measured in business value, not hours." as string,
+        title: "Results over timesheets" as string,
+        description: "Measured by value for your business — not hours burned or colorful status reports." as string,
       },
     },
     stats: {
@@ -68,11 +68,11 @@ export const home = {
     },
   },
   contact: {
-    sectionTagline: "Get in touch" as string,
-    sectionTitle1: "Ready to bring your" as string,
-    sectionTitle2: "vision to life?" as string,
+    sectionTagline: "Contact" as string,
+    sectionTitle1: "Tell me about your project — no strings attached." as string,
+    sectionTitle2: "" as string,
     description:
-      "Let's discuss your project. No obligations, just a conversation about what's possible." as string,
+      "In a free intro call we'll figure out what you need and whether I'm the right fit. No sales pressure, no obligation." as string,
     buttonText: "Get in touch" as string,
     emailHint: "Click to reveal email address" as string,
     trustedTech: "Trusted technologies" as string,

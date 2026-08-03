@@ -1,20 +1,20 @@
 export const home = {
   hero: {
-    tagline: "Digital Solutions Provider" as string,
-    headline1: "Von der Vision" as string,
-    headline2: "zur produktiven Lösung" as string,
-    headline3: "in kürzester Zeit" as string,
+    tagline: "Software · Cloud · KI — aus dem Ostalbkreis" as string,
+    headline1: "Software, die" as string,
+    headline2: "funktioniert." as string,
+    headline3: "Ohne Umwege." as string,
     subheadline:
-      "Nutzen Sie die volle Kraft der Digitalisierung im KI-Zeitalter. KI-gestützte Lösungen, maßgeschneiderte Software und intelligente Automation—entwickelt, um Ihre Produktivität zu multiplizieren." as string,
+      "Ich bin Software-Ingenieur aus dem Ostalbkreis und baue Websites, Shops, Cloud-Infrastruktur und KI-Integrationen — persönlich, pragmatisch und mit klarem Ergebnis. Ein Ansprechpartner von der ersten Idee bis zum laufenden Betrieb." as string,
     ctaPrimary: "Gespräch vereinbaren" as string,
-    ctaSecondary: "Leistungen entdecken" as string,
+    ctaSecondary: "Leistungen ansehen" as string,
   },
   services: {
-    sectionTagline: "Mein Leistungsangebot" as string,
-    sectionTitle1: "Technische Lösungen mit" as string,
-    sectionTitle2: "messbarem Mehrwert" as string,
+    sectionTagline: "Leistungen" as string,
+    sectionTitle1: "Vier Bereiche." as string,
+    sectionTitle2: " Ein Anspruch: messbarer Nutzen." as string,
     sectionDescription:
-      "Ich begleite Sie von der ersten Analyse bis zum erfolgreichen Launch: Strategische Digital-Lösungen, die Ihre Geschäftsprozesse optimieren und nachhaltiges Wachstum ermöglichen." as string,
+      "Ich begleite Sie von der ersten Analyse bis zum laufenden Betrieb — mit Lösungen, die Ihre Prozesse spürbar vereinfachen und zuverlässig laufen." as string,
     webDevelopment: {
       title: "Web, Shop & Maßgeschneiderte Software" as string,
       description:
@@ -41,26 +41,26 @@ export const home = {
     },
   },
   story: {
-    sectionTagline: "Wieso mit mir arbeiten?" as string,
-    sectionTitle1: "Von der Anforderung bis zur Live-Schaltung—" as string,
-    sectionTitle2: "effizient umgesetzt, Qualität garantiert" as string,
+    sectionTagline: "Warum ich" as string,
+    sectionTitle1: "Kein Projektmanager, keine Warteschleife — Sie sprechen direkt mit dem, der es baut." as string,
+    sectionTitle2: "" as string,
     description:
-      "Als erfahrener Entwickler setze ich Ihre Anforderungen pragmatisch und effizient um. Ohne Umwege, ohne überflüssige Prozesse—fokussiert auf das Ergebnis. Qualität, Zuverlässigkeit und nachhaltige Lösungen stehen dabei im Mittelpunkt." as string,
+      "Ich setze Ihre Anforderungen pragmatisch und effizient um: ohne überflüssige Prozesse, ohne endlos lange Abstimmungsschleifen. Was ich verspreche, liefere ich — getestet, dokumentiert und so gebaut, dass es auch in drei Jahren noch läuft." as string,
     valueProps: {
       noMeetings: {
         title: "Direkte Kommunikation" as string,
         description:
-          "Schnelle Entscheidungswege ohne bürokratische Hürden." as string,
+          "Kurze Entscheidungswege. Sie erreichen mich persönlich — keine Ticketsysteme, keine Zwischenstationen." as string,
       },
       noBloatedTeams: {
-        title: "Spezialisierte Expertise" as string,
+        title: "Ein Experte für alles" as string,
         description:
-          "Persönliche Betreuung durch einen erfahrenen Entwickler." as string,
+          "Von der Architektur bis zum Deployment: ein Kopf, der das ganze System kennt und Verantwortung trägt." as string,
       },
       justResults: {
-        title: "Ergebnisorientiert" as string,
+        title: "Ergebnisse statt Stundenzettel" as string,
         description:
-          "Messbarer Geschäftswert durch technische Excellence." as string,
+          "Gemessen wird am Nutzen für Ihr Geschäft — nicht an verbrauchten Stunden oder bunten Statusreports." as string,
       },
     },
     stats: {
@@ -72,10 +72,10 @@ export const home = {
   },
   contact: {
     sectionTagline: "Kontakt" as string,
-    sectionTitle1: "Interesse an einer" as string,
-    sectionTitle2: "Zusammenarbeit?" as string,
+    sectionTitle1: "Erzählen Sie mir von Ihrem Projekt — unverbindlich." as string,
+    sectionTitle2: "" as string,
     description:
-      "Ich freue mich auf Ihre Anfrage. In einem unverbindlichen Erstgespräch klären wir Ihre Anforderungen und besprechen mögliche Lösungsansätze—ganz ohne Zeitdruck." as string,
+      "In einem kostenlosen Erstgespräch klären wir, was Sie brauchen und ob ich der Richtige dafür bin. Kein Verkaufsdruck, keine Verpflichtung." as string,
     buttonText: "Kontakt aufnehmen" as string,
     emailHint: "Klicken Sie, um Kontakt aufzunehmen" as string,
     trustedTech: "Technologie-Stack" as string,

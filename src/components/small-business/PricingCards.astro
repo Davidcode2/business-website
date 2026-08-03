@@ -68,7 +68,7 @@ const packages = [
           </div>
           
           {/* Monthly */}
-          <div class="font-display text-sm text-[var(--color-accent-secondary)] mb-4">
+          <div class="font-display text-sm text-[var(--color-accent-primary)] mb-4">
             {pkg.monthly}
           </div>
           
@@ -91,7 +91,7 @@ const packages = [
           <button
             type="button"
             onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})"
-            class={`w-full inline-flex justify-center items-center gap-2 py-3 font-display text-sm uppercase tracking-wider transition-colors cursor-pointer ${pkg.highlighted ? 'bg-[var(--color-accent-primary)] text-[var(--color-text-inverse)] hover:bg-[var(--color-accent-secondary)]' : 'border border-[var(--color-border)] text-[var(--color-text-primary)] hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)]'}`}
+            class={`w-full inline-flex justify-center items-center gap-2 py-3 font-display text-sm uppercase tracking-wider transition-colors cursor-pointer ${pkg.highlighted ? 'bg-[var(--color-accent-primary)] text-[var(--color-text-inverse)] hover:bg-[var(--color-accent-primary)]' : 'border border-[var(--color-border)] text-[var(--color-text-primary)] hover:border-[var(--color-accent-primary)] hover:text-[var(--color-accent-primary)]'}`}
           >
             {pkg.cta}
           </button>

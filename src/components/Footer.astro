@@ -28,35 +28,32 @@ const footerLinks = [
 ---
 
 <footer class="relative border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
-  <!-- Decorative top line -->
-  <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[var(--color-accent-primary)]/30 to-transparent"></div>
-
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-    <div class="grid md:grid-cols-12 gap-12">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-14">
+    <div class="grid md:grid-cols-12 gap-10">
       <!-- Brand -->
       <div class="md:col-span-5 space-y-4">
         <a href={homeUrl} class="inline-flex items-center gap-3 group">
-          <div class="w-10 h-10 border border-[var(--color-accent-primary)] flex items-center justify-center">
-            <span class="font-display text-lg font-bold text-[var(--color-accent-primary)]">JL</span>
+          <div class="w-9 h-9 bg-[var(--color-text-primary)] rounded-[3px] flex items-center justify-center">
+            <span class="font-display text-sm font-extrabold text-[var(--color-bg-primary)]">JL</span>
           </div>
           <div>
-            <span class="font-display text-lg font-semibold text-[var(--color-text-primary)] block">Jakob Lingel</span>
-            <span class="font-display text-[10px] tracking-[0.2em] text-[var(--color-text-muted)] uppercase">Digital Solutions</span>
+            <span class="font-display text-base font-bold text-[var(--color-text-primary)] block leading-tight">Jakob Lingel</span>
+            <span class="font-mono text-[10px] tracking-[0.1em] text-[var(--color-text-muted)] uppercase">Digital Solutions</span>
           </div>
         </a>
-        <p class="text-[var(--color-text-secondary)] font-body max-w-sm">
+        <p class="text-[var(--color-text-secondary)] max-w-sm text-sm leading-relaxed">
           {t.footer.tagline}
         </p>
       </div>
 
       <!-- Navigation -->
       <div class="md:col-span-3">
-        <span class="font-display text-xs tracking-[0.2em] text-[var(--color-text-muted)] uppercase block mb-4">Navigation</span>
-        <div class="space-y-3">
+        <span class="font-mono text-xs tracking-wide text-[var(--color-text-muted)] uppercase block mb-4">Navigation</span>
+        <div class="space-y-2.5">
           {footerLinks.map((link) => (
             <a
               href={link.href}
-              class="block text-[var(--color-text-secondary)] hover:text-[var(--color-accent-primary)] font-display text-sm transition-colors"
+              class="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-primary)] transition-colors"
             >
               {link.label}
             </a>
@@ -66,7 +63,7 @@ const footerLinks = [
 
       <!-- Connect -->
       <div class="md:col-span-4">
-        <span class="font-display text-xs tracking-[0.2em] text-[var(--color-text-muted)] uppercase block mb-4">
+        <span class="font-mono text-xs tracking-wide text-[var(--color-text-muted)] uppercase block mb-4">
           {isGerman ? 'Verbinden' : 'Connect'}
         </span>
         <div class="flex gap-3">
@@ -74,7 +71,7 @@ const footerLinks = [
             href="https://github.com/Davidcode2"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-12 h-12 border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] hover:border-[var(--color-accent-primary)] transition-all"
+            class="w-11 h-11 border border-[var(--color-border)] rounded-[3px] flex items-center justify-center text-[var(--color-text-secondary)] hover:text-[var(--color-accent-primary)] hover:border-[var(--color-accent-primary)] transition-all"
             aria-label="GitHub"
           >
             <Icon name="simple-icons:github" class="w-5 h-5" />
@@ -83,32 +80,23 @@ const footerLinks = [
             href="https://de.linkedin.com/in/jakob-lingel-613976253"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-12 h-12 border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] hover:border-[var(--color-accent-primary)] transition-all"
+            class="w-11 h-11 border border-[var(--color-border)] rounded-[3px] flex items-center justify-center text-[var(--color-text-secondary)] hover:text-[var(--color-accent-primary)] hover:border-[var(--color-accent-primary)] transition-all"
             aria-label="LinkedIn"
           >
             <Icon name="simple-icons:linkedin" class="w-5 h-5" />
-          </a>
-          <a
-            href="#contact"
-            class="w-12 h-12 border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] hover:border-[var(--color-accent-primary)] transition-all"
-            aria-label="Email"
-          >
-            <Icon name="lucide:mail" class="w-5 h-5" />
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Bottom Bar -->
-    <div class="mt-16 pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-[var(--color-text-muted)] text-sm font-display">
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-6 border-t border-[var(--color-border)] flex flex-col sm:flex-row justify-between items-center gap-3">
+      <p class="text-[var(--color-text-muted)] text-sm">
         © {currentYear} Jakob Lingel. {t.footer.copyright}
       </p>
-      <div class="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-display tracking-wider">
-        <span>MADE WITH</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[var(--color-accent-primary)]"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        <span>ASTRO + TAILWIND</span>
-      </div>
+      <p class="font-mono text-xs text-[var(--color-text-muted)] tracking-wide">
+        AALEN, BW · DE
+      </p>
     </div>
   </div>
 </footer>

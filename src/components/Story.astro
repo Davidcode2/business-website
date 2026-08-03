@@ -8,6 +8,7 @@ interface Props {
 
 const { locale = 'de' } = Astro.props;
 const t = getTranslations(locale);
+const isGerman = locale === 'de';
 
 const valueProps = [
   {
@@ -26,111 +27,61 @@ const valueProps = [
     description: t.story.valueProps.justResults.description,
   },
 ];
-
-const stats = [
-  { value: '5+', label: t.story.stats.experience },
-  { value: '20+', label: t.story.stats.projects },
-  { value: '100%', label: t.story.stats.satisfaction },
-  { value: '24/7', label: t.story.stats.support },
-];
 ---
 
-<section id="about" class="relative py-32 overflow-hidden">
-  <!-- Background Elements -->
-  <div class="absolute inset-0 pointer-events-none">
-    <!-- Large section number -->
-    <div class="absolute -right-8 top-32 text-[20rem] font-display font-bold text-[var(--color-text-primary)] opacity-[0.015] leading-none select-none">
-      03
-    </div>
-    <!-- Decorative line -->
-    <div class="absolute left-0 top-1/2 w-1/4 h-[1px] bg-gradient-to-r from-transparent to-[var(--color-border)]"></div>
-  </div>
+<section id="about" class="relative py-24 lg:py-32 bg-[var(--color-bg-secondary)] border-y border-[var(--color-border)]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-16">
 
-  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="grid lg:grid-cols-12 gap-16">
-      <!-- Left Content -->
-      <div class="lg:col-span-7 space-y-12">
-        <!-- Section Marker -->
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-[1px] bg-[var(--color-accent-primary)]"></div>
-          <span class="font-display text-xs tracking-[0.3em] text-[var(--color-accent-primary)] uppercase">
-            {t.story.sectionTagline}
-          </span>
-        </div>
-
-        <!-- Headline -->
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-[var(--color-text-primary)] leading-[1]">
-          <span class="block">{t.story.sectionTitle1}</span>
-          <span class="block gradient-text">{t.story.sectionTitle2}</span>
-        </h2>
-
-        <!-- Description -->
-        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-2xl font-body">
-          {t.story.description}
-        </p>
-
-        <!-- Value Props -->
-        <div class="space-y-8 pt-4">
-          {valueProps.map((prop, index) => (
-            <div class="flex gap-6 group">
-              <!-- Icon -->
-              <div class="flex-shrink-0 w-12 h-12 border border-[var(--color-border)] flex items-center justify-center group-hover:border-[var(--color-accent-primary)] transition-colors">
-                <Icon name={prop.icon} class="w-5 h-5 text-[var(--color-text-muted)] group-hover:text-[var(--color-accent-primary)] transition-colors" />
-              </div>
-              <!-- Content -->
-              <div>
-                <h3 class="font-display text-lg font-semibold text-[var(--color-text-primary)] mb-1">
-                  {prop.title}
-                </h3>
-                <p class="text-[var(--color-text-secondary)] font-body">
-                  {prop.description}
-                </p>
-              </div>
-            </div>
-          ))}
+      <!-- Label column -->
+      <div class="lg:col-span-3">
+        <div class="section-marker">
+          <span>{t.story.sectionTagline}</span>
         </div>
       </div>
 
-      <!-- Right Content: Stats -->
-      <div class="lg:col-span-5">
-        <div class="relative">
-          <!-- Stats Grid -->
-          <div class="grid grid-cols-2 gap-px bg-[var(--color-border)]">
-            {stats.map((stat, index) => (
-              <div class="stat-card bg-[var(--color-bg-secondary)]">
-                <div class="font-display text-4xl sm:text-5xl font-bold text-[var(--color-accent-primary)] mb-2">
-                  {stat.value}
-                </div>
-                <div class="text-sm text-[var(--color-text-secondary)] font-body leading-tight">
-                  {stat.label}
-                </div>
-                <!-- Corner marker -->
-                <div class="absolute top-2 right-2 w-2 h-2 border-t border-r border-[var(--color-text-muted)] opacity-30"></div>
-              </div>
-            ))}
-          </div>
+      <!-- Content -->
+      <div class="lg:col-span-9 space-y-12">
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-[var(--color-text-primary)] leading-[1.05] tracking-tight max-w-3xl">
+          {t.story.sectionTitle1}
+          <span class="text-[var(--color-accent-primary)]">{t.story.sectionTitle2}</span>
+        </h2>
 
-          <!-- Decorative frame -->
-          <div class="absolute -inset-4 border border-[var(--color-border)] -z-10"></div>
-          <div class="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-[var(--color-accent-secondary)]"></div>
-          <div class="absolute -bottom-2 -left-2 w-8 h-8 border-b-2 border-l-2 border-[var(--color-accent-secondary)]"></div>
-        </div>
+        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed max-w-2xl">
+          {t.story.description}
+        </p>
 
-        <!-- Technical note -->
-        <div class="mt-8 p-6 border-l-2 border-[var(--color-accent-primary)] bg-[var(--color-accent-muted)]">
-          <div class="flex items-start gap-4">
-            <Icon name="lucide:info" class="w-5 h-5 text-[var(--color-accent-primary)] flex-shrink-0 mt-0.5" />
-            <div>
-              <span class="font-display text-xs tracking-wider text-[var(--color-accent-primary)] uppercase block mb-1">
-                {locale === 'de' ? 'Arbeitsweise' : 'Working Method'}
+        <!-- Value props: numbered datasheet cells, equalized via flex -->
+        <div class="grid sm:grid-cols-3 gap-px bg-[var(--color-border)] border border-[var(--color-border)]">
+          {valueProps.map((prop, index) => (
+            <div class="relative bg-[var(--color-bg-primary)] p-6 lg:p-8 group hover:bg-[var(--color-bg-elevated)] transition-colors flex flex-col">
+              <div class="absolute top-0 left-0 right-0 h-[3px] bg-[var(--color-accent-primary)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <span class="font-mono text-base font-semibold text-[var(--color-accent-primary)] block mb-3">
+                0{index + 1}
               </span>
-              <p class="text-sm text-[var(--color-text-secondary)] font-body">
-                {locale === 'de'
-                  ? 'Agile Entwicklung mit transparenten Meilensteinen. Regelmäßige Updates und direkte Kommunikation ohne Umwege.'
-                  : 'Agile development with transparent milestones. Regular updates and direct communication without detours.'}
+              <h3 class="font-display text-lg font-bold text-[var(--color-text-primary)] mb-2 leading-snug">
+                {prop.title}
+              </h3>
+              <p class="text-[15px] text-[var(--color-text-secondary)] leading-relaxed">
+                {prop.description}
               </p>
             </div>
-          </div>
+          ))}
+        </div>
+
+        <!-- Honest facts strip — anchored to the cards, 2×2 on small, 4-up on large -->
+        <div class="border border-[var(--color-border)] border-t-0 bg-[var(--color-bg-primary)] px-6 lg:px-8 py-4 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-3">
+          {[
+            isGerman ? '5+ Jahre Berufserfahrung' : '5+ years experience',
+            isGerman ? '20+ Projekte ausgeliefert' : '20+ projects shipped',
+            isGerman ? '1 Ansprechpartner — ich' : '1 point of contact — me',
+            'Hosting 100% DE',
+          ].map((fact) => (
+            <div class="flex items-center gap-2.5">
+              <div class="w-1.5 h-1.5 bg-[var(--color-accent-primary)] flex-shrink-0"></div>
+              <span class="font-mono text-xs sm:text-sm text-[var(--color-text-primary)]">{fact}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

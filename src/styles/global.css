@@ -1,13 +1,17 @@
-/* Architectural Blueprint Design System */
+/* ─────────────────────────────────────────────────────────────────
+   Design System — "Werkstatt" (v2)
+   Light-first warm paper, Archivo Expanded display, IBM Plex Mono
+   data labels, single signal-red accent. Datasheet grid structure.
+   ───────────────────────────────────────────────────────────────── */
 
-/* Typography - Familjen Grotesk + Newsreader */
-@import url("https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,300;0,400;0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Familjen Grotesk", sans-serif;
-  --font-body: "Newsreader", serif;
+  --font-display: "Archivo", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
 }
 
 @layer base {
@@ -19,15 +23,21 @@
     scroll-behavior: smooth;
   }
 
+  /* Anchored sections must clear the fixed header */
+  section[id] {
+    scroll-margin-top: 88px;
+  }
+
   body {
     font-family: var(--font-body);
     background-color: var(--color-bg-primary);
     color: var(--color-text-primary);
-    line-height: 1.6;
-    letter-spacing: -0.01em;
+    line-height: 1.65;
+    letter-spacing: 0;
     transition:
       background-color 0.4s ease,
       color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1,
@@ -37,9 +47,9 @@
   h5,
   h6 {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
   }
 
   a {
@@ -48,346 +58,191 @@
     transition: all 0.2s ease-out;
   }
 
-  a:hover {
-    color: var(--color-accent-secondary);
-  }
-
   ::selection {
     background: var(--color-accent-primary);
-    color: var(--color-bg-primary);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 3px;
   }
 }
 
-/* Dark Theme (Default) - Ultra High Contrast Black with Electric Cyan */
-[data-theme="dark"] {
-  /* Primary backgrounds - pure to near black for maximum drama */
-  --color-bg-primary: #000000;
-  --color-bg-secondary: #050505;
-  --color-bg-tertiary: #080808;
-  --color-bg-elevated: #0c0c0c;
-
-  /* Accent colors - muted cyan and warm amber */
-  --color-accent-primary: #00a0a8;
-  --color-accent-secondary: #ffaa33;
-  --color-accent-muted: rgba(0, 240, 255, 0.08);
-  --color-accent-amber-muted: rgba(255, 170, 51, 0.08);
-
-  /* Text colors - maximum contrast */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #999999;
-  --color-text-muted: #444444;
-  --color-text-inverse: #000000;
-
-  /* Borders - extremely subtle on pure black */
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-subtle: rgba(255, 255, 255, 0.03);
-  --color-grid: rgba(0, 240, 255, 0.015);
-
-  /* Gradients */
-  --gradient-accent: linear-gradient(
-    135deg,
-    #00f0ff 0%,
-    #00c8d4 50%,
-    #00a0aa 100%
-  );
-  --gradient-warm: linear-gradient(135deg, #ffaa33 0%, #ff8800 100%);
-  --gradient-surface: linear-gradient(
-    180deg,
-    rgba(0, 240, 255, 0.015) 0%,
-    transparent 100%
-  );
-}
-
-/* Light Theme - Paper/Documentation aesthetic */
+/* ── Light theme (DEFAULT) — warm paper ────────────────────────── */
 [data-theme="light"] {
-  --color-bg-primary: #fafbfc;
-  --color-bg-secondary: #f0f2f5;
-  --color-bg-tertiary: #e5e8ec;
+  --color-bg-primary: #faf8f5;
+  --color-bg-secondary: #f2efe9;
+  --color-bg-tertiary: #e9e4da;
   --color-bg-elevated: #ffffff;
+  --color-bg-ink: #1a1a18;
 
-  --color-accent-primary: #0066cc;
-  --color-accent-secondary: #cc5500;
-  --color-accent-muted: rgba(0, 102, 204, 0.1);
-  --color-accent-amber-muted: rgba(204, 85, 0, 0.1);
+  --color-accent-primary: #e4002b;
+  --color-accent-secondary: #b00022;
+  --color-accent-muted: rgba(228, 0, 43, 0.06);
 
-  --color-text-primary: #1a202c;
-  --color-text-secondary: #4a5568;
-  --color-text-muted: #718096;
-  --color-text-inverse: #fafbfc;
+  --color-text-primary: #1a1a18;
+  --color-text-secondary: #3d3a34;
+  --color-text-muted: #6e695e;
+  --color-text-inverse: #faf8f5;
 
-  --color-border: rgba(0, 102, 204, 0.15);
-  --color-border-subtle: rgba(0, 102, 204, 0.08);
-  --color-grid: rgba(0, 102, 204, 0.04);
+  --color-border: rgba(26, 26, 24, 0.14);
+  --color-border-subtle: rgba(26, 26, 24, 0.07);
+  --color-grid: rgba(26, 26, 24, 0.05);
 
-  --gradient-accent: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-  --gradient-warm: linear-gradient(135deg, #cc5500 0%, #a34400 100%);
-  --gradient-surface: linear-gradient(
-    180deg,
-    rgba(0, 102, 204, 0.04) 0%,
-    transparent 100%
-  );
+  --gradient-accent: linear-gradient(135deg, #e4002b 0%, #b00022 100%);
 }
 
-/* Root defaults */
+/* ── Dark theme — warm ink (kept, but no longer default) ───────── */
+[data-theme="dark"] {
+  --color-bg-primary: #141311;
+  --color-bg-secondary: #1b1a17;
+  --color-bg-tertiary: #232119;
+  --color-bg-elevated: #262420;
+  --color-bg-ink: #faf8f5;
+
+  --color-accent-primary: #ff3b57;
+  --color-accent-secondary: #ff6379;
+  --color-accent-muted: rgba(255, 59, 87, 0.1);
+
+  --color-text-primary: #f2efe9;
+  --color-text-secondary: #d8d3c8;
+  --color-text-muted: #a8a396;
+  --color-text-inverse: #141311;
+
+  --color-border: rgba(250, 248, 245, 0.12);
+  --color-border-subtle: rgba(250, 248, 245, 0.06);
+  --color-grid: rgba(250, 248, 245, 0.04);
+
+  --gradient-accent: linear-gradient(135deg, #ff3b57 0%, #e4002b 100%);
+}
+
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
 }
 
-:root[data-theme="light"] {
-  color-scheme: light;
-}
-
-/* Blueprint Grid Background */
+/* ── Grid background (sparse, paper-like) ──────────────────────── */
 .blueprint-grid {
   background-image:
     linear-gradient(var(--color-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
-  background-size: 60px 60px;
+  background-size: 64px 64px;
 }
 
-/* Corner Brackets - Technical/Architectural accent */
-.corner-bracket {
+/* ── Type plate (Typenschild) — the signature element ─────────── */
+/* Heavier double-rule border + rivets + stamped serial = metal plate */
+.typeplate {
   position: relative;
-}
-
-.corner-bracket::before,
-.corner-bracket::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-color: var(--color-accent-primary);
-  border-style: solid;
-  opacity: 0.6;
-}
-
-.corner-bracket::before {
-  top: -4px;
-  left: -4px;
-  border-width: 2px 0 0 2px;
-}
-
-.corner-bracket::after {
-  bottom: -4px;
-  right: -4px;
-  border-width: 0 2px 2px 0;
-}
-
-/* Technical Borders */
-.tech-border {
+  background: var(--color-bg-elevated);
   border: 1px solid var(--color-border);
-  position: relative;
+  outline: 3px solid var(--color-bg-elevated);
+  box-shadow:
+    0 0 0 4px var(--color-border),
+    0 1px 2px rgba(26, 26, 24, 0.06),
+    0 10px 28px rgba(26, 26, 24, 0.09);
+  border-radius: 2px;
 }
 
-.tech-border::before {
+.typeplate::before,
+.typeplate::after {
   content: "";
   position: absolute;
-  top: -1px;
-  left: 20px;
-  right: 20px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-accent-primary),
-    transparent
-  );
-  opacity: 0.5;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  box-shadow: inset 0 1px 2px rgba(26, 26, 24, 0.25);
 }
 
-/* Accent Gradient Text */
+.typeplate::before {
+  top: 10px;
+  left: 10px;
+}
+
+.typeplate::after {
+  top: 10px;
+  right: 10px;
+}
+
+.typeplate .rivet-bl,
+.typeplate .rivet-br {
+  position: absolute;
+  bottom: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  box-shadow: inset 0 1px 2px rgba(26, 26, 24, 0.25);
+}
+
+.typeplate .rivet-bl { left: 10px; }
+.typeplate .rivet-br { right: 10px; }
+
+/* ── Spec row — datasheet label:value pairs ────────────────────── */
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.spec-row:last-child {
+  border-bottom: none;
+}
+
+.spec-key {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.spec-val {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-align: right;
+}
+
+/* ── Accent text ───────────────────────────────────────────────── */
 .gradient-text {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-accent-primary);
 }
 
-.gradient-text-warm {
-  background: var(--gradient-warm);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Glitch/Scanline effect for tech aesthetic */
-.scanlines {
-  position: relative;
-}
-
-.scanlines::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 212, 255, 0.02) 2px,
-    rgba(0, 212, 255, 0.02) 4px
-  );
-  pointer-events: none;
-}
-
-/* Animations - Precise, mechanical feel */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes reveal {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes drawLine {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-slide-up {
-  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-}
-
-.animate-slide-in {
-  animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-}
-
-.animate-reveal {
-  animation: reveal 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-}
-
-.animate-draw-line {
-  animation: drawLine 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  transform-origin: left;
-}
-
-/* Stagger animation delays */
-.stagger-1 {
-  animation-delay: 0.1s;
-}
-.stagger-2 {
-  animation-delay: 0.2s;
-}
-.stagger-3 {
-  animation-delay: 0.3s;
-}
-.stagger-4 {
-  animation-delay: 0.4s;
-}
-.stagger-5 {
-  animation-delay: 0.5s;
-}
-
-/* Blueprint accent elements */
-.blueprint-accent {
-  position: relative;
-}
-
-.blueprint-accent::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--color-accent-primary);
-  opacity: 0.6;
-}
-
-/* Button styles - Technical/Industrial */
+/* ── Buttons — industrial, squared, confident ──────────────────── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
   background: var(--color-accent-primary);
-  color: var(--color-text-inverse);
+  color: #ffffff;
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0;
   border: none;
+  border-radius: 3px;
   position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s;
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
   background: var(--color-accent-secondary);
-  transform: translateY(-2px);
-}
-
-.btn-primary:hover::before {
-  left: 100%;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(228, 0, 43, 0.25);
 }
 
 .btn-secondary {
@@ -398,100 +253,72 @@
   background: transparent;
   color: var(--color-text-primary);
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.95rem;
   border: 1px solid var(--color-border);
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 3px;
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-accent-primary);
-  color: var(--color-accent-primary);
+  border-color: var(--color-text-primary);
+  background: var(--color-bg-elevated);
 }
 
-/* Section markers - Technical aesthetic */
+/* ── Section label — mono eyebrow with rule ────────────────────── */
 .section-marker {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-accent-primary);
+  color: var(--color-text-muted);
 }
 
 .section-marker::before {
   content: "";
-  width: 40px;
-  height: 1px;
+  width: 32px;
+  height: 2px;
   background: var(--color-accent-primary);
 }
 
-/* Data/Stat cards */
+/* ── Stat block ────────────────────────────────────────────────── */
 .stat-card {
   padding: 1.5rem;
-  background: var(--color-bg-tertiary);
+  background: var(--color-bg-elevated);
   border: 1px solid var(--color-border);
   position: relative;
 }
 
-.stat-card::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 20px;
-  height: 20px;
-  border-top: 2px solid var(--color-accent-primary);
-  border-left: 2px solid var(--color-accent-primary);
-}
-
-/* Service cards */
+/* ── Service cards ─────────────────────────────────────────────── */
 .service-card {
   padding: 2rem;
-  background: var(--color-bg-secondary);
+  background: var(--color-bg-elevated);
   border: 1px solid var(--color-border);
+  border-radius: 3px;
   position: relative;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.service-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--gradient-accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s ease;
 }
 
 .service-card:hover {
-  border-color: var(--color-accent-primary);
-  transform: translateY(-4px);
+  border-color: var(--color-text-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(26, 26, 24, 0.1);
 }
 
-.service-card:hover::before {
-  transform: scaleX(1);
-}
-
-/* Form inputs */
+/* ── Form inputs ───────────────────────────────────────────────── */
 .tech-input {
   width: 100%;
-  padding: 1rem 1.25rem;
-  background: var(--color-bg-tertiary);
+  padding: 0.9rem 1.1rem;
+  background: var(--color-bg-primary);
   border: 1px solid var(--color-border);
+  border-radius: 3px;
   color: var(--color-text-primary);
   font-family: var(--font-body);
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tech-input:focus {
@@ -504,21 +331,36 @@
   color: var(--color-text-muted);
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* ── Entrance animations (subtle, once) ────────────────────────── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+.animate-slide-up {
+  animation: slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 4px;
+.stagger-1 { animation-delay: 0.08s; }
+.stagger-2 { animation-delay: 0.16s; }
+.stagger-3 { animation-delay: 0.24s; }
+.stagger-4 { animation-delay: 0.32s; }
+.stagger-5 { animation-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-up {
+    animation: none;
+    opacity: 1;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
-}
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--color-text-muted); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-secondary); }

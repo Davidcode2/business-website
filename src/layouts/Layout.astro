@@ -11,7 +11,7 @@ const { title, description = "Jakob Lingel - Digital Solutions Provider", lang =
 ---
 
 <!DOCTYPE html>
-<html lang={lang} data-theme="dark">
+<html lang={lang} data-theme="light">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -19,15 +19,15 @@ const { title, description = "Jakob Lingel - Digital Solutions Provider", lang =
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<meta name="theme-color" content="#050505" />
+		<meta name="theme-color" content="#faf8f5" />
 		<title>{title}</title>
-		
+
 		<!-- Open Graph / Social -->
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://jakob-lingel.dev" />
-		
+
 		<!-- Preconnect to Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,19 +39,14 @@ const { title, description = "Jakob Lingel - Digital Solutions Provider", lang =
 	</body>
 </html>
 
-<script>
-	// Theme toggle functionality
+<script is:inline>
+	// Theme: light-first, persisted preference wins
 	const theme = (() => {
 		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
 			return localStorage.getItem('theme');
 		}
-		return 'dark';
+		return 'light';
 	})();
-	
-	if (theme === 'light') {
-		document.documentElement.setAttribute('data-theme', 'light');
-	} else {
-		document.documentElement.setAttribute('data-theme', 'dark');
-	}
-</script>
 
+	document.documentElement.setAttribute('data-theme', theme);
+</script>
